@@ -516,15 +516,22 @@ async function loadMainCases() {
       })
     );
 
-    // 정렬: featured 우선 → 시공년도 내림차순 → 제목순
-    cases.sort((a, b) => {
-      if (a.featured !== b.featured) return b.featured ? 1 : -1;
+    // "메인페이지 노출" 체크된 것만 필터링
+    const featured = cases.filter(c => c.featured === true);
+
+    if (featured.length === 0) {
+      renderMainEmpty();
+      return;
+    }
+
+    // 시공년도 내림차순, 같으면 제목순
+    featured.sort((a, b) => {
       const yearDiff = (b.year || 0) - (a.year || 0);
       if (yearDiff !== 0) return yearDiff;
       return (a.title || '').localeCompare(b.title || '');
     });
 
-    const top = cases.slice(0, MAIN_GRID_LIMIT);
+    const top = featured.slice(0, MAIN_GRID_LIMIT);
     renderMainCases(top);
   } catch (error) {
     console.error('메인 시공사례 불러오기 실패:', error);
