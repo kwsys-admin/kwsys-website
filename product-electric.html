@@ -278,6 +278,39 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
 
+/* Lineup sticky sidebar =================================================== */
+.lineup-grid { display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start; margin-top: 40px; }
+.lineup-nav { position: sticky; top: 96px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+.lineup-nav-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 12px; }
+.lineup-nav-list { list-style: none; padding: 0; margin: 0; }
+.lineup-nav-list li { margin: 0; }
+.lineup-nav-link { display: block; padding: 10px 12px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
+.lineup-nav-link:hover { background: var(--surface); color: var(--text); }
+.lineup-nav-link.active { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
+.lineup-items { display: flex; flex-direction: column; gap: 80px; }
+.lineup-item { scroll-margin-top: 96px; }
+.lineup-item-image { width: 100%; height: 360px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+.lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
+.lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
+.lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
+.lineup-item-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.lineup-feature { padding: 16px 18px; background: var(--surface); border-radius: 8px; }
+.lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
+.lineup-feature-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+@media (max-width: 968px) {
+  .lineup-grid { grid-template-columns: 1fr; gap: 16px; }
+  .lineup-nav { position: sticky; top: 64px; padding: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; z-index: 50; }
+  .lineup-nav-title { display: none; }
+  .lineup-nav-list { display: flex; gap: 4px; flex-wrap: nowrap; }
+  .lineup-nav-list li { flex-shrink: 0; }
+  .lineup-nav-link { white-space: nowrap; padding: 8px 14px; font-size: 13px; }
+  .lineup-item-features { grid-template-columns: 1fr; }
+  .lineup-item-image { height: 240px; }
+  .lineup-item-title { font-size: 24px; }
+  .lineup-items { gap: 56px; }
+}
+
 /* Cases page =========================================================== */
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
 .filter-chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; cursor: pointer; background: white; color: var(--text-muted); transition: all 0.2s; }
@@ -426,42 +459,107 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <div>
         <div class="section-eyebrow">LINEUP / 세부 제품</div>
         <h2 class="section-title">전동셔터 6종 라인업</h2>
-        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">현장 환경과 요구 사양에 따라 6가지 세부 제품을 선택할 수 있습니다.</p>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">현장 환경과 요구 사양에 따라 6가지 세부 제품을 선택할 수 있습니다.<br>좌측 메뉴에서 원하는 제품을 선택하세요.</p>
       </div>
     </div>
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-num">01</div>
-        <div class="value-title">AL단열셔터</div>
-        <div class="value-text">알루미늄 슬랫 내부에 단열재를 충진하여 단열·방음 성능을 확보한 셔터.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">02</div>
-        <div class="value-title">AL전동셔터</div>
-        <div class="value-text">경량 알루미늄 슬랫 적용. 매끈한 외관과 부드러운 개폐가 특징.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">03</div>
-        <div class="value-title">철재전동셔터</div>
-        <div class="value-text">강판 슬랫 구조의 표준형 전동셔터. 우수한 내구성과 보안성.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">04</div>
-        <div class="value-title">스텐레스 전동셔터</div>
-        <div class="value-text">STS 슬랫 적용. 부식이 우려되는 환경(주방·공장)에 적합.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">05</div>
-        <div class="value-title">알루미늄 이중전동셔터</div>
-        <div class="value-text">이중 슬랫 구조로 단열·차음 성능을 한층 강화한 고급형.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">06</div>
-        <div class="value-title">스텐파이프전동셔터</div>
-        <div class="value-text">파이프 구조로 시야 확보가 가능한 셔터. 매장·전시 공간에 적합.</div>
+
+    <div class="lineup-grid">
+      <nav class="lineup-nav">
+        <div class="lineup-nav-title">제품 선택</div>
+        <ul class="lineup-nav-list">
+          <li><a href="#al-insulated" class="lineup-nav-link">AL단열셔터</a></li>
+          <li><a href="#al-electric" class="lineup-nav-link">AL전동셔터</a></li>
+          <li><a href="#steel-electric" class="lineup-nav-link">철재전동셔터</a></li>
+          <li><a href="#sts-electric" class="lineup-nav-link">스텐레스 전동셔터</a></li>
+          <li><a href="#al-double" class="lineup-nav-link">알루미늄 이중전동셔터</a></li>
+          <li><a href="#sts-pipe" class="lineup-nav-link">스텐파이프전동셔터</a></li>
+        </ul>
+      </nav>
+
+      <div class="lineup-items">
+
+        <article id="al-insulated" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">01 / AL Insulated</div>
+          <h3 class="lineup-item-title">AL단열셔터</h3>
+          <p class="lineup-item-desc">알루미늄 슬랫 내부에 단열재를 충진하여 우수한 단열·방음 성능을 확보한 셔터입니다. 외부 소음과 온도 변화로부터 내부 환경을 보호하며, 냉난방 효율이 중요한 공간에 적합합니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (단열재 충진)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">단열·방음 성능</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">온도·소음 관리 공간</div></div>
+          </div>
+        </article>
+
+        <article id="al-electric" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">02 / AL Electric</div>
+          <h3 class="lineup-item-title">AL전동셔터</h3>
+          <p class="lineup-item-desc">경량 알루미늄 슬랫을 적용한 표준 전동셔터입니다. 매끈한 외관과 부드러운 개폐, 우수한 부식 저항성이 특징이며 상가·창고·주차장 등 폭넓은 환경에 설치 가능합니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">경량·내부식성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">상가·창고·주차장</div></div>
+          </div>
+        </article>
+
+        <article id="steel-electric" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">03 / Steel Electric</div>
+          <h3 class="lineup-item-title">철재전동셔터</h3>
+          <p class="lineup-item-desc">강판 슬랫 구조의 표준형 전동셔터입니다. 우수한 내구성과 보안성을 갖추고 있으며, 일반적인 산업·상업 시설에서 가장 폭넓게 사용되는 제품입니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">강판 (Steel)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내구성·보안성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">산업·상업 시설</div></div>
+          </div>
+        </article>
+
+        <article id="sts-electric" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">04 / Stainless Electric</div>
+          <h3 class="lineup-item-title">스텐레스 전동셔터</h3>
+          <p class="lineup-item-desc">STS(스테인리스 스틸) 슬랫을 적용한 고내식성 셔터입니다. 부식이 우려되는 환경에서도 장기간 외관과 성능을 유지하며, 위생 관리가 중요한 식품·주방·공장 등에 적합합니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">STS (스테인리스)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내부식·위생성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">식품·주방·공장</div></div>
+          </div>
+        </article>
+
+        <article id="al-double" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">05 / AL Double</div>
+          <h3 class="lineup-item-title">알루미늄 이중전동셔터</h3>
+          <p class="lineup-item-desc">이중 슬랫 구조로 단열·차음 성능을 한층 강화한 고급형 셔터입니다. 외부 환경 영향이 큰 공간이나 고급 시설에 적용되며, 내구성과 미관을 동시에 만족시킵니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (이중 구조)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">강화된 단열·차음</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">고급 시설·외기 영향 공간</div></div>
+          </div>
+        </article>
+
+        <article id="sts-pipe" class="lineup-item">
+          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-num">06 / Stainless Pipe</div>
+          <h3 class="lineup-item-title">스텐파이프 전동셔터</h3>
+          <p class="lineup-item-desc">스테인리스 파이프 구조로 시야 확보가 가능한 셔터입니다. 매장의 디스플레이를 노출하면서도 보안 기능을 유지할 수 있어, 상가·전시 공간에 주로 사용됩니다.</p>
+          <div class="lineup-item-features">
+            <div class="lineup-feature"><div class="lineup-feature-label">구조</div><div class="lineup-feature-value">STS 파이프 (시야 확보)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">투과성·보안성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">매장·전시·상가</div></div>
+          </div>
+        </article>
+
       </div>
     </div>
-    <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다.</p>
+
+    <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
   </div>
 </section>
 
@@ -536,6 +634,43 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div><span class="preview-tag">PREVIEW v3</span></div>
   </div>
 </footer>
+
+<script>
+// 라인업 사이드바: 부드러운 스크롤 + 현재 보고 있는 섹션 자동 강조
+document.querySelectorAll('.lineup-nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+const lineupItems = document.querySelectorAll('.lineup-item');
+const lineupLinks = document.querySelectorAll('.lineup-nav-link');
+
+if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        lineupLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {
+    rootMargin: '-30% 0px -50% 0px'
+  });
+
+  lineupItems.forEach(item => observer.observe(item));
+
+  // 페이지 로드 시 첫 항목을 기본 active로 표시
+  if (lineupLinks[0]) lineupLinks[0].classList.add('active');
+}
+</script>
 
 </body>
 </html>
