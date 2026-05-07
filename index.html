@@ -566,6 +566,10 @@ function renderMainCases(cases) {
       ? `background-image: url('${c.image}'); background-size: cover; background-position: center;`
       : '';
 
+    const productLabel = c.detail_product
+      ? `${c.product} / ${c.detail_product}`
+      : c.product;
+
     const metaParts = [];
     if (c.specs) metaParts.push(c.specs);
     if (c.year) metaParts.push(c.year);
@@ -574,7 +578,7 @@ function renderMainCases(cases) {
       <div class="case-bg" style="${bgStyle}"></div>
       <div class="case-overlay"></div>
       <div class="case-info">
-        <div class="case-label">${escapeHtmlMain(c.product)}</div>
+        <div class="case-label">${escapeHtmlMain(productLabel)}</div>
         <div class="case-title">${escapeHtmlMain(c.title)}</div>
         <div class="case-meta">${escapeHtmlMain(metaParts.join(' · '))}</div>
       </div>
