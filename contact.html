@@ -422,8 +422,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <input type="text" name="이름" class="form-input" placeholder="홍길동" required>
           </div>
           <div class="form-group">
-            <label class="form-label">회사명</label>
-            <input type="text" name="회사명" class="form-input" placeholder="○○건설">
+            <label class="form-label">회사명<span class="req">*</span></label>
+            <input type="text" name="회사명" class="form-input" placeholder="○○건설" required>
           </div>
         </div>
 
@@ -434,9 +434,11 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           </div>
           <div class="form-group">
             <label class="form-label">이메일<span class="req">*</span></label>
-            <input type="email" name="email" class="form-input" placeholder="example@email.com" required>
+            <input type="email" name="email" class="form-input" placeholder="example@email.com">
           </div>
         </div>
+
+        <p class="form-help" style="margin: -8px 0 0 0; padding: 12px 14px; background: var(--primary-tint); border-radius: 6px; color: var(--primary); font-weight: 500;">💡 견적서를 이메일로 받으실 경우 이메일 주소를 꼭 기재해 주세요.</p>
 
         <div class="form-section-title">현장 정보</div>
 
@@ -446,28 +448,28 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <input type="text" name="현장명" class="form-input" placeholder="○○물류센터 신축">
           </div>
           <div class="form-group">
-            <label class="form-label">현장 위치</label>
-            <input type="text" name="현장위치" class="form-input" placeholder="경기도 ○○시 ○○동">
+            <label class="form-label">현장 위치<span class="req">*</span></label>
+            <input type="text" name="현장위치" class="form-input" placeholder="경기도 ○○시" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">건물 구분</label>
-            <select name="건물구분" class="form-select">
-              <option>선택해 주세요</option>
+            <label class="form-label">건물 구분<span class="req">*</span></label>
+            <select name="건물구분" class="form-select" required>
+              <option value="">선택해 주세요</option>
               <option>신축건물 (공사 중 또는 공사 예정)</option>
               <option>기존건물 (준공 완료)</option>
               <option>기존건물 (대수선 등 공사 중 또는 공사 예정)</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">설치 층수</label>
-            <input type="text" name="설치층수" class="form-input" placeholder="예: 1층, 지하1층">
+            <label class="form-label">설치 층수<span class="req">*</span></label>
+            <input type="text" name="설치층수" class="form-input" placeholder="예: 1층, 지하1층" required>
           </div>
         </div>
 
-        <div class="form-section-title">견적 요청 제품</div>
+        <div class="form-section-title">견적 요청 제품<span class="req" style="margin-left: 4px; font-size: 14px;">*</span></div>
 
         <p class="product-row-help">설치하실 제품을 추가해 주세요. 같은 현장에 여러 제품이 들어갈 경우 <strong>+ 제품 추가</strong> 버튼으로 행을 늘려주세요.</p>
 
@@ -663,6 +665,20 @@ function buildProductSummary() {
 if (form) {
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+
+    // 견적 요청 제품 1개 이상 입력 검증
+    const rows = productRowsContainer.querySelectorAll('.product-row');
+    let hasValidProduct = false;
+    for (const row of rows) {
+      const name = row.querySelector('.product-name').value.trim();
+      if (name) { hasValidProduct = true; break; }
+    }
+    if (!hasValidProduct) {
+      alert('견적 요청 제품을 1개 이상 선택해 주세요.');
+      const firstSelect = productRowsContainer.querySelector('.product-name');
+      if (firstSelect) firstSelect.focus();
+      return;
+    }
 
     // 견적 요청 제품 정리해서 hidden input에 담기
     document.getElementById('product-summary').value = buildProductSummary();
