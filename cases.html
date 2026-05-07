@@ -391,19 +391,11 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <button class="filter-chip">특수도어</button>
     </div>
 
-    <div class="cases-list">
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">철재방화셔터</div><div class="case-title">○○물류센터 시공</div><div class="case-meta">대형 방화구획 · 2025</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">방화스크린셔터</div><div class="case-title">○○상업시설 시공</div><div class="case-meta">로비 방화구획 · 2025</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">전동셔터</div><div class="case-title">○○자동차부품 공장</div><div class="case-meta">출입구 셔터 · 2025</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">내풍압셔터</div><div class="case-title">○○해안 물류센터</div><div class="case-meta">대형 개구부 · 2024</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">스피드도어</div><div class="case-title">○○제조공장</div><div class="case-meta">생산라인 동선 · 2024</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">오버헤드도어</div><div class="case-title">○○식품공장</div><div class="case-meta">대형 차량 출입구 · 2024</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">특수도어</div><div class="case-title">○○연구시설</div><div class="case-meta">맞춤 제작 · 2024</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">철재방화셔터</div><div class="case-title">○○쇼핑몰 교체</div><div class="case-meta">리노베이션 · 2024</div></div></a>
-      <a href="#" class="case-item"><div class="case-bg"></div><div class="case-overlay"></div><div class="case-info"><div class="case-label">방화스크린셔터</div><div class="case-title">○○지자체 청사</div><div class="case-meta">공공시설 · 2023</div></div></a>
+    <div class="cases-list" id="cases-list">
+      <p style="grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--text-muted);">시공사례를 불러오는 중...</p>
     </div>
 
-    <div class="pagination">
+    <div class="pagination" style="display: none;">
       <button class="page-btn">‹</button>
       <button class="page-btn active">1</button>
       <button class="page-btn">2</button>
@@ -430,12 +422,103 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 </footer>
 
 <script>
-// 필터 칩 클릭 시 시공사례 필터링
+const REPO_OWNER = 'kwsys-admin';
+const REPO_NAME = 'kwsys-website';
+const CASES_PATH = '_data/cases';
+
+const casesContainer = document.getElementById('cases-list');
+
+// 시공사례 데이터 불러오기
+async function loadCases() {
+  try {
+    const listResponse = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${CASES_PATH}`
+    );
+
+    if (!listResponse.ok) {
+      // 폴더가 아직 없음 (시공사례 0건)
+      renderEmpty();
+      return;
+    }
+
+    const files = await listResponse.json();
+    const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+
+    if (jsonFiles.length === 0) {
+      renderEmpty();
+      return;
+    }
+
+    const cases = await Promise.all(
+      jsonFiles.map(async f => {
+        const response = await fetch(f.download_url);
+        return response.json();
+      })
+    );
+
+    // 시공년도 내림차순, 같으면 제목순
+    cases.sort((a, b) => {
+      const yearDiff = (b.year || 0) - (a.year || 0);
+      if (yearDiff !== 0) return yearDiff;
+      return (a.title || '').localeCompare(b.title || '');
+    });
+
+    renderCases(cases);
+  } catch (error) {
+    console.error('시공사례 불러오기 실패:', error);
+    casesContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--text-muted);">시공사례를 불러올 수 없습니다.</p>';
+  }
+}
+
+function renderEmpty() {
+  casesContainer.innerHTML = `
+    <div style="grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--text-muted);">
+      <p style="font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 8px;">시공사례 준비 중입니다</p>
+      <p style="font-size: 14px;">현재 시공사례를 정리하여 등록하고 있습니다. 빠른 시일 내 공개될 예정입니다.</p>
+    </div>
+  `;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text || '';
+  return div.innerHTML;
+}
+
+function renderCases(cases) {
+  casesContainer.innerHTML = '';
+
+  cases.forEach(c => {
+    const card = document.createElement('a');
+    card.href = '#';
+    card.className = 'case-item';
+
+    const bgStyle = c.image
+      ? `background-image: url('${c.image}'); background-size: cover; background-position: center;`
+      : '';
+
+    const metaParts = [];
+    if (c.specs) metaParts.push(c.specs);
+    if (c.year) metaParts.push(c.year);
+
+    card.innerHTML = `
+      <div class="case-bg" style="${bgStyle}"></div>
+      <div class="case-overlay"></div>
+      <div class="case-info">
+        <div class="case-label">${escapeHtml(c.product)}</div>
+        <div class="case-title">${escapeHtml(c.title)}</div>
+        <div class="case-meta">${escapeHtml(metaParts.join(' · '))}</div>
+      </div>
+    `;
+
+    casesContainer.appendChild(card);
+  });
+}
+
+// 필터 칩 클릭 시 시공사례 필터링 (동적 카드와 호환)
 document.querySelectorAll('.filter-chip').forEach(chip => {
   chip.addEventListener('click', function() {
-    // 모든 칩에서 active 제거
     document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-    // 클릭한 칩에 active 추가
     this.classList.add('active');
 
     const filter = this.textContent.trim();
@@ -452,6 +535,9 @@ document.querySelectorAll('.filter-chip').forEach(chip => {
     });
   });
 });
+
+// 페이지 로드 시 시공사례 불러오기
+loadCases();
 </script>
 
 </body>
