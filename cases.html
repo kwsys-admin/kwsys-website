@@ -54,11 +54,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -358,7 +357,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
       <li><a href="products.html">제품</a></li>
@@ -492,6 +491,7 @@ function renderCases(cases) {
     const card = document.createElement('a');
     card.href = '#';
     card.className = 'case-item';
+    card.dataset.product = c.product || '';
 
     const bgStyle = c.image
       ? `background-image: url('${c.image}'); background-size: cover; background-position: center;`
@@ -519,7 +519,7 @@ function renderCases(cases) {
   });
 }
 
-// 필터 칩 클릭 시 시공사례 필터링 (동적 카드와 호환)
+// 필터 칩 클릭 시 시공사례 필터링 (data-product 기준)
 document.querySelectorAll('.filter-chip').forEach(chip => {
   chip.addEventListener('click', function() {
     document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
@@ -532,9 +532,7 @@ document.querySelectorAll('.filter-chip').forEach(chip => {
       if (filter === '전체') {
         item.style.display = '';
       } else {
-        const label = item.querySelector('.case-label');
-        const product = label ? label.textContent.trim() : '';
-        item.style.display = (product === filter) ? '' : 'none';
+        item.style.display = (item.dataset.product === filter) ? '' : 'none';
       }
     });
   });
