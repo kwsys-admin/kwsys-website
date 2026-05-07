@@ -429,5 +429,30 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </footer>
 
+<script>
+// 필터 칩 클릭 시 시공사례 필터링
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    // 모든 칩에서 active 제거
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    // 클릭한 칩에 active 추가
+    this.classList.add('active');
+
+    const filter = this.textContent.trim();
+    const items = document.querySelectorAll('.cases-list .case-item');
+
+    items.forEach(item => {
+      if (filter === '전체') {
+        item.style.display = '';
+      } else {
+        const label = item.querySelector('.case-label');
+        const product = label ? label.textContent.trim() : '';
+        item.style.display = (product === filter) ? '' : 'none';
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
