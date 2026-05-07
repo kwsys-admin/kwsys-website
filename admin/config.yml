@@ -31,7 +31,25 @@ collections:
           - "스피드도어"
           - "오버헤드도어"
           - "특수도어"
-      - { label: "세부 사양", name: "detail_product", widget: "string", required: false, hint: "전동셔터·스피드도어 등 세부 제품이 있는 경우 입력 (예: AL단열셔터, 알루미늄스피드롤업도어)" }
+      - label: "세부 사양"
+        name: "detail_product"
+        widget: "select"
+        required: false
+        default: ""
+        hint: "라인업 있는 제품의 세부 모델 선택 (없으면 '해당없음')"
+        options:
+          - { label: "해당없음", value: "" }
+          - { label: "[전동셔터] AL단열셔터", value: "AL단열셔터" }
+          - { label: "[전동셔터] AL전동셔터", value: "AL전동셔터" }
+          - { label: "[전동셔터] 철재전동셔터", value: "철재전동셔터" }
+          - { label: "[전동셔터] 스텐레스 전동셔터", value: "스텐레스 전동셔터" }
+          - { label: "[전동셔터] 알루미늄 이중전동셔터", value: "알루미늄 이중전동셔터" }
+          - { label: "[전동셔터] 스텐파이프전동셔터", value: "스텐파이프전동셔터" }
+          - { label: "[방화스크린셔터] 일반방화스크린셔터", value: "일반방화스크린셔터" }
+          - { label: "[방화스크린셔터] 대형방화스크린셔터", value: "대형방화스크린셔터" }
+          - { label: "[스피드도어] 알루미늄 스피드 롤업도어", value: "알루미늄 스피드 롤업도어" }
+          - { label: "[스피드도어] 자중형 스피드도어", value: "자중형 스피드도어" }
+          - { label: "[스피드도어] 자중 북구형 스피드도어", value: "자중 북구형 스피드도어" }
       - { label: "시공 년도", name: "year", widget: "number", value_type: "int", default: 2025, min: 2020, max: 2030 }
       - { label: "사이즈·수량", name: "specs", widget: "string", required: false, hint: "예: 가로 3000 × 세로 2400 mm — 24EA" }
       - { label: "대표 사진", name: "image", widget: "image", required: false }
