@@ -278,6 +278,42 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
 
+/* Lineup section (no sidebar — global side nav handles navigation) ====== */
+.lineup-items { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 40px auto 0; }
+.lineup-item { scroll-margin-top: 96px; }
+.lineup-item-image { width: 100%; height: 360px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+.lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
+.lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
+.lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
+.lineup-item-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.lineup-feature { padding: 16px 18px; background: var(--surface); border-radius: 8px; }
+.lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
+.lineup-feature-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+/* Global product side navigation (floating, all product pages) */
+.product-side-nav { position: fixed; top: 50%; left: 16px; transform: translateY(-50%); width: 200px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 50; max-height: 78vh; overflow-y: auto; }
+.product-side-nav-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; padding-left: 12px; }
+.product-side-nav-list { list-style: none; padding: 0; margin: 0; }
+.product-side-nav-list > li { margin: 0; }
+.product-side-nav-link { display: block; padding: 8px 12px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
+.product-side-nav-link:hover { background: var(--surface); color: var(--text); }
+.product-side-nav-link.current { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
+.product-side-nav-sublist { list-style: none; padding: 6px 0 6px 14px; margin: 4px 0 4px 16px; border-left: 2px solid var(--primary-tint); }
+.product-side-nav-sublink { display: block; padding: 5px 8px; color: var(--text-muted); text-decoration: none; font-size: 12px; border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
+.product-side-nav-sublink:hover { background: var(--surface); color: var(--text); }
+.product-side-nav-sublink.active { color: var(--primary); font-weight: 700; }
+
+@media (max-width: 1280px) {
+  .product-side-nav { display: none; }
+}
+
+@media (max-width: 968px) {
+  .lineup-item-features { grid-template-columns: 1fr; }
+  .lineup-item-image { height: 240px; }
+  .lineup-item-title { font-size: 24px; }
+  .lineup-items { gap: 56px; }
+}
+
 /* Cases page =========================================================== */
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
 .filter-chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; cursor: pointer; background: white; color: var(--text-muted); transition: all 0.2s; }
@@ -369,6 +405,19 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </nav>
 
+<aside class="product-side-nav">
+  <div class="product-side-nav-title">제품 라인업</div>
+  <ul class="product-side-nav-list">
+    <li><a href="product-fire-shutter.html" class="product-side-nav-link current">철재방화셔터</a></li>
+    <li><a href="product-fire-screen.html" class="product-side-nav-link">방화스크린셔터</a></li>
+    <li><a href="product-electric.html" class="product-side-nav-link">전동셔터</a></li>
+    <li><a href="product-wind-resistant.html" class="product-side-nav-link">내풍압셔터</a></li>
+    <li><a href="product-speed-door.html" class="product-side-nav-link">스피드도어</a></li>
+    <li><a href="product-overhead-door.html" class="product-side-nav-link">오버헤드도어</a></li>
+    <li><a href="product-special-door.html" class="product-side-nav-link">특수도어</a></li>
+  </ul>
+</aside>
+
 <section class="detail-hero">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 철재방화셔터</div>
@@ -405,8 +454,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div class="info-grid">
       <table class="spec-table">
         <tr><th>재질</th><td>SECC 강판 슬랫</td></tr>
-        <tr><th>슬랫 두께</th><td>1.55T </td></tr>
-        <tr><th>최대 시공 면적</th><td>8000×4000</td></tr>
+        <tr><th>슬랫 두께</th><td>1.6T 이상 (사양에 따라 변경)</td></tr>
+        <tr><th>최대 시공 면적</th><td>현장 협의 (대형 개구부 대응)</td></tr>
         <tr><th>구동 방식</th><td>전동식 / 비상시 자중 강하</td></tr>
       </table>
       <table class="spec-table">
