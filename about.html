@@ -54,11 +54,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 32px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -109,6 +108,13 @@ nav {
 .page-hero-eyebrow { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .page-hero h1 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 20px; }
 .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.7; }
+
+/* About hero - 좌측 텍스트 + 우측 이미지 */
+.about-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+.about-hero-image { width: 100%; aspect-ratio: 4/3; background-image: url('images/about-factory.png'); background-size: cover; background-position: center; border-radius: 16px; }
+@media (max-width: 968px) {
+  .about-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+}
 .breadcrumb { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; letter-spacing: 0.05em; }
 .breadcrumb a { color: var(--text-muted); }
 .breadcrumb a:hover { color: var(--primary); }
@@ -364,7 +370,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html" class="active">회사소개</a></li>
       <li><a href="products.html">제품</a></li>
@@ -377,15 +383,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">HOME</a> / 회사소개</div>
-    <div class="page-hero-eyebrow">ABOUT / 회사소개</div>
-    <h1>살리는 산업,<br>그 약속을 책임집니다.</h1>
-    <div style="max-width: 760px; margin-top: 32px;">
-      <p style="font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.6; margin-bottom: 28px;">믿음과 신뢰를 바탕으로 고객과 함께 성장하는 경원에스아이입니다.</p>
-      <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">경원에스아이 홈페이지를 방문해 주셔서 감사드립니다.</p>
-      <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">경원에스아이는 방화셔터, 잡철공사 및 내풍압셔터, 스피드도어, 오버헤드도어 등 산업용 자동문을 생산 및 시공하는 전문 업체입니다.</p>
-      <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">늘 초심을 잃지 않고 끊임없는 창조와 혁신으로 더 좋은 제품과 서비스로 귀하의 성원에 보답할 것을 약속드립니다.</p>
-      <p style="font-size: 16px; line-height: 1.9; font-weight: 600; color: var(--text);">귀사의 무궁한 번창을 진심으로 기원합니다.</p>
+    <div class="about-hero-grid">
+      <div>
+        <div class="breadcrumb"><a href="index.html">HOME</a> / 회사소개</div>
+        <div class="page-hero-eyebrow">ABOUT / 회사소개</div>
+        <h1>살리는 산업,<br>그 약속을 책임집니다.</h1>
+        <div style="max-width: 760px; margin-top: 32px;">
+          <p style="font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.6; margin-bottom: 28px;">믿음과 신뢰를 바탕으로 고객과 함께 성장하는 경원에스아이입니다.</p>
+          <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">경원에스아이 홈페이지를 방문해 주셔서 감사드립니다.</p>
+          <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">경원에스아이는 방화셔터, 잡철공사 및 내풍압셔터, 스피드도어, 오버헤드도어 등 산업용 자동문을 생산 및 시공하는 전문 업체입니다.</p>
+          <p style="font-size: 16px; line-height: 1.9; color: #475569; margin-bottom: 18px;">늘 초심을 잃지 않고 끊임없는 창조와 혁신으로 더 좋은 제품과 서비스로 귀하의 성원에 보답할 것을 약속드립니다.</p>
+          <p style="font-size: 16px; line-height: 1.9; font-weight: 600; color: var(--text);">귀사의 무궁한 번창을 진심으로 기원합니다.</p>
+        </div>
+      </div>
+      <div class="about-hero-image"></div>
     </div>
   </div>
 </section>
@@ -479,7 +490,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <h2 class="section-title">본사 · 공장 위치</h2>
       </div>
     </div>
-    <div class="map-placeholder">지도 들어갈 자리 (네이버지도 / 카카오맵 임베드)</div>
+    <div style="aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
+      <iframe 
+        src="https://maps.google.com/maps?width=100%25&height=450&hl=ko&q=경기도+화성시+송산면+송산포도로+676-20&t=&z=16&ie=UTF8&iwloc=B&output=embed" 
+        width="100%" 
+        height="100%" 
+        frameborder="0" 
+        scrolling="no" 
+        marginheight="0" 
+        marginwidth="0"
+        style="border:0; display: block;"
+        title="경원에스아이 위치 지도"
+        loading="lazy">
+      </iframe>
+    </div>
     <div class="info-grid" style="margin-top: 40px;">
       <table class="info-table">
         <tr><th>주소</th><td>경기도 화성시 송산면 송산포도로 676-20</td></tr>
