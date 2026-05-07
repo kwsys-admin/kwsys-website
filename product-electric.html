@@ -278,16 +278,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
 
-/* Lineup sticky sidebar =================================================== */
-.lineup-grid { display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start; margin-top: 40px; }
-.lineup-nav { position: sticky; top: 96px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-.lineup-nav-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-left: 12px; }
-.lineup-nav-list { list-style: none; padding: 0; margin: 0; }
-.lineup-nav-list li { margin: 0; }
-.lineup-nav-link { display: block; padding: 10px 12px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
-.lineup-nav-link:hover { background: var(--surface); color: var(--text); }
-.lineup-nav-link.active { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
-.lineup-items { display: flex; flex-direction: column; gap: 80px; }
+/* Lineup section (no sidebar — global side nav handles navigation) ====== */
+.lineup-items { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 40px auto 0; }
 .lineup-item { scroll-margin-top: 96px; }
 .lineup-item-image { width: 100%; height: 360px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
 .lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
@@ -298,13 +290,24 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
 .lineup-feature-value { font-size: 14px; font-weight: 600; color: var(--text); }
 
+/* Global product side navigation (floating, all product pages) */
+.product-side-nav { position: fixed; top: 50%; left: 16px; transform: translateY(-50%); width: 200px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 50; max-height: 78vh; overflow-y: auto; }
+.product-side-nav-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; padding-left: 12px; }
+.product-side-nav-list { list-style: none; padding: 0; margin: 0; }
+.product-side-nav-list > li { margin: 0; }
+.product-side-nav-link { display: block; padding: 8px 12px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
+.product-side-nav-link:hover { background: var(--surface); color: var(--text); }
+.product-side-nav-link.current { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
+.product-side-nav-sublist { list-style: none; padding: 6px 0 6px 14px; margin: 4px 0 4px 16px; border-left: 2px solid var(--primary-tint); }
+.product-side-nav-sublink { display: block; padding: 5px 8px; color: var(--text-muted); text-decoration: none; font-size: 12px; border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
+.product-side-nav-sublink:hover { background: var(--surface); color: var(--text); }
+.product-side-nav-sublink.active { color: var(--primary); font-weight: 700; }
+
+@media (max-width: 1280px) {
+  .product-side-nav { display: none; }
+}
+
 @media (max-width: 968px) {
-  .lineup-grid { grid-template-columns: 1fr; gap: 16px; }
-  .lineup-nav { position: sticky; top: 64px; padding: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; z-index: 50; }
-  .lineup-nav-title { display: none; }
-  .lineup-nav-list { display: flex; gap: 4px; flex-wrap: nowrap; }
-  .lineup-nav-list li { flex-shrink: 0; }
-  .lineup-nav-link { white-space: nowrap; padding: 8px 14px; font-size: 13px; }
   .lineup-item-features { grid-template-columns: 1fr; }
   .lineup-item-image { height: 240px; }
   .lineup-item-title { font-size: 24px; }
@@ -402,6 +405,29 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </nav>
 
+<aside class="product-side-nav">
+  <div class="product-side-nav-title">제품 라인업</div>
+  <ul class="product-side-nav-list">
+    <li><a href="product-fire-shutter.html" class="product-side-nav-link">철재방화셔터</a></li>
+    <li><a href="product-fire-screen.html" class="product-side-nav-link">방화스크린셔터</a></li>
+    <li>
+      <a href="product-electric.html" class="product-side-nav-link current">전동셔터</a>
+      <ul class="product-side-nav-sublist">
+        <li><a href="#al-insulated" class="product-side-nav-sublink">AL단열셔터</a></li>
+        <li><a href="#al-electric" class="product-side-nav-sublink">AL전동셔터</a></li>
+        <li><a href="#steel-electric" class="product-side-nav-sublink">철재전동셔터</a></li>
+        <li><a href="#sts-electric" class="product-side-nav-sublink">스텐레스 전동셔터</a></li>
+        <li><a href="#al-double" class="product-side-nav-sublink">알루미늄 이중전동셔터</a></li>
+        <li><a href="#sts-pipe" class="product-side-nav-sublink">스텐파이프전동셔터</a></li>
+      </ul>
+    </li>
+    <li><a href="product-wind-resistant.html" class="product-side-nav-link">내풍압셔터</a></li>
+    <li><a href="product-speed-door.html" class="product-side-nav-link">스피드도어</a></li>
+    <li><a href="product-overhead-door.html" class="product-side-nav-link">오버헤드도어</a></li>
+    <li><a href="product-special-door.html" class="product-side-nav-link">특수도어</a></li>
+  </ul>
+</aside>
+
 <section class="detail-hero">
   <div class="container">
     <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 전동셔터</div>
@@ -463,20 +489,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
 
-    <div class="lineup-grid">
-      <nav class="lineup-nav">
-        <div class="lineup-nav-title">제품 선택</div>
-        <ul class="lineup-nav-list">
-          <li><a href="#al-insulated" class="lineup-nav-link">AL단열셔터</a></li>
-          <li><a href="#al-electric" class="lineup-nav-link">AL전동셔터</a></li>
-          <li><a href="#steel-electric" class="lineup-nav-link">철재전동셔터</a></li>
-          <li><a href="#sts-electric" class="lineup-nav-link">스텐레스 전동셔터</a></li>
-          <li><a href="#al-double" class="lineup-nav-link">알루미늄 이중전동셔터</a></li>
-          <li><a href="#sts-pipe" class="lineup-nav-link">스텐파이프전동셔터</a></li>
-        </ul>
-      </nav>
-
-      <div class="lineup-items">
+    <div class="lineup-items">
 
         <article id="al-insulated" class="lineup-item">
           <div class="lineup-item-image">제품 사진 자리</div>
@@ -557,7 +570,6 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </article>
 
       </div>
-    </div>
 
     <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
   </div>
@@ -636,27 +648,29 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 </footer>
 
 <script>
-// 라인업 사이드바: 부드러운 스크롤 + 현재 보고 있는 섹션 자동 강조
-document.querySelectorAll('.lineup-nav-link').forEach(link => {
+// 라인업 사이드바: 부드러운 스크롤 + 현재 섹션 자동 강조
+document.querySelectorAll('.product-side-nav-sublink').forEach(link => {
   link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const href = this.getAttribute('href');
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.getElementById(href.substring(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   });
 });
 
 const lineupItems = document.querySelectorAll('.lineup-item');
-const lineupLinks = document.querySelectorAll('.lineup-nav-link');
+const lineupSublinks = document.querySelectorAll('.product-side-nav-sublink');
 
 if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
-        lineupLinks.forEach(link => {
+        lineupSublinks.forEach(link => {
           link.classList.toggle('active', link.getAttribute('href') === '#' + id);
         });
       }
@@ -666,9 +680,7 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
   });
 
   lineupItems.forEach(item => observer.observe(item));
-
-  // 페이지 로드 시 첫 항목을 기본 active로 표시
-  if (lineupLinks[0]) lineupLinks[0].classList.add('active');
+  if (lineupSublinks[0]) lineupSublinks[0].classList.add('active');
 }
 </script>
 
