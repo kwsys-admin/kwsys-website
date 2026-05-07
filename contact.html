@@ -308,6 +308,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .form-help { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
 .form-section-title { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin: 32px 0 16px; padding-top: 24px; border-top: 1px solid var(--border); }
 .form-section-title:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* Dynamic product rows */
+.product-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: stretch; }
+.product-row .form-input, .product-row .form-select { padding: 10px 12px; font-size: 13px; }
+.row-remove { width: 36px; border: 1px solid var(--border); background: white; border-radius: 8px; font-size: 16px; color: var(--text-muted); cursor: pointer; transition: all 0.2s; line-height: 1; padding: 0; display: flex; align-items: center; justify-content: center; }
+.row-remove:hover { border-color: #dc2626; color: #dc2626; background: #fef2f2; }
+.add-row-btn { background: white; color: var(--primary); border: 1px dashed var(--primary); padding: 12px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: 600; font-size: 13px; margin-top: 4px; transition: all 0.2s; }
+.add-row-btn:hover { background: var(--primary-tint); }
+.product-row-help { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6; }
+@media (max-width: 600px) {
+  .product-row { grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; }
+  .product-row .form-select { grid-column: 1 / -1; }
+  .row-remove { grid-column: 1 / -1; width: 100%; height: 36px; }
+}
 .form-checkbox { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-muted); }
 .form-checkbox input { margin-top: 3px; accent-color: var(--primary); }
 .form-submit { background: var(--primary); color: white; padding: 14px 32px; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s; width: 100%; margin-top: 8px; }
@@ -453,27 +467,14 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">설치 사이즈 · 수량</label>
-          <textarea name="설치사이즈수량" class="form-textarea" style="min-height: 80px;" placeholder="예) 가로 3000 × 세로 2400 mm — 5EA / 가로 4000 × 세로 3000 mm — 2EA"></textarea>
-        </div>
+        <div class="form-section-title">견적 요청 제품</div>
 
-        <div class="form-section-title">문의 내용</div>
+        <p class="product-row-help">설치하실 제품을 추가해 주세요. 같은 현장에 여러 제품이 들어갈 경우 <strong>+ 제품 추가</strong> 버튼으로 행을 늘려주세요.</p>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">문의 유형<span class="req">*</span></label>
-            <select name="문의유형" class="form-select" required>
-              <option>견적 문의</option>
-              <option>제품 상담</option>
-              <option>A/S 문의</option>
-              <option>기타</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">관심 제품</label>
-            <select name="관심제품" class="form-select">
-              <option>선택해 주세요</option>
+        <div id="product-rows">
+          <div class="product-row">
+            <select class="form-select product-name">
+              <option value="">제품 선택</option>
               <option>철재방화셔터</option>
               <option>방화스크린셔터</option>
               <option>전동셔터</option>
@@ -481,9 +482,28 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
               <option>스피드도어</option>
               <option>오버헤드도어</option>
               <option>특수도어</option>
-              <option>기타 / 잘 모르겠음</option>
             </select>
+            <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
+            <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
+            <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+            <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
           </div>
+        </div>
+
+        <button type="button" class="add-row-btn" id="add-product-row">+ 제품 추가</button>
+
+        <input type="hidden" name="견적요청제품" id="product-summary">
+
+        <div class="form-section-title">문의 내용</div>
+
+        <div class="form-group">
+          <label class="form-label">문의 유형<span class="req">*</span></label>
+          <select name="문의유형" class="form-select" required>
+            <option>견적 문의</option>
+            <option>제품 상담</option>
+            <option>A/S 문의</option>
+            <option>기타</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -579,11 +599,75 @@ const form = document.querySelector('form.form-card');
 const successModal = document.getElementById('form-success-modal');
 const errorModal = document.getElementById('form-error-modal');
 
+// 동적 제품 행 추가
+const productRowsContainer = document.getElementById('product-rows');
+const addRowBtn = document.getElementById('add-product-row');
+
+function createProductRow() {
+  const row = document.createElement('div');
+  row.className = 'product-row';
+  row.innerHTML = `
+    <select class="form-select product-name">
+      <option value="">제품 선택</option>
+      <option>철재방화셔터</option>
+      <option>방화스크린셔터</option>
+      <option>전동셔터</option>
+      <option>내풍압셔터</option>
+      <option>스피드도어</option>
+      <option>오버헤드도어</option>
+      <option>특수도어</option>
+    </select>
+    <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
+    <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
+    <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+    <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
+  `;
+  return row;
+}
+
+if (addRowBtn) {
+  addRowBtn.addEventListener('click', () => {
+    productRowsContainer.appendChild(createProductRow());
+  });
+}
+
+function removeRow(btn) {
+  const rows = productRowsContainer.querySelectorAll('.product-row');
+  if (rows.length > 1) {
+    btn.closest('.product-row').remove();
+  } else {
+    alert('최소 1개의 제품 행은 필요합니다.');
+  }
+}
+
+// 행 데이터를 정리된 텍스트로 변환
+function buildProductSummary() {
+  const rows = productRowsContainer.querySelectorAll('.product-row');
+  const items = [];
+  rows.forEach((row, i) => {
+    const name = row.querySelector('.product-name').value.trim();
+    const width = row.querySelector('.product-width').value.trim();
+    const height = row.querySelector('.product-height').value.trim();
+    const qty = row.querySelector('.product-qty').value.trim();
+    if (name || width || height || qty) {
+      const sizeStr = (width || height) ? `${width || '-'} × ${height || '-'} mm` : '사이즈 미입력';
+      const qtyStr = qty ? `${qty}EA` : '수량 미입력';
+      items.push(`${i + 1}. ${name || '제품 미선택'} / ${sizeStr} / ${qtyStr}`);
+    }
+  });
+  if (items.length === 0) return '입력된 제품 없음';
+  return `[총 ${items.length}건]\n` + items.join('\n');
+}
+
+// 폼 제출
 if (form) {
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // 제출 버튼 비활성화 (중복 제출 방지)
+    // 견적 요청 제품 정리해서 hidden input에 담기
+    document.getElementById('product-summary').value = buildProductSummary();
+
+    // 제출 버튼 비활성화
     const submitBtn = form.querySelector('.form-submit');
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
@@ -601,6 +685,9 @@ if (form) {
       if (response.ok) {
         successModal.style.display = 'flex';
         form.reset();
+        // 동적 행도 1개만 남기고 모두 삭제
+        const rows = productRowsContainer.querySelectorAll('.product-row');
+        rows.forEach((row, i) => { if (i > 0) row.remove(); });
       } else {
         errorModal.style.display = 'flex';
       }
@@ -618,7 +705,6 @@ function closeModal() {
   if (errorModal) errorModal.style.display = 'none';
 }
 
-// 모달 외부 클릭 시 닫기
 [successModal, errorModal].forEach(modal => {
   if (modal) {
     modal.addEventListener('click', function(e) {
@@ -627,7 +713,6 @@ function closeModal() {
   }
 });
 
-// ESC 키로 닫기
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
