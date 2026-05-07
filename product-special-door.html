@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>특수도어 | (주)경원에스아이</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<style>
+/* ==========================================================================
+   경원에스아이 홈페이지 공통 스타일
+   ========================================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1e40af;
+  --primary-deep: #1e3a8a;
+  --primary-light: #3b82f6;
+  --primary-tint: #eff6ff;
+  --primary-tint-2: #dbeafe;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border: #e2e8f0;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  font-feature-settings: "ss01", "ss02";
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* Navigation ============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 18px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
+.nav-menu a { color: var(--text); transition: color 0.2s; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
+.nav-cta {
+  background: var(--primary); color: white;
+  padding: 10px 20px; font-size: 13px; font-weight: 600;
+  border-radius: 6px; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--primary-deep); }
+
+/* Hero (메인 전용) ====================================================== */
+.hero { padding: 160px 0 100px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 600; color: var(--primary);
+  letter-spacing: 0.05em; margin-bottom: 32px;
+  padding: 8px 14px; background: var(--primary-tint);
+  border-radius: 100px;
+}
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+.hero h1 { font-size: clamp(56px, 8vw, 112px); font-weight: 800; line-height: 1.0; letter-spacing: -0.05em; margin-bottom: 28px; }
+.hero h1 .dot { color: var(--primary); }
+.hero p { font-size: 18px; color: var(--text-muted); max-width: 480px; margin-bottom: 40px; line-height: 1.7; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-visual {
+  position: relative; aspect-ratio: 4/5; border-radius: 16px;
+  overflow: hidden; display: flex; align-items: flex-end; padding: 28px;
+  background:
+    repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.04) 0, rgba(30, 64, 175, 0.04) 1px, transparent 1px, transparent 28px),
+    linear-gradient(135deg, var(--primary-tint-2) 0%, var(--primary-tint) 50%, var(--surface) 100%);
+}
+.hero-visual::after {
+  content: ''; position: absolute; top: 28px; right: 28px;
+  width: 24px; height: 24px;
+  border: 2px solid var(--primary); border-radius: 50%;
+}
+.hero-visual-content { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; width: 100%; }
+.hero-visual-tag { background: var(--primary); color: white; padding: 7px 14px; border-radius: 100px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+.hero-visual-label { font-size: 10px; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+
+/* Page Hero (서브페이지) ================================================ */
+.page-hero {
+  padding: 140px 0 80px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-eyebrow { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
+.page-hero h1 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 20px; }
+.page-hero p { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.7; }
+.breadcrumb { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; letter-spacing: 0.05em; }
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--primary); }
+
+/* Buttons =============================================================== */
+.btn {
+  padding: 14px 26px; font-size: 14px; font-weight: 600;
+  border-radius: 6px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.25s; border: 1px solid transparent;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-deep); transform: translateY(-1px); }
+.btn-secondary { background: white; color: var(--text); border-color: var(--border); }
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+.btn-white { background: white; color: var(--primary); }
+.btn-white:hover { background: #f1f5f9; transform: translateY(-1px); }
+
+/* Stats ================================================================= */
+.stats { background: var(--surface); padding: 80px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.stat-item { padding: 0 32px; border-left: 1px solid var(--border); }
+.stat-item:first-child { border-left: none; padding-left: 0; }
+.stat-number { font-size: clamp(40px, 4.5vw, 56px); font-weight: 800; letter-spacing: -0.04em; color: var(--primary); line-height: 1; margin-bottom: 12px; }
+.stat-number small { font-size: 0.4em; font-weight: 700; margin-left: 4px; }
+.stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+
+/* Section ============================================================== */
+.padded { padding: 120px 0; }
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 32px; flex-wrap: wrap; }
+.section-eyebrow { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
+.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; max-width: 720px; }
+.section-link { font-size: 14px; font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+.section-link:hover { gap: 14px; }
+
+/* Products Grid ======================================================== */
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.product-card { background: white; padding: 32px; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; min-height: 280px; position: relative; overflow: hidden; }
+.product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--primary); transform: translateX(-100%); transition: transform 0.3s; }
+.product-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(30, 64, 175, 0.12); }
+.product-card:hover::before { transform: translateX(0); }
+.product-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.08em; margin-bottom: 24px; }
+.product-name { font-size: 22px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 12px; }
+.product-desc { font-size: 14px; color: var(--text-muted); flex-grow: 1; line-height: 1.7; }
+.product-arrow { font-size: 18px; margin-top: 24px; color: var(--text-light); transition: all 0.25s; }
+.product-card:hover .product-arrow { color: var(--primary); transform: translateX(6px); }
+
+.product-special { grid-column: span 3; background: var(--primary); color: white; border-color: var(--primary); flex-direction: row; align-items: center; justify-content: space-between; min-height: auto; padding: 32px 40px; }
+.product-special::before { display: none; }
+.product-special:hover { background: var(--primary-deep); border-color: var(--primary-deep); box-shadow: 0 12px 32px -8px rgba(30, 64, 175, 0.4); }
+.product-special-content { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; flex: 1; }
+.product-special .product-num { color: rgba(255,255,255,0.7); margin: 0; }
+.product-special .product-name { color: white; margin: 0; font-size: 26px; }
+.product-special .product-desc { color: rgba(255,255,255,0.85); flex-grow: 0; max-width: 480px; }
+.product-special .product-arrow { color: white; margin: 0; font-size: 22px; }
+
+/* Cases ================================================================ */
+.cases { background: var(--surface); }
+.cases-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 16px; }
+.case-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 12px; background: white; border: 1px solid var(--border); transition: all 0.3s; display: block; }
+.case-item:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.08); }
+.cases-grid .case-item:nth-child(1) { grid-row: span 2; }
+.cases-grid .case-item:nth-child(2) { grid-column: span 2; }
+.case-bg { position: absolute; inset: 0; }
+.cases-grid .case-item:nth-child(1) .case-bg { background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.06) 0, rgba(30, 64, 175, 0.06) 1px, transparent 1px, transparent 32px), linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); }
+.cases-grid .case-item:nth-child(2) .case-bg { background: repeating-linear-gradient(90deg, rgba(15, 23, 42, 0.04) 0, rgba(15, 23, 42, 0.04) 1px, transparent 1px, transparent 24px), linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%); }
+.cases-grid .case-item:nth-child(3) .case-bg { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+.cases-grid .case-item:nth-child(4) .case-bg { background: radial-gradient(circle at 70% 30%, rgba(30, 64, 175, 0.12), transparent 60%), linear-gradient(220deg, #f8fafc 0%, #e2e8f0 100%); }
+.case-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(255,255,255,0.95) 100%); }
+.case-info { position: absolute; bottom: 24px; left: 24px; right: 24px; z-index: 2; }
+.case-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 6px; }
+.case-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.case-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+/* About ================================================================ */
+.about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+.about-image { aspect-ratio: 4/5; background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.05) 0, rgba(30, 64, 175, 0.05) 1px, transparent 1px, transparent 28px), linear-gradient(160deg, var(--primary-tint) 0%, #dbeafe 100%); border-radius: 16px; position: relative; display: flex; align-items: flex-end; padding: 28px; }
+.about-image::before { content: '공장 / 제조현장 사진 자리'; font-size: 10px; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+.about-text h2 { font-size: clamp(32px, 4vw, 44px); font-weight: 800; line-height: 1.2; margin: 16px 0 28px; letter-spacing: -0.035em; }
+.about-text p { font-size: 16px; color: #475569; margin-bottom: 20px; line-height: 1.8; }
+.about-text .section-link { margin-top: 12px; }
+
+/* Contact ============================================================== */
+.contact { background: var(--primary); color: white; text-align: center; position: relative; overflow: hidden; }
+.contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.12), transparent 60%); }
+.contact > .container { position: relative; z-index: 2; }
+.contact .section-eyebrow { color: rgba(255,255,255,0.85); }
+.contact h2 { font-size: clamp(40px, 5vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 24px; }
+.contact > .container > p { color: rgba(255, 255, 255, 0.85); font-size: 17px; max-width: 560px; margin: 0 auto 40px; line-height: 1.7; }
+.contact-info { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 80px; padding-top: 60px; border-top: 1px solid rgba(255,255,255,0.2); text-align: left; }
+.contact-info-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 0.15em; margin-bottom: 10px; }
+.contact-info-value { font-size: 15px; font-weight: 500; line-height: 1.5; }
+
+/* Footer =============================================================== */
+footer { background: white; border-top: 1px solid var(--border); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.preview-tag { background: var(--primary); color: white; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; }
+
+/* Animations =========================================================== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.25s; opacity: 0; }
+.delay-3 { animation-delay: 0.4s; opacity: 0; }
+
+/* About page specific ================================================== */
+.org-chart { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 800px; margin: 0 auto; }
+.org-node { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; text-align: center; position: relative; }
+.org-node-title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+.org-node-sub { font-size: 12px; color: var(--text-muted); }
+.org-row { display: grid; gap: 16px; margin-top: 32px; position: relative; }
+.org-row::before { content: ''; position: absolute; top: -32px; left: 50%; transform: translateX(-50%); width: 1px; height: 32px; background: var(--border); }
+.org-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.org-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.org-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-bottom: 32px; }
+.timeline-item::before { content: ''; position: absolute; left: -32px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+.timeline-year { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 4px; letter-spacing: 0.02em; }
+.timeline-text { font-size: 15px; color: #475569; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.info-table { width: 100%; }
+.info-table tr { border-bottom: 1px solid var(--border); }
+.info-table th, .info-table td { padding: 16px 0; text-align: left; font-size: 14px; vertical-align: top; }
+.info-table th { font-weight: 600; color: var(--text-muted); width: 30%; }
+.info-table td { color: var(--text); font-weight: 500; }
+
+.map-placeholder {
+  aspect-ratio: 16/10; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-light); font-size: 13px; letter-spacing: 0.15em;
+  background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.03) 0, rgba(30, 64, 175, 0.03) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, rgba(30, 64, 175, 0.03) 0, rgba(30, 64, 175, 0.03) 1px, transparent 1px, transparent 24px),
+    var(--surface);
+}
+
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+.value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
+.value-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.025em; }
+.value-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* Product detail page ================================================== */
+.detail-hero { padding: 140px 0 60px; }
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.detail-image { aspect-ratio: 4/3; background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.04) 0, rgba(30, 64, 175, 0.04) 1px, transparent 1px, transparent 28px), linear-gradient(135deg, var(--primary-tint-2) 0%, var(--primary-tint) 100%); border-radius: 16px; position: relative; display: flex; align-items: flex-end; padding: 28px; }
+.detail-image-label { font-size: 10px; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; }
+.detail-content h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin: 12px 0 20px; }
+.detail-content p.lead { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
+.detail-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.detail-tag { padding: 6px 12px; background: var(--primary-tint); color: var(--primary); border-radius: 100px; font-size: 12px; font-weight: 600; }
+
+.spec-table { width: 100%; border-collapse: collapse; }
+.spec-table tr { border-bottom: 1px solid var(--border); }
+.spec-table tr:first-child { border-top: 2px solid var(--text); }
+.spec-table tr:last-child { border-bottom: 2px solid var(--text); }
+.spec-table th, .spec-table td { padding: 18px 0; text-align: left; font-size: 14px; vertical-align: top; }
+.spec-table th { font-weight: 700; color: var(--text); width: 30%; }
+.spec-table td { color: #475569; }
+
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
+.cert-icon { width: 48px; height: 48px; border-radius: 8px; background: var(--primary-tint); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+.cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+.cert-meta { font-size: 12px; color: var(--text-muted); }
+
+/* Cases page =========================================================== */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.filter-chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 500; cursor: pointer; background: white; color: var(--text-muted); transition: all 0.2s; }
+.filter-chip:hover { border-color: var(--primary); color: var(--primary); }
+.filter-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+.cases-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cases-list .case-item { height: 320px; }
+.cases-list .case-item:nth-child(odd) .case-bg { background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); }
+.cases-list .case-item:nth-child(even) .case-bg { background: linear-gradient(135deg, #eff6ff 0%, #f1f5f9 100%); }
+.cases-list .case-item:nth-child(3n) .case-bg { background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.05) 0, rgba(30, 64, 175, 0.05) 1px, transparent 1px, transparent 28px), linear-gradient(135deg, #dbeafe 0%, #f1f5f9 100%); }
+
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 64px; }
+.page-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 8px; background: white; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-muted); transition: all 0.2s; }
+.page-btn:hover { border-color: var(--primary); color: var(--primary); }
+.page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Contact page ========================================================= */
+.contact-page-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+.form-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 40px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+.form-label .req { color: var(--primary); margin-left: 4px; }
+.form-input, .form-textarea, .form-select { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.2s; background: white; color: var(--text); }
+.form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-tint); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-help { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+.form-checkbox { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-muted); }
+.form-checkbox input { margin-top: 3px; accent-color: var(--primary); }
+.form-submit { background: var(--primary); color: white; padding: 14px 32px; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s; width: 100%; margin-top: 8px; }
+.form-submit:hover { background: var(--primary-deep); }
+
+.contact-side-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 16px; }
+.contact-side-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 12px; }
+.contact-side-value { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.contact-side-meta { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* Mobile =============================================================== */
+@media (max-width: 900px) {
+  .container { padding: 0 20px; }
+  .nav-inner { padding: 14px 20px; }
+  .nav-menu { display: none; }
+  .hero { padding: 100px 0 56px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-visual { aspect-ratio: 3/2; order: -1; }
+  .hero h1 { font-size: clamp(56px, 14vw, 80px); }
+  .page-hero { padding: 100px 0 56px; }
+  .stats { padding: 48px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+  .stat-item:nth-child(3) { border-left: none; padding-left: 16px; }
+  .padded { padding: 60px 0; }
+  .section-header { margin-bottom: 36px; }
+  .product-grid { grid-template-columns: 1fr; gap: 12px; }
+  .product-special { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px; }
+  .product-special-content { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .cases-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .case-item { height: 220px; }
+  .cases-grid .case-item:nth-child(1) { grid-row: auto; }
+  .cases-grid .case-item:nth-child(2) { grid-column: auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-info { grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; padding-top: 40px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .info-grid { grid-template-columns: 1fr; gap: 32px; }
+  .org-row.cols-2, .org-row.cols-3, .org-row.cols-4 { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .cases-list { grid-template-columns: 1fr; gap: 16px; }
+  .contact-page-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-card { padding: 28px 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <ul class="nav-menu">
+      <li><a href="about.html">회사소개</a></li>
+      <li><a href="products.html" class="active">제품</a></li>
+      <li><a href="cases.html">시공사례</a></li>
+      <li><a href="contact.html">고객지원</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">온라인 문의</a>
+  </div>
+</nav>
+
+<section class="detail-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 특수도어</div>
+    <div class="detail-grid">
+      <div class="detail-image">
+        <span class="detail-image-label">제품 사진 자리</span>
+      </div>
+      <div class="detail-content">
+        <div class="page-hero-eyebrow">07 / 특수</div>
+        <h1>특수도어</h1>
+        <p class="lead">표준 라인업으로 충족할 수 없는 현장 요구사항에 맞춰 사양·치수·외관을 모두 협의하여 맞춤 제작하는 도어입니다.</p>
+        <div class="detail-tags">
+          <span class="detail-tag">맞춤 제작</span>
+          <span class="detail-tag">사양 협의</span>
+          <span class="detail-tag">특수 환경 대응</span>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary">견적 문의 →</a>
+          <a href="#specs" class="btn btn-secondary">사양 확인</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="padded" id="specs" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">SPECIFICATION / 주요 사양</div>
+        <h2 class="section-title">기본 사양</h2>
+      </div>
+    </div>
+    <div class="info-grid">
+      <table class="spec-table">
+        <tr><th>제작 방식</th><td>현장 사양 100% 맞춤 제작</td></tr>
+        <tr><th>재질</th><td>용도에 맞는 재질 선택 (강판·STS·기타)</td></tr>
+        <tr><th>치수</th><td>제한 없음 — 현장 협의</td></tr>
+        <tr><th>마감</th><td>도장·헤어라인·미러 등 협의</td></tr>
+      </table>
+      <table class="spec-table">
+        <tr><th>적용 환경</th><td>특수 환경 (방폭·차폐·내약품 등)</td></tr>
+        <tr><th>구동 방식</th><td>전동식·수동식·반자동 등 협의</td></tr>
+        <tr><th>인증·시험</th><td>필요 시 별도 시험 진행</td></tr>
+        <tr><th>납기</th><td>사양에 따라 4-8주 (협의 가능)</td></tr>
+      </table>
+    </div>
+    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 사양은 모델별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
+  </div>
+</section>
+
+
+
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">APPLICATION / 적용 분야</div>
+        <h2 class="section-title">적용 가능한 현장</h2>
+      </div>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <div class="value-title">연구시설·실험실</div>
+        <div class="value-text">방폭·차폐·내약품 등 특수 환경 대응.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <div class="value-title">의료시설</div>
+        <div class="value-text">방사선 차폐 등 의료 특수 사양 대응.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <div class="value-title">맞춤 디자인 요구</div>
+        <div class="value-text">의장성·외관이 중요한 특수 공간.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="padded">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">RELATED / 관련 자료</div>
+        <h2 class="section-title">자료·문서</h2>
+      </div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card" style="cursor: pointer;">
+        <div class="cert-icon">PDF</div>
+        <div>
+          <div class="cert-name">제품 카탈로그 다운로드</div>
+          <div class="cert-meta">철재방화셔터 사양서 (PDF)</div>
+        </div>
+      </div>
+      <div class="cert-card" style="cursor: pointer;">
+        <div class="cert-icon">DWG</div>
+        <div>
+          <div class="cert-name">표준 도면 다운로드</div>
+          <div class="cert-meta">CAD 도면 (DWG)</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 자료는 관리자가 업로드한 파일로 연결됩니다 (CMS 연동 예정).</p>
+  </div>
+</section>
+
+<section class="padded contact">
+  <div class="container">
+    <div class="section-eyebrow">CONTACT / 견적 문의</div>
+    <h2>특수도어<br>견적이 필요하신가요?</h2>
+    <p>현장 도면, 개구부 치수, 수량을 알려주시면 정확한 견적을 회신드립니다.</p>
+    <a href="contact.html" class="btn btn-white">온라인 견적 문의 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 (주)경원에스아이 · 대표 신명희 · 사업자등록번호 727-81-02039</div>
+    <div><span class="preview-tag">PREVIEW v3</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
