@@ -47,6 +47,8 @@ collections:
           - { label: "[전동셔터] 스텐파이프전동셔터", value: "스텐파이프전동셔터" }
           - { label: "[방화스크린셔터] 일반방화스크린셔터", value: "일반방화스크린셔터" }
           - { label: "[방화스크린셔터] 대형방화스크린셔터", value: "대형방화스크린셔터" }
+          - { label: "[내풍압셔터] AL내풍압셔터", value: "AL내풍압셔터" }
+          - { label: "[내풍압셔터] AL단열내풍압셔터", value: "AL단열내풍압셔터" }
           - { label: "[스피드도어] 알루미늄 스피드 롤업도어", value: "알루미늄 스피드 롤업도어" }
           - { label: "[스피드도어] 자중형 스피드도어", value: "자중형 스피드도어" }
       - { label: "시공 년도", name: "year", widget: "number", value_type: "int", default: 2025, min: 2020, max: 2030 }
