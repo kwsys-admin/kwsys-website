@@ -54,11 +54,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -394,7 +393,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
       <li><a href="products.html" class="active">제품</a></li>
@@ -492,7 +491,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div class="lineup-items">
 
         <article id="al-insulated" class="lineup-item">
-          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-image" style="background-image: url('images/products/al-insulated.png'); background-size: cover; background-position: center;"></div>
           <div class="lineup-item-num">01 / AL Insulated</div>
           <h3 class="lineup-item-title">AL단열셔터</h3>
           <p class="lineup-item-desc">알루미늄 슬랫 내부에 단열재를 충진하여 우수한 단열·방음 성능을 확보한 셔터입니다. 외부 소음과 온도 변화로부터 내부 환경을 보호하며, 냉난방 효율이 중요한 공간에 적합합니다.</p>
@@ -557,7 +556,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </article>
 
         <article id="sts-pipe" class="lineup-item">
-          <div class="lineup-item-image">제품 사진 자리</div>
+          <div class="lineup-item-image" style="background-image: url('images/products/sts-pipe.png'); background-size: cover; background-position: center;"></div>
           <div class="lineup-item-num">06 / Stainless Pipe</div>
           <h3 class="lineup-item-title">스텐파이프 전동셔터</h3>
           <p class="lineup-item-desc">스테인리스 파이프 구조로 시야 확보가 가능한 셔터입니다. 매장의 디스플레이를 노출하면서도 보안 기능을 유지할 수 있어, 상가·전시 공간에 주로 사용됩니다.</p>
