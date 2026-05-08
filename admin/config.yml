@@ -49,7 +49,6 @@ collections:
           - { label: "[방화스크린셔터] 대형방화스크린셔터", value: "대형방화스크린셔터" }
           - { label: "[스피드도어] 알루미늄 스피드 롤업도어", value: "알루미늄 스피드 롤업도어" }
           - { label: "[스피드도어] 자중형 스피드도어", value: "자중형 스피드도어" }
-          - { label: "[스피드도어] 자중 북구형 스피드도어", value: "자중 북구형 스피드도어" }
       - { label: "시공 년도", name: "year", widget: "number", value_type: "int", default: 2025, min: 2020, max: 2030 }
       - { label: "사이즈·수량", name: "specs", widget: "string", required: false, hint: "예: 가로 3000 × 세로 2400 mm — 24EA" }
       - { label: "대표 사진", name: "image", widget: "image", required: false }
