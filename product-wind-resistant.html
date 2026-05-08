@@ -280,7 +280,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 /* Lineup section (no sidebar — global side nav handles navigation) ====== */
 .lineup-items { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 40px auto 0; }
 .lineup-item { scroll-margin-top: 96px; }
-.lineup-item-image { width: 100%; height: 280px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; background-size: cover; background-position: center; }
+.lineup-item-image { width: 100%; max-width: 560px; aspect-ratio: 4/3; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin: 0 auto 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; background-size: cover; background-position: center; }
 .lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
 .lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
 .lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
@@ -308,7 +308,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 @media (max-width: 968px) {
   .lineup-item-features { grid-template-columns: 1fr; }
-  .lineup-item-image { height: 200px; }
+  
   .lineup-item-title { font-size: 24px; }
   .lineup-items { gap: 56px; }
 }
@@ -410,7 +410,13 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <li><a href="product-fire-shutter.html" class="product-side-nav-link">철재방화셔터</a></li>
     <li><a href="product-fire-screen.html" class="product-side-nav-link">방화스크린셔터</a></li>
     <li><a href="product-electric.html" class="product-side-nav-link">전동셔터</a></li>
-    <li><a href="product-wind-resistant.html" class="product-side-nav-link current">내풍압셔터</a></li>
+    <li>
+      <a href="product-wind-resistant.html" class="product-side-nav-link current">내풍압셔터</a>
+      <ul class="product-side-nav-sublist">
+        <li><a href="#al-wind" class="product-side-nav-sublink">AL내풍압셔터</a></li>
+        <li><a href="#al-insulated-wind" class="product-side-nav-sublink">AL단열내풍압셔터</a></li>
+      </ul>
+    </li>
     <li><a href="product-speed-door.html" class="product-side-nav-link">스피드도어</a></li>
     <li><a href="product-overhead-door.html" class="product-side-nav-link">오버헤드도어</a></li>
     <li><a href="product-special-door.html" class="product-side-nav-link">특수도어</a></li>
@@ -467,6 +473,48 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 </section>
 
 
+
+<section class="padded">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">LINEUP / 세부 제품</div>
+        <h2 class="section-title">내풍압셔터 2종 라인업</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">현장 환경과 단열 요구에 따라 2가지 세부 제품을 선택할 수 있습니다.<br>좌측 메뉴에서 원하는 제품을 선택하세요.</p>
+      </div>
+    </div>
+
+    <div class="lineup-items">
+      <article id="al-wind" class="lineup-item">
+        <div class="lineup-item-image">제품 사진 자리</div>
+        <div class="lineup-item-num">01 / AL Wind</div>
+        <h3 class="lineup-item-title">AL내풍압셔터</h3>
+        <p class="lineup-item-desc">알루미늄 슬랫 기반의 내풍압셔터입니다. 강풍 지역과 대형 개구부에 적합한 보강 설계로, 풍압 등급별로 슬랫 두께와 가이드레일 사양을 맞춤 제작합니다.</p>
+        <div class="lineup-item-features">
+          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내풍압·경량</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">설계 방식</div><div class="lineup-feature-value">풍압 등급별 맞춤</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">강풍 지역·대형 개구부</div></div>
+        </div>
+      </article>
+
+      <article id="al-insulated-wind" class="lineup-item">
+        <div class="lineup-item-image">제품 사진 자리</div>
+        <div class="lineup-item-num">02 / AL Insulated Wind</div>
+        <h3 class="lineup-item-title">AL단열내풍압셔터</h3>
+        <p class="lineup-item-desc">알루미늄 슬랫 내부에 단열재를 충진한 내풍압셔터입니다. 강풍 대응뿐만 아니라 단열·방음 성능까지 확보하여 외부 환경 영향이 큰 공간에 적합합니다.</p>
+        <div class="lineup-item-features">
+          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (단열재 충진)</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내풍압·단열·방음</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">설계 방식</div><div class="lineup-feature-value">풍압 등급별 맞춤</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">강풍·온도 관리 공간</div></div>
+        </div>
+      </article>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
+  </div>
+</section>
 
 <section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
@@ -539,6 +587,43 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div><span class="preview-tag">PREVIEW v3</span></div>
   </div>
 </footer>
+
+<script>
+// 라인업 사이드바: 부드러운 스크롤 + 현재 섹션 자동 강조
+document.querySelectorAll('.product-side-nav-sublink').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.getElementById(href.substring(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+const lineupItems = document.querySelectorAll('.lineup-item');
+const lineupSublinks = document.querySelectorAll('.product-side-nav-sublink');
+
+if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        lineupSublinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {
+    rootMargin: '-30% 0px -50% 0px'
+  });
+
+  lineupItems.forEach(item => observer.observe(item));
+  if (lineupSublinks[0]) lineupSublinks[0].classList.add('active');
+}
+</script>
 
 </body>
 </html>
