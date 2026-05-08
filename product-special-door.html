@@ -54,11 +54,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -281,7 +280,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 /* Lineup section (no sidebar — global side nav handles navigation) ====== */
 .lineup-items { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 40px auto 0; }
 .lineup-item { scroll-margin-top: 96px; }
-.lineup-item-image { width: 100%; height: 360px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; }
+.lineup-item-image { width: 100%; height: 280px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; background-size: cover; background-position: center; }
 .lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
 .lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
 .lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
@@ -309,7 +308,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 @media (max-width: 968px) {
   .lineup-item-features { grid-template-columns: 1fr; }
-  .lineup-item-image { height: 240px; }
+  .lineup-item-image { height: 200px; }
   .lineup-item-title { font-size: 24px; }
   .lineup-items { gap: 56px; }
 }
@@ -394,7 +393,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
       <li><a href="products.html" class="active">제품</a></li>
