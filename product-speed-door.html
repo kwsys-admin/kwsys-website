@@ -54,11 +54,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -257,7 +256,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 /* Product detail page ================================================== */
 .detail-hero { padding: 140px 0 60px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.detail-image { aspect-ratio: 4/3; background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.04) 0, rgba(30, 64, 175, 0.04) 1px, transparent 1px, transparent 28px), linear-gradient(135deg, var(--primary-tint-2) 0%, var(--primary-tint) 100%); border-radius: 16px; position: relative; display: flex; align-items: flex-end; padding: 28px; }
+.detail-image { aspect-ratio: 4/3; background-image: url('images/products/speed-door.png'); background-size: cover; background-position: center; border-radius: 16px; position: relative; }
 .detail-image-label { font-size: 10px; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; }
 .detail-content h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin: 12px 0 20px; }
 .detail-content p.lead { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
@@ -394,7 +393,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
       <li><a href="products.html" class="active">제품</a></li>
@@ -429,9 +428,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 스피드도어</div>
     <div class="detail-grid">
-      <div class="detail-image">
-        <span class="detail-image-label">제품 사진 자리</span>
-      </div>
+      <div class="detail-image"></div>
       <div class="detail-content">
         <div class="page-hero-eyebrow">05 / 도어</div>
         <h1>스피드도어</h1>
