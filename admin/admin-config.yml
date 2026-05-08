@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: kwsys-admin/kwsys-website
+  branch: main
+  base_url: https://funny-cascaron-6f61cd.netlify.app
+  auth_endpoint: /.netlify/functions/auth
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "ko"
+
+collections:
+  - name: "cases"
+    label: "시공사례"
+    folder: "_data/cases"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "제목", name: "title", widget: "string", hint: "예: ○○물류센터 방화구획 시공" }
+      - label: "제품"
+        name: "product"
+        widget: "select"
+        options:
+          - "철재방화셔터"
+          - "방화스크린셔터"
+          - "전동셔터"
+          - "내풍압셔터"
+          - "스피드도어"
+          - "오버헤드도어"
+          - "특수도어"
+      - { label: "시공 년도", name: "year", widget: "number", value_type: "int", default: 2025, min: 2020, max: 2030 }
+      - { label: "사이즈·수량", name: "specs", widget: "string", required: false, hint: "예: 가로 3000 × 세로 2400 mm — 24EA" }
+      - { label: "대표 사진", name: "image", widget: "image", required: false }
+      - { label: "상세 설명", name: "description", widget: "text", required: false }
+      - { label: "메인페이지 노출", name: "featured", widget: "boolean", default: false, required: false, hint: "체크 시 메인페이지 시공사례 섹션에 표시됩니다." }
