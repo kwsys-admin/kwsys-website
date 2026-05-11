@@ -273,6 +273,24 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
+
+/* Pros & Cons 섹션 */
+.proscons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+.proscons-card { padding: 32px 28px; border-radius: 12px; border: 1px solid var(--border); background: white; }
+.proscons-card.pros { border-top: 4px solid var(--primary); }
+.proscons-card.cons { border-top: 4px solid #94a3b8; }
+.proscons-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; text-transform: uppercase; }
+.proscons-card.pros .proscons-label { color: var(--primary); }
+.proscons-card.cons .proscons-label { color: #64748b; }
+.proscons-title { font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+.proscons-item { margin-bottom: 18px; padding-left: 22px; position: relative; font-size: 14px; line-height: 1.7; color: #475569; }
+.proscons-item:last-child { margin-bottom: 0; }
+.proscons-item strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; font-size: 15px; }
+.proscons-card.pros .proscons-item::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--primary); font-weight: 700; }
+.proscons-card.cons .proscons-item::before { content: '!'; position: absolute; left: 0; top: 0; color: #94a3b8; font-weight: 700; }
+@media (max-width: 768px) {
+  .proscons-grid { grid-template-columns: 1fr; gap: 16px; }
+}
 .cert-icon { width: 48px; height: 48px; border-radius: 8px; background: var(--primary-tint); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
@@ -457,9 +475,9 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     </div>
     <table class="spec-table" style="max-width: 720px;">
       <tr><th>스크린 재질</th><td>와이어글라스코팅직물</td></tr>
-      <tr><th>셔터박스 재질·두께</th><td>SECC 전기아연도금강대 1.55T</td></tr>
+      <tr><th>슬랫·셔터박스 재질</th><td>SECC 전기아연도금강대</td></tr>
       <tr><th>슬랫·셔터박스 두께</th><td>1.55T</td></tr>
-      <tr><th>내화등급</th><td>비차열 60분</td></tr>
+      <tr><th>가이드레일 재질·두께</th><td>STS 304 1.2mm + SECC 1.15mm</td></tr>
     </table>
     <p style="font-size: 12px; color: var(--text-light); margin-top: 24px;">※ 셔터박스 사양은 사이즈별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
   </div>
@@ -469,37 +487,34 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">CERTIFICATION / 인증·시험</div>
-        <h2 class="section-title">인증 및 시험성적</h2>
+        <div class="section-eyebrow">PROS & CONS / 장단점</div>
+        <h2 class="section-title">스크린 방화셔터 장단점</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">현장에 맞는 제품을 선택하실 수 있도록 솔직하게 안내드립니다.</p>
       </div>
     </div>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-icon">KICT</div>
-        <div>
-          <div class="cert-name">건설기술연구원 품질인정서</div>
-          <div class="cert-meta">자동방화셔터 품질인정 — 2024.07.25 인정 취득</div>
+    <div class="proscons-grid">
+      <div class="proscons-card pros">
+        <div class="proscons-label">PROS / 장점</div>
+        <div class="proscons-title">스크린 방화셔터의 강점</div>
+        <div class="proscons-item">
+          <strong>대형 개구부 적용 용이</strong>
+          로비, 아트리움, 복합쇼핑몰 등 넓은 공간에도 비교적 유리하게 적용 가능합니다.
+        </div>
+        <div class="proscons-item">
+          <strong>합리적인 비용</strong>
+          철재방화셔터보다 저렴하여 비용 부담을 줄일 수 있습니다.
         </div>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">KS</div>
-        <div>
-          <div class="cert-name">KS F 2257 시험성적서</div>
-          <div class="cert-meta">건축구조부재 내화시험</div>
+      <div class="proscons-card cons">
+        <div class="proscons-label">CONS / 단점</div>
+        <div class="proscons-title">고려할 점</div>
+        <div class="proscons-item">
+          <strong>충격에 상대적으로 약함</strong>
+          스크린 재질 특성상 외부 충격이나 날카로운 물체에 손상될 가능성이 있습니다.
         </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">FIRE</div>
-        <div>
-          <div class="cert-name">차연·차열 성능시험</div>
-          <div class="cert-meta">법정 기준 충족 확인</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">QM</div>
-        <div>
-          <div class="cert-name">자체 품질관리 인증</div>
-          <div class="cert-meta">원자재 매로트 검사 체계</div>
+        <div class="proscons-item">
+          <strong>유지관리 필요</strong>
+          정기적인 유지관리가 중요합니다.
         </div>
       </div>
     </div>
@@ -522,12 +537,12 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="lineup-item-image" style="background-image: url('images/fire-screen-standard.png'); background-size: cover; background-position: center;"></div>
           <div class="lineup-item-num">01 / Standard</div>
           <h3 class="lineup-item-title">일반방화스크린셔터</h3>
-          <p class="lineup-item-desc">와이어글라스코팅직물 기반의 표준형 방화스크린셔터입니다. 평상시에는 박스 안에 수납되어 공간을 차지하지 않으며, 화재 시 자동 전개되어 방화구획을 형성합니다. 일반 상업·공공시설에 폭넓게 적용 가능합니다.</p>
+          <p class="lineup-item-desc">중·소형 개구부에 적용되는 스크린 타입 방화설비로, 개방감과 공간 활용성을 높여주는 제품입니다.</p>
           <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">스크린 재질</div><div class="lineup-feature-value">와이어글라스 코팅 직물</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">슬림한 외관·자동 전개</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">화재 감지 시 자동 폐쇄</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">상업·공공·일반 건축물</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">스크린 재질</div><div class="lineup-feature-value">와이어글라스코팅직물 0.43mm</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">다양한 건축 공간 적용 가능</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">최대 시공 사이즈</div><div class="lineup-feature-value">8,000 × 4,000 mm</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">중·소형 개구부 공간</div></div>
           </div>
         </article>
 
@@ -535,18 +550,18 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="lineup-item-image" style="background-image: url('images/fire-screen-large.png'); background-size: cover; background-position: center;"></div>
           <div class="lineup-item-num">02 / Large</div>
           <h3 class="lineup-item-title">대형방화스크린셔터</h3>
-          <p class="lineup-item-desc">대형 개구부 전용 방화스크린셔터입니다. 로비, 아트리움, 대공간 시설처럼 일반 사양으로는 대응이 어려운 넓은 구획에 적합하며, KICT 품질인정을 통해 성능을 검증받았습니다.</p>
+          <p class="lineup-item-desc">초대형 개구부 환경에 대응할 수 있도록 설계된 방화설비로, 넓은 공간에서도 안정적인 방화 성능과 구동 안정성을 제공합니다.</p>
           <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">스크린 재질</div><div class="lineup-feature-value">와이어글라스 코팅 직물</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">대형 개구부 대응</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">인증</div><div class="lineup-feature-value">KICT 품질인정</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">로비·아트리움·대공간</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">스크린 재질</div><div class="lineup-feature-value">와이어글라스코팅직물 0.43mm</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">대형 공간 방화구획 형성 가능</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">최대 시공 사이즈</div><div class="lineup-feature-value">12,000 × 8,500 mm</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">초대형 개구부 구간</div></div>
           </div>
         </article>
 
       </div>
 
-    <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
+    <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 설치 환경에 따라 적용 제품이 달라질 수 있습니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의 주시면 안내해 드리겠습니다 →</a></p>
   </div>
 </section>
 
@@ -575,6 +590,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="value-text">대공간의 의장성과 안전을 동시에 확보해야 하는 시설에 적합.</div>
       </div>
     </div>
+    <p style="margin-top: 36px; font-size: 15px; color: var(--text); line-height: 1.7; text-align: center; font-weight: 500;">설치 공간의 구조적 제약이 있거나 대형 공간에서 적합하다면 <strong style="color: var(--primary);">방화스크린셔터</strong>를 추천드립니다.</p>
   </div>
 </section>
 
