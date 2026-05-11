@@ -271,6 +271,31 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .spec-table th { font-weight: 700; color: var(--text); width: 30%; }
 .spec-table td { color: #475569; }
 
+/* Spec section - 좌측 표 + 우측 슬랫 사진 */
+.spec-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+.spec-image { width: 100%; aspect-ratio: 1/1; max-width: 480px; margin: 0 auto; background-image: url('images/fire-shutter-slat.png'); background-size: contain; background-repeat: no-repeat; background-position: center; }
+@media (max-width: 968px) {
+  .spec-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* Pros & Cons 섹션 */
+.proscons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+.proscons-card { padding: 32px 28px; border-radius: 12px; border: 1px solid var(--border); background: white; }
+.proscons-card.pros { border-top: 4px solid var(--primary); }
+.proscons-card.cons { border-top: 4px solid #94a3b8; }
+.proscons-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; text-transform: uppercase; }
+.proscons-card.pros .proscons-label { color: var(--primary); }
+.proscons-card.cons .proscons-label { color: #64748b; }
+.proscons-title { font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+.proscons-item { margin-bottom: 18px; padding-left: 22px; position: relative; font-size: 14px; line-height: 1.7; color: #475569; }
+.proscons-item:last-child { margin-bottom: 0; }
+.proscons-item strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; font-size: 15px; }
+.proscons-card.pros .proscons-item::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--primary); font-weight: 700; }
+.proscons-card.cons .proscons-item::before { content: '!'; position: absolute; left: 0; top: 0; color: #94a3b8; font-weight: 700; }
+@media (max-width: 768px) {
+  .proscons-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
 .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
 .cert-icon { width: 48px; height: 48px; border-radius: 8px; background: var(--primary-tint); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
@@ -425,10 +450,11 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <div class="detail-content">
         <div class="page-hero-eyebrow">01 / 방화셔터</div>
         <h1>철재방화셔터</h1>
-        <p class="lead">방화구획용 표준 강판 슬랫 셔터. 화재 시 연기·열 감지 시 자동폐쇄되어 화염과 연기의 확산을 차단합니다.</p>
+        <p class="lead">철재방화셔터는 화재 발생 시 화염과 연기의 확산을 차단하여 건축물의 안전구획을 유지하는 철재 재질의 방화설비입니다. 평상시에는 개방 상태로 사용되며, 화재 감지 시 자동으로 하강하여 출입구 및 개구부를 차단함으로써 인명 대피 시간 확보와 재산 피해 최소화에 도움을 줍니다.</p>
+        <p class="lead" style="margin-top: 16px;">국토교통부 승인 건축자재등 품질인정 기준에 준하여 설치되는 제품으로, 고온 환경에서도 견딜 수 있는 내화 성능과 안정적인 방재 시스템을 갖추고 있습니다. 또한 우수한 구동 안정성과 밀폐 성능을 통해 화염 및 연기의 이동을 효과적으로 억제하여 건축물의 안전성을 높입니다.</p>
         <div class="detail-tags">
           <span class="detail-tag">KICT 품질인정</span>
-          <span class="detail-tag">60분 / 90분 내화</span>
+          <span class="detail-tag">비차열 60분</span>
           <span class="detail-tag">자동폐쇄</span>
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
@@ -442,27 +468,21 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <section class="padded" id="specs" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
-    <div class="section-header">
+    <div class="spec-grid">
       <div>
-        <div class="section-eyebrow">SPECIFICATION / 주요 사양</div>
-        <h2 class="section-title">기본 사양</h2>
+        <div class="section-eyebrow" style="margin-bottom: 16px;">SPECIFICATION / 주요 사양</div>
+        <h2 class="section-title" style="margin-bottom: 32px;">기본 사양</h2>
+        <table class="spec-table">
+          <tr><th>재질</th><td>SECC 전기아연도금강대</td></tr>
+          <tr><th>슬랫 두께</th><td>1.55T</td></tr>
+          <tr><th>최대 시공 사이즈</th><td>8,000 × 4,000 mm</td></tr>
+          <tr><th>구동 방식</th><td>전동식 / 비상시 자중 강하</td></tr>
+          <tr><th>내화 등급</th><td>비차열 60분</td></tr>
+        </table>
+        <p style="font-size: 12px; color: var(--text-light); margin-top: 24px;">※ 사양은 모델별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
       </div>
+      <div class="spec-image"></div>
     </div>
-    <div class="info-grid">
-      <table class="spec-table">
-        <tr><th>재질</th><td>SECC 강판 슬랫</td></tr>
-        <tr><th>슬랫 두께</th><td>1.6T 이상 (사양에 따라 변경)</td></tr>
-        <tr><th>최대 시공 면적</th><td>현장 협의 (대형 개구부 대응)</td></tr>
-        <tr><th>구동 방식</th><td>전동식 / 비상시 자중 강하</td></tr>
-      </table>
-      <table class="spec-table">
-        <tr><th>내화 등급</th><td>60분 / 90분 (KS F 2257 기준)</td></tr>
-        <tr><th>감지 방식</th><td>연기감지기 (1단 폐쇄) + 열감지기 (완전 폐쇄)</td></tr>
-        <tr><th>표면 처리</th><td>도장 마감 (색상 옵션)</td></tr>
-        <tr><th>가스켓</th><td>차연·차열 사양 적용</td></tr>
-      </table>
-    </div>
-    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 사양은 모델별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
   </div>
 </section>
 
@@ -470,37 +490,34 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">CERTIFICATION / 인증·시험</div>
-        <h2 class="section-title">인증 및 시험성적</h2>
+        <div class="section-eyebrow">PROS & CONS / 장단점</div>
+        <h2 class="section-title">철재방화셔터 장단점</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">현장에 맞는 제품을 선택하실 수 있도록 솔직하게 안내드립니다.</p>
       </div>
     </div>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-icon">KICT</div>
-        <div>
-          <div class="cert-name">건설기술연구원 품질인정서</div>
-          <div class="cert-meta">자동방화셔터 품질인정 — 2024.03.11 인정 취득</div>
+    <div class="proscons-grid">
+      <div class="proscons-card pros">
+        <div class="proscons-label">PROS / 장점</div>
+        <div class="proscons-title">철재방화셔터의 강점</div>
+        <div class="proscons-item">
+          <strong>높은 내구성</strong>
+          강철 소재로 제작되어 외부 충격, 강한 바람, 화재에 강해 오래 사용할 수 있습니다.
+        </div>
+        <div class="proscons-item">
+          <strong>견고한 방화 능력</strong>
+          화재 발생 시 빠른 차단으로 건물 내부 안전을 지켜줍니다.
         </div>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">KS</div>
-        <div>
-          <div class="cert-name">KS F 2257 시험성적서</div>
-          <div class="cert-meta">건축구조부재 내화시험</div>
+      <div class="proscons-card cons">
+        <div class="proscons-label">CONS / 단점</div>
+        <div class="proscons-title">고려할 점</div>
+        <div class="proscons-item">
+          <strong>설치 공간 필요</strong>
+          중량이 무거워 셔터박스 설치 공간 확보가 필요합니다.
         </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">FIRE</div>
-        <div>
-          <div class="cert-name">차연·차열 성능시험</div>
-          <div class="cert-meta">법정 기준 충족 확인</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">QM</div>
-        <div>
-          <div class="cert-name">자체 품질관리 인증</div>
-          <div class="cert-meta">원자재 매로트 검사 체계</div>
+        <div class="proscons-item">
+          <strong>비용</strong>
+          방화스크린셔터 대비 시공 및 유지관리 비용이 높습니다.
         </div>
       </div>
     </div>
@@ -532,6 +549,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="value-text">대형 마트·공공기관·주차장 등 다중이용시설의 법정 방화구획 요구를 충족합니다.</div>
       </div>
     </div>
+    <p style="margin-top: 36px; font-size: 15px; color: var(--text); line-height: 1.7; text-align: center; font-weight: 500;">대형 공간에서 높은 내구성과 방화 성능을 최우선으로 생각한다면 <strong style="color: var(--primary);">철재방화셔터</strong>를 추천드립니다.</p>
   </div>
 </section>
 
