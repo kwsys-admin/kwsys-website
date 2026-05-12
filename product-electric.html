@@ -312,6 +312,26 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   .al-compare-grid { grid-template-columns: 1fr; gap: 32px; }
   .al-detail-grid { grid-template-columns: 1fr; }
 }
+
+/* 비교 표 (전동셔터 4종 한눈에 비교) */
+.comparison-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--border); background: white; }
+.comparison-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+.comparison-table thead th { background: var(--primary); color: white; padding: 16px 20px; font-size: 14px; font-weight: 700; text-align: left; letter-spacing: -0.01em; }
+.comparison-table tbody th { background: var(--surface); padding: 16px 20px; font-size: 13px; font-weight: 700; text-align: left; color: var(--text); width: 14%; white-space: nowrap; }
+.comparison-table td { padding: 16px 20px; font-size: 13px; color: #475569; border-bottom: 1px solid var(--border); }
+.comparison-table tbody tr:last-child th, .comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table .highlight { font-weight: 700; color: var(--primary); }
+
+/* 한줄 가이드 카드 */
+.quick-guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+.quick-guide-card { padding: 22px 26px; background: white; border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--primary); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.quick-guide-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(30, 64, 175, 0.08); }
+.quick-guide-keyword { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+.quick-guide-product { font-size: 17px; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+
+@media (max-width: 768px) {
+  .quick-guide-grid { grid-template-columns: 1fr; }
+}
 .lineup-item-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .lineup-feature { padding: 16px 18px; background: var(--surface); border-radius: 8px; }
 .lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
@@ -711,6 +731,62 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
 
     <p style="margin-top: 40px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
+  </div>
+</section>
+
+<section class="padded">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 32px;">
+      <div>
+        <div class="section-eyebrow">COMPARISON / 비교 정리</div>
+        <h2 class="section-title">전동셔터 4종 한눈에 비교</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">현장 환경과 우선순위에 따라 적합한 제품이 다릅니다. 주요 항목별로 비교해 보세요.</p>
+      </div>
+    </div>
+
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>AL 전동셔터</th>
+            <th>AL 단열셔터</th>
+            <th>철재 전동셔터</th>
+            <th>스텐파이프셔터</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>주요 특징</th><td>경량·디자인</td><td>단열·차음</td><td>강도·보안</td><td>개방감·통풍</td></tr>
+          <tr><th>보안성</th><td>보통</td><td>보통</td><td class="highlight">우수</td><td>보통</td></tr>
+          <tr><th>단열성</th><td>보통</td><td class="highlight">우수</td><td>보통</td><td>낮음</td></tr>
+          <tr><th>디자인성</th><td class="highlight">우수</td><td class="highlight">우수</td><td>일반적</td><td class="highlight">고급스러움</td></tr>
+          <tr><th>통풍성</th><td>낮음</td><td>낮음</td><td>낮음</td><td class="highlight">우수</td></tr>
+          <tr><th>추천 공간</th><td>상가</td><td>냉난방 공간</td><td>공장·창고</td><td>쇼핑몰·매장</td></tr>
+          <tr><th>가격대</th><td>보통</td><td>상대적 고가</td><td class="highlight">경제적</td><td>상대적 고가</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 24px; font-weight: 800; margin-top: 56px; margin-bottom: 8px; letter-spacing: -0.025em;">설치 선택 한줄 가이드</h3>
+    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">우선순위에 따라 빠르게 선택하실 수 있는 가이드입니다.</p>
+    <div class="quick-guide-grid">
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">디자인 + 일반 상업시설</div>
+        <div class="quick-guide-product">→ AL 전동셔터</div>
+      </div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">냉난방 효율 + 실내환경 유지</div>
+        <div class="quick-guide-product">→ AL 단열셔터</div>
+      </div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">강도 + 보안 + 산업시설</div>
+        <div class="quick-guide-product">→ 철재 전동셔터</div>
+      </div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">개방감 + 통풍 + 매장 노출</div>
+        <div class="quick-guide-product">→ 스텐파이프 전동셔터</div>
+      </div>
+    </div>
   </div>
 </section>
 
