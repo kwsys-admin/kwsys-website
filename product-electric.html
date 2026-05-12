@@ -284,6 +284,34 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
 .lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
 .lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
+
+/* AL 슬랫 비교 섹션 */
+.al-compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.al-compare-image { width: 100%; max-width: 520px; margin: 0 auto; }
+.al-compare-image img { width: 100%; height: auto; display: block; }
+.al-compare-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
+.al-compare-intro { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; }
+.compare-items { display: flex; flex-direction: column; gap: 14px; }
+.compare-item { padding: 20px 22px; background: white; border-radius: 10px; border-left: 3px solid var(--primary); }
+.compare-label { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 6px; letter-spacing: 0.02em; }
+.compare-desc { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+/* AL 전동/단열 장단점 컴팩트 카드 */
+.al-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+.al-detail-card { padding: 18px 20px; background: var(--surface); border-radius: 10px; }
+.al-detail-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+.al-detail-card.pros .al-detail-label { color: var(--primary); }
+.al-detail-card.cons .al-detail-label { color: #64748b; }
+.al-detail-card ul { list-style: none; padding: 0; margin: 0; }
+.al-detail-card li { font-size: 13px; line-height: 1.6; color: #475569; padding-left: 16px; position: relative; margin-bottom: 8px; }
+.al-detail-card li:last-child { margin-bottom: 0; }
+.al-detail-card.pros li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.al-detail-card.cons li::before { content: '·'; position: absolute; left: 4px; color: #94a3b8; font-weight: 700; font-size: 18px; line-height: 0.5; }
+
+@media (max-width: 968px) {
+  .al-compare-grid { grid-template-columns: 1fr; gap: 32px; }
+  .al-detail-grid { grid-template-columns: 1fr; }
+}
 .lineup-item-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .lineup-feature { padding: 16px 18px; background: var(--surface); border-radius: 8px; }
 .lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
@@ -415,8 +443,6 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <li><a href="#al-insulated" class="product-side-nav-sublink">AL단열셔터</a></li>
         <li><a href="#al-electric" class="product-side-nav-sublink">AL전동셔터</a></li>
         <li><a href="#steel-electric" class="product-side-nav-sublink">철재전동셔터</a></li>
-        <li><a href="#sts-electric" class="product-side-nav-sublink">스텐레스 전동셔터</a></li>
-        <li><a href="#al-double" class="product-side-nav-sublink">알루미늄 이중전동셔터</a></li>
         <li><a href="#sts-pipe" class="product-side-nav-sublink">스텐파이프전동셔터</a></li>
       </ul>
     </li>
@@ -478,13 +504,42 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 48px;">
+      <div>
+        <div class="section-eyebrow">AL SHUTTER / AL 셔터 비교</div>
+        <h2 class="section-title">AL 단열셔터 vs AL 전동셔터</h2>
+      </div>
+    </div>
+    <div class="al-compare-grid">
+      <div class="al-compare-image">
+        <img src="images/al-slat-compare.png" alt="AL 이중압출 슬랫과 AL 단열 슬랫 비교">
+      </div>
+      <div>
+        <p class="al-compare-intro">두 제품 모두 <strong style="color: var(--text);">특수알루미늄 6063 T5</strong> 압출물로 생산되어 강한 내구성과 우수한 부식 저항성을 갖추고 있으며, 연결부위가 슬랫에 일체화되어 고장이 적은 반영구적 제품입니다. 가장 큰 차이는 <strong style="color: var(--text);">슬랫 내부 구조</strong>에 있습니다.</p>
+        <div class="compare-items">
+          <div class="compare-item">
+            <div class="compare-label">AL 전동셔터</div>
+            <div class="compare-desc">일반 알루미늄 압출 슬랫 또는 이중압출 슬랫을 사용합니다. 기본적인 차폐·보안·외부 차단이 주 목적입니다.</div>
+          </div>
+          <div class="compare-item">
+            <div class="compare-label">AL 단열셔터</div>
+            <div class="compare-desc">슬랫 내부에 고밀도 우레탄(PU) 단열재를 충진하여 단열·차음·냉난방 효율을 강화한 제품입니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="padded">
   <div class="container">
     <div class="section-header">
       <div>
         <div class="section-eyebrow">LINEUP / 세부 제품</div>
-        <h2 class="section-title">전동셔터 6종 라인업</h2>
-        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">현장 환경과 요구 사양에 따라 6가지 세부 제품을 선택할 수 있습니다.<br>좌측 메뉴에서 원하는 제품을 선택하세요.</p>
+        <h2 class="section-title">전동셔터 4종 라인업</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">현장 환경과 요구 사양에 따라 4가지 세부 제품을 선택할 수 있습니다.<br>좌측 메뉴에서 원하는 제품을 선택하세요.</p>
       </div>
     </div>
 
@@ -494,12 +549,31 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="lineup-item-image" style="background-image: url('images/al-insulated.png'); background-size: cover; background-position: center;"></div>
           <div class="lineup-item-num">01 / AL Insulated</div>
           <h3 class="lineup-item-title">AL단열셔터</h3>
-          <p class="lineup-item-desc">알루미늄 슬랫 내부에 단열재를 충진하여 우수한 단열·방음 성능을 확보한 셔터입니다. 외부 소음과 온도 변화로부터 내부 환경을 보호하며, 냉난방 효율이 중요한 공간에 적합합니다.</p>
+          <p class="lineup-item-desc">AL 6063 이중압출 슬랫 내부에 <strong style="color: var(--text);">고밀도 폴리우레탄 단열재</strong>를 충진하여 내·외부의 공기 흐름을 차단하는 셔터입니다. 가볍고 부식이 없으며, 개폐속도 50~70mm/sec로 단열·차음 성능을 강화한 고급형 제품입니다.</p>
           <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (단열재 충진)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">단열·방음 성능</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">온도·소음 관리 공간</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 + 우레탄 충진</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">단열·차음·결로 저감</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">개폐 속도</div><div class="lineup-feature-value">50 ~ 70 mm/sec</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">추천 설치 장소</div><div class="lineup-feature-value">결로방지·단열 필요한 곳</div></div>
+          </div>
+          <div class="al-detail-grid">
+            <div class="al-detail-card pros">
+              <div class="al-detail-label">장점</div>
+              <ul>
+                <li>우수한 단열 성능 — 냉난방 비용 절감 효과 기대</li>
+                <li>일반 AL 셔터 대비 차음 성능 향상</li>
+                <li>온도차 큰 환경에서 결로 저감에 도움</li>
+                <li>프리미엄 상업·주거시설에 적합한 고급형 이미지</li>
+              </ul>
+            </div>
+            <div class="al-detail-card cons">
+              <div class="al-detail-label">단점</div>
+              <ul>
+                <li>일반 AL 전동셔터 대비 가격 상승</li>
+                <li>슬랫 두께가 다소 두꺼워질 수 있음</li>
+                <li>충진재 손상 시 부분 교체 비용 증가 가능</li>
+              </ul>
+            </div>
           </div>
         </article>
 
@@ -507,12 +581,31 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="lineup-item-image">제품 사진 자리</div>
           <div class="lineup-item-num">02 / AL Electric</div>
           <h3 class="lineup-item-title">AL전동셔터</h3>
-          <p class="lineup-item-desc">경량 알루미늄 슬랫을 적용한 표준 전동셔터입니다. 매끈한 외관과 부드러운 개폐, 우수한 부식 저항성이 특징이며 상가·창고·주차장 등 폭넓은 환경에 설치 가능합니다.</p>
+          <p class="lineup-item-desc">특수알루미늄 6063 T5 압출 슬랫을 적용한 표준 전동셔터입니다. 일반 알루미늄 압출 슬랫 또는 이중압출 슬랫을 사용하여 <strong style="color: var(--text);">차폐·보안·외부 차단</strong>이 주 목적이며, 매끈한 외관과 우수한 부식 저항성이 특징입니다.</p>
           <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">경량·내부식성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (압출/이중압출)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">경량·부식강함·현대적 외관</div></div>
             <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">상가·창고·주차장</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">추천 설치 장소</div><div class="lineup-feature-value">발전소·저온창고·물류센터·공장·상가</div></div>
+          </div>
+          <div class="al-detail-grid">
+            <div class="al-detail-card pros">
+              <div class="al-detail-label">장점</div>
+              <ul>
+                <li>철재 대비 부식에 강함 — 해안가·습기 환경 유리</li>
+                <li>경량 구조로 모터 부하 적고 개폐 부드러움</li>
+                <li>외관이 깔끔하고 다양한 컬러 적용 가능</li>
+                <li>도장 벗겨짐·부식 관리 부담이 적음</li>
+              </ul>
+            </div>
+            <div class="al-detail-card cons">
+              <div class="al-detail-label">단점</div>
+              <ul>
+                <li>일반 슬랫 구조로 단열 성능에 한계</li>
+                <li>충격 강성은 철재 대비 낮을 수 있음</li>
+                <li>차음 성능에 제한이 있음</li>
+              </ul>
+            </div>
           </div>
         </article>
 
@@ -529,42 +622,40 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           </div>
         </article>
 
-        <article id="sts-electric" class="lineup-item">
-          <div class="lineup-item-image">제품 사진 자리</div>
-          <div class="lineup-item-num">04 / Stainless Electric</div>
-          <h3 class="lineup-item-title">스텐레스 전동셔터</h3>
-          <p class="lineup-item-desc">STS(스테인리스 스틸) 슬랫을 적용한 고내식성 셔터입니다. 부식이 우려되는 환경에서도 장기간 외관과 성능을 유지하며, 위생 관리가 중요한 식품·주방·공장 등에 적합합니다.</p>
-          <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">STS (스테인리스)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내부식·위생성</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">식품·주방·공장</div></div>
-          </div>
-        </article>
-
-        <article id="al-double" class="lineup-item">
-          <div class="lineup-item-image">제품 사진 자리</div>
-          <div class="lineup-item-num">05 / AL Double</div>
-          <h3 class="lineup-item-title">알루미늄 이중전동셔터</h3>
-          <p class="lineup-item-desc">이중 슬랫 구조로 단열·차음 성능을 한층 강화한 고급형 셔터입니다. 외부 환경 영향이 큰 공간이나 고급 시설에 적용되며, 내구성과 미관을 동시에 만족시킵니다.</p>
-          <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (이중 구조)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">강화된 단열·차음</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">고급 시설·외기 영향 공간</div></div>
-          </div>
-        </article>
-
         <article id="sts-pipe" class="lineup-item">
           <div class="lineup-item-image" style="background-image: url('images/sts-pipe.png'); background-size: cover; background-position: center;"></div>
-          <div class="lineup-item-num">06 / Stainless Pipe</div>
+          <div class="lineup-item-num">04 / Stainless Pipe</div>
           <h3 class="lineup-item-title">스텐파이프 전동셔터</h3>
-          <p class="lineup-item-desc">스테인리스 파이프 구조로 시야 확보가 가능한 셔터입니다. 매장의 디스플레이를 노출하면서도 보안 기능을 유지할 수 있어, 상가·전시 공간에 주로 사용됩니다.</p>
+          <p class="lineup-item-desc">스테인리스(STS) 파이프를 일정 간격으로 배열하여 제작하는 전동식 셔터입니다. 일반 슬랫형 셔터와 달리 <strong style="color: var(--text);">내부가 보이는 개방형 구조</strong>로, 통풍·시야 확보·디자인성을 동시에 고려한 제품입니다.</p>
           <div class="lineup-item-features">
-            <div class="lineup-feature"><div class="lineup-feature-label">구조</div><div class="lineup-feature-value">STS 파이프 (시야 확보)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">투과성·보안성</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">구조</div><div class="lineup-feature-value">STS 파이프 배열 (개방형)</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">개방감·통풍성·내식성</div></div>
             <div class="lineup-feature"><div class="lineup-feature-label">개폐 방식</div><div class="lineup-feature-value">전동식 (모터 구동)</div></div>
-            <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">매장·전시·상가</div></div>
+            <div class="lineup-feature"><div class="lineup-feature-label">추천 설치 장소</div><div class="lineup-feature-value">상가·쇼핑몰·지하상가·주차장·공공시설</div></div>
+          </div>
+          <div class="al-detail-grid">
+            <div class="al-detail-card pros">
+              <div class="al-detail-label">장점</div>
+              <ul>
+                <li>개방감 우수 — 영업 종료 후에도 내부 진열 노출 가능</li>
+                <li>통풍성 우수 — 공기 흐름 가능, 환기 효과</li>
+                <li>STS 재질 특성상 녹 발생이 적어 내식성 우수</li>
+              </ul>
+            </div>
+            <div class="al-detail-card cons">
+              <div class="al-detail-label">단점</div>
+              <ul>
+                <li>슬랫 밀폐형 대비 틈새 존재 — 완전 차폐 불가</li>
+                <li>외부 소음·먼지·바람 차단 성능 낮음</li>
+                <li>내부가 일부 보이는 구조 — 프라이버시 제한</li>
+                <li>개방형 구조라 단열 성능 낮음</li>
+                <li>강한 외부 충격 시 파이프 변형 가능성</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top: 16px; padding: 16px 20px; background: #fef3c7; border-radius: 8px; border-left: 3px solid #f59e0b; font-size: 13px; color: #92400e; line-height: 1.7;">
+            <strong style="color: #78350f; font-weight: 700;">⚠ 비추천 설치 장소</strong><br>
+            냉동·냉장 공간 / 고보안 요구 공간 / 방음이 필요한 공간 / 먼지 차단이 필요한 제조공간에는 적합하지 않습니다.
           </div>
         </article>
 
