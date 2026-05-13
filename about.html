@@ -491,20 +491,35 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
     <div style="display: flex; justify-content: center;">
-      <div style="max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+      <div class="kakao-map-wrap" style="max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
         <!-- 카카오맵 - 지도퍼가기 -->
-        <div id="daumRoughmapContainer1778651710679" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        <div id="daumRoughmapContainer1778652026599" class="root_daum_roughmap root_daum_roughmap_landing"></div>
         <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
         <script charset="UTF-8">
           new daum.roughmap.Lander({
-            "timestamp" : "1778651710679",
-            "key" : "np9ppth2avu",
-            "mapWidth" : "640",
-            "mapHeight" : "360"
+            "timestamp" : "1778652026599",
+            "key" : "npcscb9kooi",
+            "mapWidth" : "1200",
+            "mapHeight" : "500"
           }).render();
         </script>
       </div>
     </div>
+    <style>
+      /* 카카오맵 하단 정보 영역(주소·전화·길찾기 등) 숨기기 — 지도만 깔끔하게 표시 */
+      .kakao-map-wrap .root_daum_roughmap .wrap_map { border-radius: 0 !important; }
+      .kakao-map-wrap .root_daum_roughmap .roughmap_lebel_text,
+      .kakao-map-wrap .root_daum_roughmap .section_address,
+      .kakao-map-wrap .root_daum_roughmap .wrap_btn_zoom + *,
+      .kakao-map-wrap .root_daum_roughmap > *:not(.wrap_map):not(script) { display: none !important; }
+      /* 반응형 - 모바일 */
+      @media (max-width: 1180px) {
+        .kakao-map-wrap, .kakao-map-wrap .root_daum_roughmap, .kakao-map-wrap .wrap_map {
+          width: 100% !important;
+        }
+        .kakao-map-wrap .wrap_map { height: auto !important; min-height: 320px; }
+      }
+    </style>
     <div class="info-grid" style="margin-top: 40px;">
       <table class="info-table">
         <tr><th>주소</th><td>경기도 화성시 송산면 송산포도로 676-20</td></tr>
