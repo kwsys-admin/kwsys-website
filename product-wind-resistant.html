@@ -273,6 +273,41 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
+
+/* AL 전동/단열 장단점 컴팩트 카드 */
+.al-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+.al-detail-card { padding: 18px 20px; background: var(--surface); border-radius: 10px; }
+.al-detail-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+.al-detail-card.pros .al-detail-label { color: var(--primary); }
+.al-detail-card.cons .al-detail-label { color: #64748b; }
+.al-detail-card ul { list-style: none; padding: 0; margin: 0; }
+.al-detail-card li { font-size: 13px; line-height: 1.6; color: #475569; padding-left: 16px; position: relative; margin-bottom: 8px; }
+.al-detail-card li:last-child { margin-bottom: 0; }
+.al-detail-card.pros li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.al-detail-card.cons li::before { content: '·'; position: absolute; left: 4px; color: #94a3b8; font-weight: 700; font-size: 18px; line-height: 0.5; }
+
+/* 비교 표 */
+.comparison-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--border); background: white; }
+.comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+.comparison-table thead th { background: var(--primary); color: white; padding: 16px 20px; font-size: 14px; font-weight: 700; text-align: left; letter-spacing: -0.01em; }
+.comparison-table tbody th { background: var(--surface); padding: 16px 20px; font-size: 13px; font-weight: 700; text-align: left; color: var(--text); width: 22%; white-space: nowrap; }
+.comparison-table td { padding: 16px 20px; font-size: 13px; color: #475569; border-bottom: 1px solid var(--border); }
+.comparison-table tbody tr:last-child th, .comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table .highlight { font-weight: 700; color: var(--primary); }
+
+/* 한줄 가이드 카드 */
+.quick-guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+.quick-guide-card { padding: 22px 26px; background: white; border-radius: 10px; border: 1px solid var(--border); border-left: 4px solid var(--primary); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.quick-guide-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(30, 64, 175, 0.08); }
+.quick-guide-keyword { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+.quick-guide-product { font-size: 17px; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+
+@media (max-width: 968px) {
+  .al-detail-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .quick-guide-grid { grid-template-columns: 1fr; }
+}
 .cert-icon { width: 48px; height: 48px; border-radius: 8px; background: var(--primary-tint); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
@@ -431,48 +466,21 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <div class="detail-content">
         <div class="page-hero-eyebrow">04 / 셔터</div>
         <h1>내풍압셔터</h1>
-        <p class="lead">강풍 지역·해안가·대형 개구부를 위한 보강 셔터. 풍압 등급별 슬랫 두께와 가이드레일 사양을 맞춤 설계합니다.</p>
+        <p class="lead">알루미늄 재질에 <strong style="color: var(--text);">윈드락(Wind Lock)</strong>을 채택하여 <strong style="color: var(--text);">최대 풍압 45m/sec</strong>의 강한 풍속에도 안정적으로 운전할 수 있도록 설계된 제품입니다. 모든 재질과 성능은 건축법 및 한국공업규격 AL 창호설치기준에 적합하며, SLAT과 GUIDE RAIL 등 주요 부품이 강한 풍압에 견딜 수 있는 구조적 강도를 갖추고 있습니다.</p>
+        <p class="lead" style="margin-top: 16px;">방범이 필요한 상가·차고지, 강풍이 부는 해안가, 변전소·발전소와 같은 특수 장소에 적합하며, 개폐속도 5~7m/sec로 부드럽고 금속 마찰음이 적어 사용이 편리합니다.</p>
         <div class="detail-tags">
-          <span class="detail-tag">풍압 등급별 설계</span>
-          <span class="detail-tag">대형 개구부</span>
+          <span class="detail-tag">윈드락 채택</span>
+          <span class="detail-tag">최대 풍압 45m/sec</span>
           <span class="detail-tag">변형 방지</span>
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
           <a href="contact.html" class="btn btn-primary">견적 문의 →</a>
-          <a href="#specs" class="btn btn-secondary">사양 확인</a>
+          <a href="#al-wind" class="btn btn-secondary">라인업 보기 ↓</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<section class="padded" id="specs" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-eyebrow">SPECIFICATION / 주요 사양</div>
-        <h2 class="section-title">기본 사양</h2>
-      </div>
-    </div>
-    <div class="info-grid">
-      <table class="spec-table">
-        <tr><th>재질</th><td>고강도 강판 슬랫</td></tr>
-        <tr><th>슬랫 두께</th><td>풍압 등급에 따라 보강 (사양별)</td></tr>
-        <tr><th>가이드레일</th><td>풍압 대응 보강형</td></tr>
-        <tr><th>구동 방식</th><td>전동식</td></tr>
-      </table>
-      <table class="spec-table">
-        <tr><th>풍압 대응</th><td>지역별 풍속 기준에 따라 설계</td></tr>
-        <tr><th>변형 방지</th><td>슬랫 이탈 방지 보강 구조</td></tr>
-        <tr><th>적용 면적</th><td>대형 개구부 (가로 폭 큰 현장)</td></tr>
-        <tr><th>표면 처리</th><td>내식성 도장 (해안가 대응)</td></tr>
-      </table>
-    </div>
-    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 사양은 모델별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
-  </div>
-</section>
-
-
 
 <section class="padded">
   <div class="container">
@@ -486,28 +494,83 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
     <div class="lineup-items">
       <article id="al-wind" class="lineup-item">
-        <div class="lineup-item-image">제품 사진 자리</div>
+        <div class="lineup-item-image" style="background-image: url('images/al-wind.png'); background-size: cover; background-position: center;"></div>
         <div class="lineup-item-num">01 / AL Wind</div>
-        <h3 class="lineup-item-title">AL내풍압셔터</h3>
-        <p class="lineup-item-desc">알루미늄 슬랫 기반의 내풍압셔터입니다. 강풍 지역과 대형 개구부에 적합한 보강 설계로, 풍압 등급별로 슬랫 두께와 가이드레일 사양을 맞춤 제작합니다.</p>
+        <h3 class="lineup-item-title">AL 내풍압셔터</h3>
+        <p class="lineup-item-desc">알루미늄 슬랫과 <strong style="color: var(--text);">강화된 레일 구조</strong>를 적용하여 강한 바람과 외부 풍압에도 안정적으로 견딜 수 있도록 설계된 셔터입니다. 일반 알루미늄 셔터 대비 슬랫 강성, 가이드레일 구조, 보강 방식, 풍압 대응 설계가 강화되어 있어 <strong style="color: var(--text);">태풍·강풍·외부 압력이 큰 환경</strong>에서 셔터 이탈이나 변형을 최소화합니다.</p>
         <div class="lineup-item-features">
-          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내풍압·경량</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">설계 방식</div><div class="lineup-feature-value">풍압 등급별 맞춤</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">강풍 지역·대형 개구부</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (고강도)</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">핵심 목적</div><div class="lineup-feature-value">풍압 대응</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 구조</div><div class="lineup-feature-value">고강도 중심</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">주요 용도</div><div class="lineup-feature-value">강풍·태풍 환경</div></div>
+        </div>
+        <div class="al-detail-grid">
+          <div class="al-detail-card pros">
+            <div class="al-detail-label">장점</div>
+            <ul>
+              <li>우수한 풍압 대응 — 강풍·태풍 환경에서 슬랫 흔들림·이탈·변형 감소</li>
+              <li>철재 대비 가벼워 구동 부담 적고 부드러운 개폐</li>
+              <li>알루미늄 특성상 녹 발생 위험 낮음 (외부 환경 유리)</li>
+              <li>상업시설·현대 건축물과 조화되는 깔끔한 외관</li>
+              <li>대형 개구부에서도 안정적인 구조 설계 가능</li>
+            </ul>
+          </div>
+          <div class="al-detail-card cons">
+            <div class="al-detail-label">단점</div>
+            <ul>
+              <li>풍압 대응 중심이라 단열 성능에 한계</li>
+              <li>반복 충격·매우 높은 하중 환경에서는 철재 대비 불리</li>
+              <li>슬랫 구조·보강 방식에 따라 실제 풍압 성능 편차 큼</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top: 16px; padding: 16px 20px; background: #dbeafe; border-radius: 8px; border-left: 3px solid var(--primary); font-size: 13px; color: #1e40af; line-height: 1.7;">
+          <strong style="color: #1e3a8a; font-weight: 700;">✓ 추천 설치 장소</strong><br>
+          강풍·태풍 영향이 큰 지역 / 외부 바람에 직접 노출되는 건축물 / 해안가 인접 건물 / 대형 개구부 외부 출입구 / 환기·개방성이 중요한 건축물 / 풍압 저항 성능이 우선인 건물
+        </div>
+        <div style="margin-top: 12px; padding: 16px 20px; background: #fef3c7; border-radius: 8px; border-left: 3px solid #f59e0b; font-size: 13px; color: #92400e; line-height: 1.7;">
+          <strong style="color: #78350f; font-weight: 700;">⚠ 비추천 설치 장소</strong><br>
+          냉난방 효율 유지가 중요한 공간 / 내부 온도 유지가 필요한 건축물 / 결로 관리가 중요한 환경 / 에너지 절감 요구가 높은 건물 / 실내 쾌적성이 중요한 구조
         </div>
       </article>
 
       <article id="al-insulated-wind" class="lineup-item">
-        <div class="lineup-item-image">제품 사진 자리</div>
+        <div class="lineup-item-image" style="background-image: url('images/al-insulated-wind.png'); background-size: cover; background-position: center;"></div>
         <div class="lineup-item-num">02 / AL Insulated Wind</div>
-        <h3 class="lineup-item-title">AL단열내풍압셔터</h3>
-        <p class="lineup-item-desc">알루미늄 슬랫 내부에 단열재를 충진한 내풍압셔터입니다. 강풍 대응뿐만 아니라 단열·방음 성능까지 확보하여 외부 환경 영향이 큰 공간에 적합합니다.</p>
+        <h3 class="lineup-item-title">AL 단열 내풍압셔터</h3>
+        <p class="lineup-item-desc">알루미늄 슬랫 내부에 <strong style="color: var(--text);">단열재를 충진</strong>한 내풍압셔터입니다. 강풍 대응뿐만 아니라 단열·차음·결로 저감 성능까지 확보하여, <strong style="color: var(--text);">외기 노출과 냉난방 효율을 동시에 고려해야 하는 공간</strong>에 적합합니다.</p>
         <div class="lineup-item-features">
           <div class="lineup-feature"><div class="lineup-feature-label">슬랫 재질</div><div class="lineup-feature-value">알루미늄 (단열재 충진)</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">주요 특징</div><div class="lineup-feature-value">내풍압·단열·방음</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">설계 방식</div><div class="lineup-feature-value">풍압 등급별 맞춤</div></div>
-          <div class="lineup-feature"><div class="lineup-feature-label">적용 환경</div><div class="lineup-feature-value">강풍·온도 관리 공간</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">핵심 목적</div><div class="lineup-feature-value">풍압 + 단열</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">슬랫 구조</div><div class="lineup-feature-value">단열 충진 + 보강 구조</div></div>
+          <div class="lineup-feature"><div class="lineup-feature-label">주요 용도</div><div class="lineup-feature-value">강풍·온도 관리 공간</div></div>
+        </div>
+        <div class="al-detail-grid">
+          <div class="al-detail-card pros">
+            <div class="al-detail-label">장점</div>
+            <ul>
+              <li>풍압 대응 + 단열·차음 성능을 동시 확보</li>
+              <li>외기 노출 환경에서 냉난방 효율 향상에 기여</li>
+              <li>온도차 큰 환경에서 결로 저감에 유리</li>
+              <li>에너지 효율 관리가 필요한 시설에 적합</li>
+            </ul>
+          </div>
+          <div class="al-detail-card cons">
+            <div class="al-detail-label">단점</div>
+            <ul>
+              <li>단열재 적용으로 일반 내풍압셔터 대비 중량 증가</li>
+              <li>극한 중하중·반복 충격 환경에는 불리</li>
+              <li>일반 내풍압 제품 대비 비용 상승</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top: 16px; padding: 16px 20px; background: #dbeafe; border-radius: 8px; border-left: 3px solid var(--primary); font-size: 13px; color: #1e40af; line-height: 1.7;">
+          <strong style="color: #1e3a8a; font-weight: 700;">✓ 추천 설치 장소</strong><br>
+          강풍과 단열 성능을 동시에 고려해야 하는 건축물 / 외기에 직접 노출되면서 냉난방 사용이 많은 건물 / 결로 발생 가능성 있는 환경 / 에너지 효율 관리가 필요한 시설 / 냉기·열기 유입 저감이 필요한 건축물
+        </div>
+        <div style="margin-top: 12px; padding: 16px 20px; background: #fef3c7; border-radius: 8px; border-left: 3px solid #f59e0b; font-size: 13px; color: #92400e; line-height: 1.7;">
+          <strong style="color: #78350f; font-weight: 700;">⚠ 비추천 설치 장소</strong><br>
+          극한 중하중 산업환경 / 반복 충격·고하중 장비 이동 환경 / 초대형 산업용 개구부 / 단열보다 구조 강성이 절대적으로 중요한 시설 / 고온·분진·충격이 매우 심한 현장
         </div>
       </article>
     </div>
@@ -516,29 +579,55 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section class="padded">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" style="margin-bottom: 32px;">
       <div>
-        <div class="section-eyebrow">APPLICATION / 적용 분야</div>
-        <h2 class="section-title">적용 가능한 현장</h2>
+        <div class="section-eyebrow">COMPARISON / 비교 정리</div>
+        <h2 class="section-title">내풍압셔터 2종 한눈에 비교</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">설치 환경에 따라 적합한 제품이 다릅니다. 주요 항목별로 비교해 보세요.</p>
       </div>
     </div>
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-num">01</div>
-        <div class="value-title">해안가 시설</div>
-        <div class="value-text">강풍·염분 환경에 대응하는 보강 사양으로 시공.</div>
+
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>AL 내풍압셔터</th>
+            <th>AL 단열 내풍압셔터</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>핵심 목적</th><td class="highlight">풍압 대응</td><td class="highlight">풍압 + 단열</td></tr>
+          <tr><th>슬랫 구조</th><td>고강도 중심</td><td>단열 충진 + 보강 구조</td></tr>
+          <tr><th>단열 성능</th><td>보통</td><td class="highlight">우수</td></tr>
+          <tr><th>결로 저감</th><td>제한적</td><td class="highlight">상대적으로 우수</td></tr>
+          <tr><th>냉난방 효율</th><td>일반 수준</td><td class="highlight">우수</td></tr>
+          <tr><th>제품 중량</th><td class="highlight">비교적 가벼움</td><td>단열재 적용으로 다소 증가</td></tr>
+          <tr><th>적용 환경</th><td>강풍 대응 중심</td><td>강풍 + 실내 환경 관리</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 24px; font-weight: 800; margin-top: 56px; margin-bottom: 8px; letter-spacing: -0.025em;">설치 선택 한줄 가이드</h3>
+    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">우선순위에 따라 빠르게 선택하실 수 있는 가이드입니다.</p>
+    <div class="quick-guide-grid">
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">풍압 대응이 가장 중요</div>
+        <div class="quick-guide-product">→ AL 내풍압셔터</div>
       </div>
-      <div class="value-card">
-        <div class="value-num">02</div>
-        <div class="value-title">대형 물류센터</div>
-        <div class="value-text">넓은 개구부에서도 풍압에 의한 변형·이탈 방지.</div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">단순 강풍 대응 + 경량 운용</div>
+        <div class="quick-guide-product">→ AL 내풍압셔터</div>
       </div>
-      <div class="value-card">
-        <div class="value-num">03</div>
-        <div class="value-title">공항·항만 시설</div>
-        <div class="value-text">강풍이 빈번한 환경에서도 안정적 운용 가능.</div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">풍압 + 단열 + 결로 저감</div>
+        <div class="quick-guide-product">→ AL 단열 내풍압셔터</div>
+      </div>
+      <div class="quick-guide-card">
+        <div class="quick-guide-keyword">외부 노출 + 냉난방 효율</div>
+        <div class="quick-guide-product">→ AL 단열 내풍압셔터</div>
       </div>
     </div>
   </div>
