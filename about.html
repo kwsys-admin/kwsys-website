@@ -56,7 +56,7 @@ nav {
 .logo {
   display: flex; align-items: center;
 }
-.logo img { height: 32px; width: auto; display: block; }
+.logo img { height: 40px; width: auto; display: block; }
 .logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
@@ -490,20 +490,13 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <h2 class="section-title">본사 · 공장 위치</h2>
       </div>
     </div>
-    <div style="aspect-ratio: 16/10; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
-      <iframe 
-        src="https://maps.google.com/maps?width=100%25&height=450&hl=ko&q=경기도+화성시+송산면+송산포도로+676-20&t=&z=16&ie=UTF8&iwloc=B&output=embed" 
-        width="100%" 
-        height="100%" 
-        frameborder="0" 
-        scrolling="no" 
-        marginheight="0" 
-        marginwidth="0"
-        style="border:0; display: block;"
-        title="경원에스아이 위치 지도"
-        loading="lazy">
-      </iframe>
-    </div>
+    <a href="https://map.kakao.com/?urlX=429652&urlY=1038257&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false" target="_blank" rel="noopener" style="display: block; max-width: 800px; margin: 0 auto; text-decoration: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.2s ease;" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
+      <img src="https://staticmap.kakao.com/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=429652&MY=1038255&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo" alt="㈜경원에스아이 위치 - 카카오맵" style="width: 100%; height: auto; display: block;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #f9f9f9; border-top: 1px solid var(--border);">
+        <img src="//t1.kakaocdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" width="72" height="16" alt="카카오맵">
+        <span style="font-size: 13px; color: var(--primary); font-weight: 600;">카카오맵에서 보기 →</span>
+      </div>
+    </a>
     <div class="info-grid" style="margin-top: 40px;">
       <table class="info-table">
         <tr><th>주소</th><td>경기도 화성시 송산면 송산포도로 676-20</td></tr>
