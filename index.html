@@ -621,6 +621,56 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); border-radius: 20px; padding: 64px 56px; color: white; position: relative; overflow: hidden;">
+      <!-- 배경 장식 -->
+      <div style="position: absolute; right: -80px; top: -80px; width: 400px; height: 400px; background: rgba(255,255,255,0.04); border-radius: 50%;"></div>
+      <div style="position: absolute; right: -120px; bottom: -120px; width: 320px; height: 320px; background: rgba(255,255,255,0.04); border-radius: 50%;"></div>
+
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2;">
+        <div>
+          <div style="display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; margin-bottom: 20px;">B2B · 시공업체 전용</div>
+          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.25; letter-spacing: -0.03em; margin-bottom: 24px;">방화셔터 <span style="color: #fbbf24;">자재 세트</span><br>공급도 함께 합니다</h2>
+          <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 16px;">
+            방화셔터를 직접 시공하시는 업체를 위해 <strong style="color: white;">슬랫·가이드레일·셔터박스 등 방화셔터에 필요한 모든 자재를 세트로 공급</strong>합니다.
+          </p>
+          <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 32px;">
+            KICT 품질인정을 받은 인정방화셔터 제조사가 직접 만든 자재로, <strong style="color: #fbbf24;">인정 완제품과 동일한 품질·규격</strong>으로 시공하실 수 있습니다.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="contact.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 14px 28px; background: white; color: var(--primary); border-radius: 100px; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">자재 견적 문의하기 →</a>
+            <a href="tel:031-8055-8458" style="display: inline-flex; align-items: center; gap: 6px; padding: 14px 28px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 100px; font-weight: 600; text-decoration: none; font-size: 15px;">📞 031-8055-8458</a>
+          </div>
+        </div>
+
+        <!-- 자재 세트 구성 -->
+        <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 28px;">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: rgba(255,255,255,0.7); margin-bottom: 16px;">자재 세트 구성</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="color: #fbbf24; font-weight: 700;">✓</span><span>슬랫 (Slat)</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="color: #fbbf24; font-weight: 700;">✓</span><span>가이드레일 (Guide Rail)</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="color: #fbbf24; font-weight: 700;">✓</span><span>셔터박스 (Shutter Box)</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="color: #fbbf24; font-weight: 700;">✓</span><span>하장바·구동부 등 부속 일체</span></div>
+          </div>
+          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 12.5px; color: rgba(255,255,255,0.75); line-height: 1.65;">
+            ※ 자재 사양·수량은 현장 조건에 따라 협의하여 세트 구성<br>※ 가격은 문의 시 견적으로 안내
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 968px) {
+    section .container > div[style*="grid-template-columns: 1.4fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+  }
+</style>
+
 <section class="padded contact">
   <div class="container">
     <div class="section-eyebrow">CONTACT / 문의</div>
