@@ -490,13 +490,21 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <h2 class="section-title">본사 · 공장 위치</h2>
       </div>
     </div>
-    <a href="https://map.kakao.com/?urlX=429652&urlY=1038257&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false" target="_blank" rel="noopener" style="display: block; max-width: 800px; margin: 0 auto; text-decoration: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.2s ease;" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
-      <img src="https://staticmap.kakao.com/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=429652&MY=1038255&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo" alt="㈜경원에스아이 위치 - 카카오맵" style="width: 100%; height: auto; display: block;">
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #f9f9f9; border-top: 1px solid var(--border);">
-        <img src="//t1.kakaocdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" width="72" height="16" alt="카카오맵">
-        <span style="font-size: 13px; color: var(--primary); font-weight: 600;">카카오맵에서 보기 →</span>
+    <div style="display: flex; justify-content: center;">
+      <div style="max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+        <!-- 카카오맵 - 지도퍼가기 -->
+        <div id="daumRoughmapContainer1778651710679" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+        <script charset="UTF-8">
+          new daum.roughmap.Lander({
+            "timestamp" : "1778651710679",
+            "key" : "np9ppth2avu",
+            "mapWidth" : "640",
+            "mapHeight" : "360"
+          }).render();
+        </script>
       </div>
-    </a>
+    </div>
     <div class="info-grid" style="margin-top: 40px;">
       <table class="info-table">
         <tr><th>주소</th><td>경기도 화성시 송산면 송산포도로 676-20</td></tr>
