@@ -276,6 +276,27 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 @media (max-width: 768px) {
   .trust-banner { flex-direction: column; text-align: center; }
 }
+
+/* CERTIFICATION / 품질인정서 섹션 */
+.cert-section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
+.cert-item { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.cert-item:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -12px rgba(30,64,175,0.18); }
+.cert-image-wrap { position: relative; background: #f1f5f9; padding: 28px 28px 0; }
+.cert-image-link { display: block; position: relative; aspect-ratio: 1/1.414; background-color: white; background-size: contain; background-repeat: no-repeat; background-position: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; }
+.cert-image-link::after { content: '🔍 클릭하여 크게 보기'; position: absolute; bottom: 0; left: 0; right: 0; padding: 10px; background: rgba(30,64,175,0.92); color: white; font-size: 12px; font-weight: 600; text-align: center; opacity: 0; transition: opacity 0.25s ease; letter-spacing: -0.01em; }
+.cert-item:hover .cert-image-link::after { opacity: 1; }
+.cert-image-wrap::after { content: ''; display: block; padding-bottom: 28px; }
+.cert-info { padding: 28px 32px 32px; border-top: 1px solid var(--border); }
+.cert-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 8px; }
+.cert-title-text { font-size: 20px; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.025em; color: var(--text); }
+.cert-meta-list { display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; }
+.cert-meta-list .row { display: flex; gap: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--border); }
+.cert-meta-list .row:last-child { border-bottom: none; padding-bottom: 0; }
+.cert-meta-list .key { font-weight: 600; color: var(--text-muted); flex-shrink: 0; width: 80px; }
+.cert-meta-list .val { color: var(--text); font-weight: 500; }
+@media (max-width: 768px) {
+  .cert-section-grid { grid-template-columns: 1fr; gap: 24px; }
+}
 .value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
 .value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .value-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.025em; }
@@ -505,6 +526,56 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         경원에스아이는 <strong>인정방화셔터 제조기업</strong>으로서, 고객이 믿고 사용할 수 있는 안전한 제품을 만들기 위해 최선을 다하고 있습니다.
       </div>
     </div>
+  </div>
+</section>
+
+<section class="padded">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">CERTIFICATION / 품질인정</div>
+        <h2 class="section-title">신뢰를 증명하는<br>품질인정서</h2>
+        <p style="margin-top: 16px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 640px;">한국건설기술연구원(KICT)으로부터 자동방화셔터 품질인정을 받은 제조기업으로서, 「건축법」 제52조의5에 따른 품질인정자재로 인정받았습니다.</p>
+      </div>
+    </div>
+
+    <div class="cert-section-grid">
+      <div class="cert-item">
+        <div class="cert-image-wrap">
+          <a href="images/cert-fire-shutter.png" target="_blank" rel="noopener" class="cert-image-link" style="background-image: url('images/cert-fire-shutter.png');" aria-label="철재방화셔터 KICT 품질인정서 크게 보기"></a>
+        </div>
+        <div class="cert-info">
+          <div class="cert-label">KICT 품질인정서 NO.1</div>
+          <div class="cert-title-text">철재방화셔터 (NVS)</div>
+          <div class="cert-meta-list">
+            <div class="row"><span class="key">인정번호</span><span class="val">FDS-NVS24-0311-1</span></div>
+            <div class="row"><span class="key">제품명</span><span class="val">경원철재방화셔터 (KW-237)</span></div>
+            <div class="row"><span class="key">인정내용</span><span class="val">수직 비차열 방화셔터 [NVS] — 60분</span></div>
+            <div class="row"><span class="key">인정일</span><span class="val">2024.03.11</span></div>
+            <div class="row"><span class="key">유효기간</span><span class="val">2029.03.10 까지</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-image-wrap">
+          <a href="images/cert-fire-screen.png" target="_blank" rel="noopener" class="cert-image-link" style="background-image: url('images/cert-fire-screen.png');" aria-label="방화스크린셔터 KICT 품질인정서 크게 보기"></a>
+        </div>
+        <div class="cert-info">
+          <div class="cert-label">KICT 품질인정서 NO.2</div>
+          <div class="cert-title-text">방화스크린셔터 (OTS)</div>
+          <div class="cert-meta-list">
+            <div class="row"><span class="key">인정번호</span><span class="val">FDS-OTS24-0725-10</span></div>
+            <div class="row"><span class="key">제품명</span><span class="val">경원 방화스크린 셔터 (KW-124)</span></div>
+            <div class="row"><span class="key">인정내용</span><span class="val">기타 방화셔터 [OTS] — 60분</span></div>
+            <div class="row"><span class="key">인정일</span><span class="val">2024.07.25</span></div>
+            <div class="row"><span class="key">유효기간</span><span class="val">2029.07.24 까지</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 인증서 이미지를 클릭하시면 원본 크기로 확인하실 수 있습니다. · 기업지원플러스(<a href="https://www.g4b.go.kr" target="_blank" rel="noopener" style="color: var(--primary);">www.g4b.go.kr</a>)에서 인정서 진위여부 확인 가능</p>
   </div>
 </section>
 
