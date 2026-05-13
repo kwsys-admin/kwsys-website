@@ -260,6 +260,22 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .value-grid-5 .value-title { font-size: 18px; }
 .value-grid-5 .value-text { font-size: 13px; }
 @media (max-width: 1100px) { .value-grid-5 { grid-template-columns: repeat(2, 1fr); } }
+
+/* OUR STRENGTHS 카드의 아이콘 */
+.strength-icon { color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; }
+.strength-icon svg { width: 44px; height: 44px; stroke: currentColor; }
+.value-grid-5 .value-card .value-num { margin-top: 4px; }
+.value-grid-5 .value-card hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* 하단 신뢰 배너 */
+.trust-banner { display: flex; align-items: center; gap: 16px; padding: 24px 28px; background: var(--surface); border-radius: 12px; margin-top: 32px; }
+.trust-banner-icon { flex-shrink: 0; color: var(--primary); }
+.trust-banner-icon svg { width: 32px; height: 32px; stroke: currentColor; }
+.trust-banner-text { font-size: 15px; color: var(--text); line-height: 1.7; }
+.trust-banner-text strong { color: var(--primary); font-weight: 700; }
+@media (max-width: 768px) {
+  .trust-banner { flex-direction: column; text-align: center; }
+}
 .value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
 .value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .value-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.025em; }
@@ -405,35 +421,88 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="section-header">
       <div>
-        <div class="section-eyebrow">STRENGTHS / 핵심 강점</div>
+        <div class="section-eyebrow">OUR STRENGTHS</div>
         <h2 class="section-title">왜 경원에스아이인가요?</h2>
+        <p class="section-subtitle" style="margin-top: 12px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">경원에스아이는 자체 생산 시스템과 품질관리 체계를 기반으로<br>고품질 제품과 안정적인 서비스를 제공합니다.</p>
       </div>
     </div>
     <div class="value-grid-5">
       <div class="value-card">
+        <div class="strength-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 42V20l10 6v-6l10 6v-6l10 6V42H6z"/>
+            <path d="M10 14V6l4-2 4 2v8"/>
+            <circle cx="14" cy="32" r="1" fill="currentColor"/>
+            <circle cx="24" cy="32" r="1" fill="currentColor"/>
+            <circle cx="34" cy="32" r="1" fill="currentColor"/>
+          </svg>
+        </div>
         <div class="value-num">01</div>
-        <div class="value-title">공장 직영</div>
-        <div class="value-text">자체 공장에서 직접 제조. 중간 유통 단계가 없어 가격과 납기 모두 경쟁력을 확보합니다.</div>
+        <div class="value-title">자체 생산 시스템</div>
+        <hr>
+        <div class="value-text">자체 공장에서 직접 생산하여 품질 관리와 납기 대응의 안정성을 확보합니다.</div>
       </div>
       <div class="value-card">
+        <div class="strength-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="18" stroke-dasharray="6 4"/>
+            <path d="M24 14v10l7 4"/>
+          </svg>
+        </div>
         <div class="value-num">02</div>
-        <div class="value-title">빠른 납기</div>
-        <div class="value-text">자체 공장 직접 생산 체계로 합리적인 납기로 공급합니다.</div>
+        <div class="value-title">안정적인 납기 대응</div>
+        <hr>
+        <div class="value-text">자체 생산 기반으로 일정 지연을 최소화하고 안정적인 납기 대응을 제공합니다.</div>
       </div>
       <div class="value-card">
+        <div class="strength-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 4l4 4 5-2 1 5 5 1-2 5 4 4-4 4 2 5-5 1-1 5-5-2-4 4-4-4-5 2-1-5-5-1 2-5-4-4 4-4-2-5 5-1 1-5 5 2 4-4z"/>
+            <path d="M17 17l4 11 3-8 3 8 4-11 M16 27h16 M16 31h16"/>
+          </svg>
+        </div>
         <div class="value-num">03</div>
-        <div class="value-title">합리적 가격</div>
-        <div class="value-text">유통 마진 없는 공장 직접 가격. 동일 품질 대비 가격 경쟁력을 자신합니다.</div>
+        <div class="value-title">경쟁력 있는 공급 단가</div>
+        <hr>
+        <div class="value-text">직접 생산 기반으로 불필요한 유통 과정을 줄여 가격 경쟁력을 확보합니다.</div>
       </div>
       <div class="value-card">
+        <div class="strength-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 6L10 11v11c0 10 6 18 14 21 8-3 14-11 14-21V11L24 6z"/>
+            <path d="M17 24l5 5 9-10"/>
+          </svg>
+        </div>
         <div class="value-num">04</div>
-        <div class="value-title">우수한 품질</div>
-        <div class="value-text">자체 품질관리 체계로 안정성을 확보합니다.</div>
+        <div class="value-title">품질관리 체계</div>
+        <hr>
+        <div class="value-text">자체 품질관리 기준을 기반으로 안정적인 제품 품질을 유지합니다.</div>
       </div>
       <div class="value-card">
+        <div class="strength-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="6" width="22" height="30" rx="2"/>
+            <path d="M14 14h14 M14 20h14 M14 26h8"/>
+            <circle cx="34" cy="32" r="8"/>
+            <path d="M30 38l-2 6 6-2 6 2-2-6"/>
+          </svg>
+        </div>
         <div class="value-num">05</div>
-        <div class="value-title">자사 인정서 보유</div>
-        <div class="value-text">한국건설기술연구원(KICT)의 철재방화셔터·방화스크린셔터 품질인정서를 자체 보유한 제조사입니다.</div>
+        <div class="value-title">품질인정 제조사</div>
+        <hr>
+        <div class="value-text">KICT 철재방화셔터 및 방화스크린셔터 품질인정서를 보유한 제조기업입니다.</div>
+      </div>
+    </div>
+
+    <div class="trust-banner">
+      <div class="trust-banner-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6L10 11v11c0 10 6 18 14 21 8-3 14-11 14-21V11L24 6z"/>
+          <path d="M17 24l5 5 9-10"/>
+        </svg>
+      </div>
+      <div class="trust-banner-text">
+        경원에스아이는 <strong>인정방화셔터 제조기업</strong>으로서, 고객이 믿고 사용할 수 있는 안전한 제품을 만들기 위해 최선을 다하고 있습니다.
       </div>
     </div>
   </div>
