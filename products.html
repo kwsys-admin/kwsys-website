@@ -155,6 +155,10 @@ nav {
 .product-arrow { font-size: 18px; margin-top: 24px; color: var(--text-light); transition: all 0.25s; }
 .product-card:hover .product-arrow { color: var(--primary); transform: translateX(6px); }
 
+/* 핵심 키워드 뱃지 */
+.product-keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; margin-bottom: 16px; }
+.product-keyword-badge { display: inline-flex; align-items: center; padding: 5px 11px; background: var(--primary-tint); color: var(--primary); font-size: 12px; font-weight: 600; border-radius: 100px; letter-spacing: -0.01em; }
+
 .product-special { grid-column: span 3; background: var(--primary); color: white; border-color: var(--primary); flex-direction: row; align-items: center; justify-content: space-between; min-height: auto; padding: 32px 40px; }
 .product-special::before { display: none; }
 .product-special:hover { background: var(--primary-deep); border-color: var(--primary-deep); box-shadow: 0 12px 32px -8px rgba(30, 64, 175, 0.4); }
@@ -164,16 +168,20 @@ nav {
 .product-special .product-desc { color: rgba(255,255,255,0.85); flex-grow: 0; max-width: 480px; }
 .product-special .product-arrow { color: white; margin: 0; font-size: 22px; }
 
-/* Products page - 풀 너비 메인 배너 */
+/* Products page - 메인 배너 (컨테이너 안에 적정 사이즈로) */
 .products-banner {
-  width: 100%;
-  display: block;
-  border-radius: 0;
+  padding: 32px 24px 8px;
 }
 .products-banner img {
   width: 100%;
-  height: auto;
+  max-width: 1280px;
   display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+@media (max-width: 768px) {
+  .products-banner { padding: 16px 16px 0; }
+  .products-banner img { border-radius: 10px; }
 }
 
 /* Cases ================================================================ */
@@ -398,12 +406,14 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="product-fire-shutter.html" class="product-card">
         <div class="product-num">01 / 방화셔터</div>
         <div class="product-name">철재방화셔터</div>
+        <div class="product-keywords"><span class="product-keyword-badge">화재 차단</span><span class="product-keyword-badge">인정제품</span></div>
         <div class="product-desc">견고한 강판 구조로 화재 확산을 효과적으로 차단하는 기본형 방화셔터. 안정적인 성능으로 다양한 건축물에 폭넓게 적용됩니다.</div>
         <div class="product-arrow">→</div>
       </a>
       <a href="product-fire-screen.html" class="product-card">
         <div class="product-num">02 / 방화셔터</div>
         <div class="product-name">방화스크린셔터</div>
+        <div class="product-keywords"><span class="product-keyword-badge">개방감</span><span class="product-keyword-badge">디자인</span></div>
         <div class="product-desc">와이어글라스코팅직물 기반의 방화셔터. 개방감과 안전을 동시에 고려한 차세대 방화 솔루션으로, 화재 시 자동 전개되어 공간을 안전하게 구획합니다.</div>
         <div class="product-arrow">→</div>
       </a>
@@ -424,12 +434,14 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="product-electric.html" class="product-card">
         <div class="product-num">03 / 셔터</div>
         <div class="product-name">전동셔터</div>
+        <div class="product-keywords"><span class="product-keyword-badge">경제형</span><span class="product-keyword-badge">경량</span><span class="product-keyword-badge">단열</span><span class="product-keyword-badge">저소음</span></div>
         <div class="product-desc">고내구성 모터와 안전장치를 적용한 전동식 셔터로, 편리한 자동 제어를 통해 다양한 출입 환경에 안정적으로 대응합니다.</div>
         <div class="product-arrow">→</div>
       </a>
       <a href="product-wind-resistant.html" class="product-card">
         <div class="product-num">04 / 셔터</div>
         <div class="product-name">내풍압셔터</div>
+        <div class="product-keywords"><span class="product-keyword-badge">강풍 대응</span><span class="product-keyword-badge">해안지역</span></div>
         <div class="product-desc">강풍과 외부 하중에 대응하도록 설계된 고강도 셔터로, 대형 개구부와 특수 환경에서도 안정적인 성능을 제공합니다.</div>
         <div class="product-arrow">→</div>
       </a>
