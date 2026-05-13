@@ -55,11 +55,10 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-weight: 900; font-size: 19px; letter-spacing: -0.03em;
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center;
 }
-.logo-mark { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
-.logo small { font-size: 10px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.15em; }
+.logo img { height: 40px; width: auto; display: block; }
+.logo small { display: none; } /* 기존 small 텍스트 숨김 */
 .nav-menu { display: flex; gap: 36px; list-style: none; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text); transition: color 0.2s; }
 .nav-menu a:hover, .nav-menu a.active { color: var(--primary); }
@@ -182,6 +181,25 @@ nav {
 .about-text h2 { font-size: clamp(32px, 4vw, 44px); font-weight: 800; line-height: 1.2; margin: 16px 0 28px; letter-spacing: -0.035em; }
 .about-text p { font-size: 16px; color: #475569; margin-bottom: 20px; line-height: 1.8; }
 .about-text .section-link { margin-top: 12px; }
+
+/* Process / 생산 프로세스 ====================================== */
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+.process-step { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 36px 28px 32px; position: relative; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.process-step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(30,64,175,0.12); border-color: var(--primary); }
+.process-icon { color: var(--primary); margin-bottom: 28px; }
+.process-icon svg { width: 44px; height: 44px; stroke: currentColor; }
+.process-num { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.18em; margin-bottom: 10px; }
+.process-title { font-size: 19px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.025em; color: var(--text); }
+.process-text { font-size: 13.5px; color: #64748b; line-height: 1.75; }
+.process-step::after { content: ''; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; background: white; border-top: 2px solid var(--border); border-right: 2px solid var(--border); transform: translateY(-50%) rotate(45deg); z-index: 2; }
+.process-step:last-child::after { display: none; }
+@media (max-width: 968px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-step::after { display: none; }
+}
+@media (max-width: 540px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
 
 /* Contact ============================================================== */
 .contact { background: var(--primary); color: white; text-align: center; position: relative; overflow: hidden; }
@@ -350,7 +368,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo"><span class="logo-mark"></span>경원에스아이<small>KYUNGWON S&I</small></a>
+    <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
       <li><a href="products.html">제품</a></li>
@@ -366,7 +384,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div class="hero-content">
       <div class="hero-eyebrow fade-up">셔터 시공 전문 및 제조업체</div>
       <h1 class="fade-up delay-1">살리는<br>산업<span class="dot">.</span></h1>
-      <p class="fade-up delay-2">화재로부터 일상을 지키는 일에 집중합니다. </br> 경원에스아이는 인정방화셔터를 직접 제조하며, 다양한 셔터 제품의 공급부터 시공, 유지관리까지 통합적으로 수행하여 산업 현장과 건축물의 안전을 책임집니다.</p>
+      <p class="fade-up delay-2">화재로부터 일상을 지키는 일에 집중합니다. 경원에스아이는 인정방화셔터를 직접 제조하며, 다양한 셔터 제품의 공급부터 시공, 유지관리까지 통합적으로 수행하여 산업 현장과 건축물의 안전을 책임집니다.</p>
       <div class="hero-actions fade-up delay-3">
         <a href="products.html" class="btn btn-primary">제품 보기 →</a>
         <a href="contact.html" class="btn btn-secondary">견적 문의</a>
@@ -410,6 +428,71 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </div>
         <div class="product-arrow">→</div>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">PROCESS / 생산 프로세스</div>
+        <h2 class="section-title">원자재부터 시공까지<br>한 곳에서 책임집니다</h2>
+        <p style="margin-top: 16px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 640px;">엄선된 자재 검수부터 정밀 가공, 자체 품질 검사, 출하·시공까지 — 모든 공정을 자체 시스템으로 일관 관리합니다.</p>
+      </div>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 6L8 14v20l16 8 16-8V14L24 6z"/>
+            <path d="M8 14l16 8 16-8 M24 22v20"/>
+            <path d="M16 10l16 8"/>
+          </svg>
+        </div>
+        <div class="process-num">STEP 01</div>
+        <div class="process-title">원자재 입고·검수</div>
+        <div class="process-text">엄선된 자재를 입고 시점에 검수하여, 품질 기준에 부합하는 원자재만 생산에 투입합니다.</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="6"/>
+            <path d="M24 4v8 M24 36v8 M4 24h8 M36 24h8 M10 10l5.5 5.5 M32.5 32.5l5.5 5.5 M38 10l-5.5 5.5 M15.5 32.5L10 38"/>
+          </svg>
+        </div>
+        <div class="process-num">STEP 02</div>
+        <div class="process-title">가공·제작</div>
+        <div class="process-text">자체 공장 설비로 절곡·가공·조립·용접 등 전 공정을 직접 수행하여 정밀도를 확보합니다.</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 6L10 11v11c0 10 6 18 14 21 8-3 14-11 14-21V11L24 6z"/>
+            <path d="M17 24l5 5 9-10"/>
+          </svg>
+        </div>
+        <div class="process-num">STEP 03</div>
+        <div class="process-title">품질 검사</div>
+        <div class="process-text">자체 품질관리 기준에 따라 다단계 검사를 거쳐, 안정적이고 신뢰할 수 있는 제품을 완성합니다.</div>
+      </div>
+
+      <div class="process-step">
+        <div class="process-icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14h22v22H4z"/>
+            <path d="M26 20h10l8 8v8H26V20z"/>
+            <circle cx="14" cy="38" r="4"/>
+            <circle cx="36" cy="38" r="4"/>
+          </svg>
+        </div>
+        <div class="process-num">STEP 04</div>
+        <div class="process-title">출하·시공</div>
+        <div class="process-text">안전한 포장과 체계적인 출하 관리, 그리고 현장 시공까지 책임지고 마무리합니다.</div>
+      </div>
     </div>
   </div>
 </section>
