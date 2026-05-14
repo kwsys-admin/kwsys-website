@@ -240,7 +240,7 @@ nav {
 .contact-info-value { font-size: 15px; font-weight: 500; line-height: 1.5; }
 
 /* CTA 3개 버튼 */
-.cta-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 920px; margin: 0 auto 40px; }
+.cta-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 780px; margin: 0 auto 40px; }
 .cta-btn { display: flex; align-items: center; gap: 16px; padding: 22px 24px; border-radius: 14px; text-decoration: none; text-align: left; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; overflow: hidden; }
 .cta-btn:hover { transform: translateY(-3px); }
 .cta-btn-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
@@ -262,6 +262,10 @@ nav {
 .cta-btn-ghost { background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px); }
 .cta-btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); }
 .cta-btn-ghost .cta-btn-icon { background: rgba(255,255,255,0.12); color: white; }
+
+.cta-btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6); }
+.cta-btn-outline:hover { background: rgba(255,255,255,0.08); border-color: white; }
+.cta-btn-outline .cta-btn-icon { background: rgba(255,255,255,0.12); color: white; }
 
 @media (max-width: 900px) { .cta-buttons { grid-template-columns: 1fr; max-width: 480px; } }
 
@@ -526,7 +530,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
-<section class="padded">
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
     <div class="section-header">
       <div>
@@ -606,7 +610,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section class="padded">
   <div class="container">
     <div class="section-header">
       <div>
@@ -709,13 +713,13 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
       <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2;">
         <div>
-          <div style="display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; margin-bottom: 20px;">B2B · 시공업체 전용</div>
-          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.25; letter-spacing: -0.03em; margin-bottom: 24px;">방화셔터 <span style="color: #fbbf24;">자재 세트</span><br>공급도 함께 합니다</h2>
+          <div style="display: inline-block; padding: 6px 14px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; margin-bottom: 20px;">자재판매</div>
+          <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.25; letter-spacing: -0.03em; margin-bottom: 24px;"><span style="color: #fbbf24;">방화셔터 자재</span><br>공급도 함께 합니다</h2>
           <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 16px;">
             방화셔터를 직접 시공하시는 업체를 위해 <strong style="color: white;">슬랫·가이드레일·셔터박스 등 방화셔터에 필요한 모든 자재를 세트로 공급</strong>합니다.
           </p>
           <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 32px;">
-            KICT 품질인정을 받은 인정방화셔터 제조사가 직접 만든 자재로, <strong style="color: #fbbf24;">인정 완제품과 동일한 품질·규격</strong>으로 시공하실 수 있습니다.
+            KICT 품질인정을 받은 인정방화셔터 제조사가 직접 만든 자재이므로, <strong style="color: #fbbf24;">인정 제품과 동일한 품질·규격</strong>으로 시공하셔야 합니다.
           </p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a href="contact.html" style="display: inline-flex; align-items: center; gap: 6px; padding: 14px 28px; background: white; color: var(--primary); border-radius: 100px; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">자재 견적 문의하기 →</a>
@@ -733,7 +737,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="color: #fbbf24; font-weight: 700;">✓</span><span>하장바·구동부 등 부속 일체</span></div>
           </div>
           <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 12.5px; color: rgba(255,255,255,0.75); line-height: 1.65;">
-            ※ 자재 사양·수량은 현장 조건에 따라 협의하여 세트 구성<br>※ 가격은 문의 시 견적으로 안내
+            ※ 가격은 문의 시 견적으로 안내
           </div>
         </div>
       </div>
@@ -753,8 +757,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 <section class="padded contact">
   <div class="container">
     <div class="section-eyebrow">CONTACT / 문의</div>
-    <h2>프로젝트의 시작,<br>경원에스아이와 함께하세요.</h2>
-    <p>셔터 완제품부터 시공업체 자재 세트까지 — 현장에 맞는 최적의 솔루션을<br>한 곳에서 제안해드리는 KICT 인정방화셔터 제조기업입니다.</p>
+    <h2>맞춤 설계부터 시공, 유지관리까지<br>경원에스아이와 함께 하세요.</h2>
+    <p>현장에 최적화된 셔터 솔루션으로<br>안전과 효율을 동시에 제공합니다.</p>
 
     <div class="cta-buttons">
       <a href="contact.html" class="cta-btn cta-btn-primary">
@@ -763,7 +767,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </div>
         <div class="cta-btn-text">
           <div class="cta-btn-title">온라인 견적 문의</div>
-          <div class="cta-btn-sub">현장 사양·수량 알려주세요</div>
+          <div class="cta-btn-sub">시공까지 원하시다면</div>
         </div>
         <div class="cta-btn-arrow">→</div>
       </a>
@@ -774,7 +778,18 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </div>
         <div class="cta-btn-text">
           <div class="cta-btn-title">자재 견적 문의</div>
-          <div class="cta-btn-sub">시공업체 전용 자재 세트</div>
+          <div class="cta-btn-sub">자재만 구매하고 싶으시다면</div>
+        </div>
+        <div class="cta-btn-arrow">→</div>
+      </a>
+
+      <a href="catalog.pdf" target="_blank" class="cta-btn cta-btn-outline">
+        <div class="cta-btn-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        </div>
+        <div class="cta-btn-text">
+          <div class="cta-btn-title">카탈로그 보기</div>
+          <div class="cta-btn-sub">제품 자료 다운로드</div>
         </div>
         <div class="cta-btn-arrow">→</div>
       </a>
