@@ -70,26 +70,45 @@ nav {
 .nav-cta:hover { background: var(--primary-deep); }
 
 /* Hero (메인 전용) ====================================================== */
-.hero { padding: 160px 0 100px; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 12px; font-weight: 600; color: var(--primary);
-  letter-spacing: 0.05em; margin-bottom: 32px;
-  padding: 8px 14px; background: var(--primary-tint);
-  border-radius: 100px;
-}
-.hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
-.hero h1 { font-size: clamp(56px, 8vw, 112px); font-weight: 800; line-height: 1.0; letter-spacing: -0.05em; margin-bottom: 28px; }
-.hero h1 .dot { color: var(--primary); }
-.hero p { font-size: 18px; color: var(--text-muted); max-width: 480px; margin-bottom: 40px; line-height: 1.7; }
+.hero { padding: 120px 0 80px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+
+/* 라벨: 살리는 산업. 경원에스아이 */
+.hero-label { display: flex; align-items: baseline; gap: 10px; margin-bottom: 28px; }
+.hero-label .slogan { color: var(--primary); font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+.hero-label .company { color: var(--text); font-size: 15px; font-weight: 600; }
+
+/* 메인 카피 */
+.hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.18; letter-spacing: -0.035em; margin-bottom: 24px; color: var(--text); }
+
+/* 부제 */
+.hero p.hero-subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.55; margin-bottom: 40px; font-weight: 500; }
+.hero p.hero-subtitle strong { color: var(--text); font-weight: 600; }
+
+/* 강점 3가지 가로 배치 */
+.hero-features { display: flex; gap: 0; margin-bottom: 40px; flex-wrap: wrap; }
+.hero-feature { display: flex; align-items: center; gap: 14px; padding-right: 26px; }
+.hero-feature + .hero-feature { padding-left: 26px; border-left: 1px solid var(--border); }
+.hero-feature-icon { width: 38px; height: 38px; color: var(--primary); flex-shrink: 0; }
+.hero-feature-icon svg { width: 100%; height: 100%; stroke: currentColor; }
+.hero-feature-text { font-size: 13.5px; line-height: 1.45; font-weight: 600; color: var(--text); }
+
+/* CTA 액션 */
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* 우측 이미지 */
 .hero-visual {
-  position: relative; aspect-ratio: 4/5; border-radius: 16px;
+  position: relative; aspect-ratio: 1012 / 887; border-radius: 16px;
   overflow: hidden;
-  background-image: url('images/hero-shutter.png');
+  background-image: url('images/hero-shutter.jpg');
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 968px) {
+  .hero-features { gap: 18px 0; }
+  .hero-feature { padding-right: 18px; }
+  .hero-feature + .hero-feature { padding-left: 18px; }
 }
 
 /* Page Hero (서브페이지) ================================================ */
@@ -373,9 +392,15 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   .nav-inner { padding: 14px 20px; }
   .nav-menu { display: none; }
   .hero { padding: 100px 0 56px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-visual { aspect-ratio: 3/2; order: -1; }
-  .hero h1 { font-size: clamp(56px, 14vw, 80px); }
+  .hero h1 { font-size: clamp(28px, 7vw, 40px); line-height: 1.25; }
+  .hero p.hero-subtitle { font-size: 15px; }
+  .hero-features { gap: 16px 0; }
+  .hero-feature { padding-right: 14px; gap: 10px; }
+  .hero-feature + .hero-feature { padding-left: 14px; }
+  .hero-feature-icon { width: 32px; height: 32px; }
+  .hero-feature-text { font-size: 12.5px; }
   .page-hero { padding: 100px 0 56px; }
   .stats { padding: 48px 0; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
@@ -423,11 +448,46 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-content">
-      <div class="hero-eyebrow fade-up">셔터 시공 전문 및 제조업체</div>
-      <h1 class="fade-up delay-1">살리는<br>산업<span class="dot">.</span></h1>
-      <p class="fade-up delay-2">화재로부터 일상을 지키는 일에 집중합니다. 경원에스아이는 인정방화셔터를 직접 제조하며, 다양한 셔터 제품의 공급부터 시공, 유지관리까지 통합적으로 수행하여 산업 현장과 건축물의 안전을 책임집니다.</p>
+      <div class="hero-label fade-up">
+        <span class="slogan">살리는 산업.</span>
+        <span class="company">경원에스아이</span>
+      </div>
+      <h1 class="fade-up delay-1">인정방화셔터 제조 및<br>산업용 셔터 전문기업</h1>
+      <p class="hero-subtitle fade-up delay-2">설계 · 제작 · 시공 · 자재 공급까지<br>One-stop Solution</p>
+
+      <div class="hero-features fade-up delay-2">
+        <div class="hero-feature">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6L10 11v11c0 10 6 18 14 21 8-3 14-11 14-21V11L24 6z"/>
+              <path d="M25 16l-5 10h4l-1 8 6-10h-4l1-8z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="hero-feature-text">인정방화셔터<br>직접 제조</div>
+        </div>
+        <div class="hero-feature">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="10" width="14" height="32"/>
+              <rect x="22" y="18" width="18" height="24"/>
+              <path d="M12 16h2 M12 22h2 M12 28h2 M12 34h2 M27 24h2 M27 30h2 M27 36h2 M34 24h2 M34 30h2 M34 36h2"/>
+            </svg>
+          </div>
+          <div class="hero-feature-text">방화·산업용 셔터<br>전문 시공</div>
+        </div>
+        <div class="hero-feature">
+          <div class="hero-feature-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6L8 14v20l16 8 16-8V14L24 6z"/>
+              <path d="M8 14l16 8 16-8 M24 22v20"/>
+            </svg>
+          </div>
+          <div class="hero-feature-text">방화셔터<br>자재 공급·판매</div>
+        </div>
+      </div>
+
       <div class="hero-actions fade-up delay-3">
-        <a href="products.html" class="btn btn-primary">제품 보기 →</a>
+        <a href="products.html" class="btn btn-primary">제품 보러가기 →</a>
         <a href="contact.html" class="btn btn-secondary">견적 문의</a>
       </div>
     </div>
