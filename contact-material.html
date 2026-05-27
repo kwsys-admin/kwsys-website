@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>철재방화셔터 | (주)경원에스아이</title>
+<title>자재 견적 문의 | (주)경원에스아이</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
 <style>
 /* ==========================================================================
@@ -256,7 +256,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 /* Product detail page ================================================== */
 .detail-hero { padding: 140px 0 60px; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.detail-image { aspect-ratio: 4/3; background-image: url('images/fire-shutter.png'); background-size: cover; background-position: center; border-radius: 16px; position: relative; }
+.detail-image { aspect-ratio: 4/3; background: repeating-linear-gradient(0deg, rgba(30, 64, 175, 0.04) 0, rgba(30, 64, 175, 0.04) 1px, transparent 1px, transparent 28px), linear-gradient(135deg, var(--primary-tint-2) 0%, var(--primary-tint) 100%); border-radius: 16px; position: relative; display: flex; align-items: flex-end; padding: 28px; }
 .detail-image-label { font-size: 10px; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; }
 .detail-content h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin: 12px 0 20px; }
 .detail-content p.lead { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
@@ -271,73 +271,11 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .spec-table th { font-weight: 700; color: var(--text); width: 30%; }
 .spec-table td { color: #475569; }
 
-/* Spec section - 좌측 표 + 우측 슬랫 사진 */
-.spec-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
-.spec-image { display: block; width: 100%; max-width: 280px; height: auto; max-height: 540px; object-fit: contain; margin: 0 auto; }
-@media (max-width: 968px) {
-  .spec-grid { grid-template-columns: 1fr; gap: 32px; }
-  .spec-image { max-width: 220px; max-height: 420px; }
-}
-
-/* Pros & Cons 섹션 */
-.proscons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
-.proscons-card { padding: 32px 28px; border-radius: 12px; border: 1px solid var(--border); background: white; }
-.proscons-card.pros { border-top: 4px solid var(--primary); }
-.proscons-card.cons { border-top: 4px solid #94a3b8; }
-.proscons-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; text-transform: uppercase; }
-.proscons-card.pros .proscons-label { color: var(--primary); }
-.proscons-card.cons .proscons-label { color: #64748b; }
-.proscons-title { font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
-.proscons-item { margin-bottom: 18px; padding-left: 22px; position: relative; font-size: 14px; line-height: 1.7; color: #475569; }
-.proscons-item:last-child { margin-bottom: 0; }
-.proscons-item strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; font-size: 15px; }
-.proscons-card.pros .proscons-item::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--primary); font-weight: 700; }
-.proscons-card.cons .proscons-item::before { content: '!'; position: absolute; left: 0; top: 0; color: #94a3b8; font-weight: 700; }
-@media (max-width: 768px) {
-  .proscons-grid { grid-template-columns: 1fr; gap: 16px; }
-}
-
 .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
 .cert-icon { width: 48px; height: 48px; border-radius: 8px; background: var(--primary-tint); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
 .cert-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
 .cert-meta { font-size: 12px; color: var(--text-muted); }
-
-/* Lineup section (no sidebar — global side nav handles navigation) ====== */
-.lineup-items { display: flex; flex-direction: column; gap: 80px; max-width: 900px; margin: 40px auto 0; }
-.lineup-item { scroll-margin-top: 96px; }
-.lineup-item-image { width: 100%; height: 360px; background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); border-radius: 16px; margin-bottom: 28px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 13px; background-size: cover; background-position: center; }
-.lineup-item-num { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; text-transform: uppercase; }
-.lineup-item-title { font-size: 30px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.2; }
-.lineup-item-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
-.lineup-item-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.lineup-feature { padding: 16px 18px; background: var(--surface); border-radius: 8px; }
-.lineup-feature-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; letter-spacing: 0.02em; }
-.lineup-feature-value { font-size: 14px; font-weight: 600; color: var(--text); }
-
-/* Global product side navigation (floating, all product pages) */
-.product-side-nav { position: fixed; top: 50%; left: 16px; transform: translateY(-50%); width: 200px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); z-index: 50; max-height: 78vh; overflow-y: auto; }
-.product-side-nav-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; padding-left: 12px; }
-.product-side-nav-list { list-style: none; padding: 0; margin: 0; }
-.product-side-nav-list > li { margin: 0; }
-.product-side-nav-link { display: block; padding: 8px 12px; color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
-.product-side-nav-link:hover { background: var(--surface); color: var(--text); }
-.product-side-nav-link.current { background: var(--primary-tint); color: var(--primary); font-weight: 700; }
-.product-side-nav-sublist { list-style: none; padding: 6px 0 6px 14px; margin: 4px 0 4px 16px; border-left: 2px solid var(--primary-tint); }
-.product-side-nav-sublink { display: block; padding: 5px 8px; color: var(--text-muted); text-decoration: none; font-size: 12px; border-radius: 4px; transition: all 0.2s; line-height: 1.4; }
-.product-side-nav-sublink:hover { background: var(--surface); color: var(--text); }
-.product-side-nav-sublink.active { color: var(--primary); font-weight: 700; }
-
-@media (max-width: 1280px) {
-  .product-side-nav { display: none; }
-}
-
-@media (max-width: 968px) {
-  .lineup-item-features { grid-template-columns: 1fr; }
-  
-  .lineup-item-title { font-size: 24px; }
-  .lineup-items { gap: 56px; }
-}
 
 /* Cases page =========================================================== */
 .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
@@ -367,13 +305,55 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-tint); }
 .form-textarea { resize: vertical; min-height: 120px; }
 .form-help { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+.form-section-title { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin: 32px 0 16px; padding-top: 24px; border-top: 1px solid var(--border); }
+.form-section-title:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* Dynamic product rows */
+.product-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: stretch; }
+.product-row .form-input, .product-row .form-select { padding: 10px 12px; font-size: 13px; }
+.row-remove { width: 36px; border: 1px solid var(--border); background: white; border-radius: 8px; font-size: 16px; color: var(--text-muted); cursor: pointer; transition: all 0.2s; line-height: 1; padding: 0; display: flex; align-items: center; justify-content: center; }
+.row-remove:hover { border-color: #dc2626; color: #dc2626; background: #fef2f2; }
+.add-row-btn { background: white; color: var(--primary); border: 1px dashed var(--primary); padding: 12px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: 600; font-size: 13px; margin-top: 4px; transition: all 0.2s; }
+.add-row-btn:hover { background: var(--primary-tint); }
+.product-row-help { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6; }
+@media (max-width: 600px) {
+  .product-row { grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; }
+  .product-row .form-select { grid-column: 1 / -1; }
+  .row-remove { grid-column: 1 / -1; width: 100%; height: 36px; }
+}
 .form-checkbox { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-muted); }
 .form-checkbox input { margin-top: 3px; accent-color: var(--primary); }
 .form-submit { background: var(--primary); color: white; padding: 14px 32px; font-size: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s; width: 100%; margin-top: 8px; }
 .form-submit:hover { background: var(--primary-deep); }
 
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; animation: fadeIn 0.2s ease; }
+.modal-card { background: white; border-radius: 16px; padding: 48px 40px; text-align: center; max-width: 420px; width: 100%; animation: scaleIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-icon { width: 64px; height: 64px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; font-weight: 700; margin: 0 auto 24px; line-height: 1; }
+.modal-icon.error { background: #dc2626; }
+.modal-title { font-size: 22px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.025em; line-height: 1.3; }
+.modal-text { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; }
+.modal-button { background: var(--primary); color: white; border: none; padding: 14px 48px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.modal-button:hover { background: var(--primary-deep); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+
 .contact-side-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 16px; }
 .contact-side-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 12px; }
+
+/* 사이드바 FAQ */
+.faq-side-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; }
+.faq-side-card .faq-side-title { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 8px; }
+.faq-side-card .faq-side-heading { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 20px; letter-spacing: -0.02em; }
+.faq-side-card details { padding: 14px 0; border-bottom: 1px solid var(--border); }
+.faq-side-card details:last-child { border-bottom: none; padding-bottom: 0; }
+.faq-side-card details:first-of-type { padding-top: 0; }
+.faq-side-card summary { font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; position: relative; padding-right: 24px; line-height: 1.5; transition: color 0.2s; }
+.faq-side-card summary:hover { color: var(--primary); }
+.faq-side-card summary::-webkit-details-marker { display: none; }
+.faq-side-card summary::after { content: '+'; position: absolute; right: 0; top: 0; font-size: 18px; color: var(--primary); font-weight: 600; transition: transform 0.2s; line-height: 1.5; }
+.faq-side-card details[open] summary::after { content: '−'; }
+.faq-side-card details p { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin: 12px 0 0 0; }
 .contact-side-value { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .contact-side-meta { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
@@ -422,228 +402,167 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <a href="index.html" class="logo"><img src="images/kwsys-logo.png" alt="경원에스아이 KW"></a>
     <ul class="nav-menu">
       <li><a href="about.html">회사소개</a></li>
-      <li><a href="products.html" class="active">제품</a></li>
+      <li><a href="products.html">제품</a></li>
       <li><a href="cases.html">시공사례</a></li>
-      <li><a href="contact.html">고객지원</a></li>
+      <li><a href="contact.html" class="active">고객지원</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">온라인 문의</a>
   </div>
 </nav>
 
-<aside class="product-side-nav">
-  <div class="product-side-nav-title">제품 라인업</div>
-  <ul class="product-side-nav-list">
-    <li><a href="product-fire-shutter.html" class="product-side-nav-link current">철재방화셔터</a></li>
-    <li><a href="product-fire-screen.html" class="product-side-nav-link">방화스크린셔터</a></li>
-    <li><a href="product-electric.html" class="product-side-nav-link">전동셔터</a></li>
-    <li><a href="product-wind-resistant.html" class="product-side-nav-link">내풍압셔터</a></li>
-    <li><a href="product-speed-door.html" class="product-side-nav-link">스피드도어</a></li>
-    <li><a href="product-overhead-door.html" class="product-side-nav-link">오버헤드도어</a></li>
-    <li><a href="product-special-door.html" class="product-side-nav-link">특수도어</a></li>
-  </ul>
-</aside>
-
-<section class="detail-hero">
+<section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 철재방화셔터</div>
-    <div class="detail-grid">
-      <div class="detail-image"></div>
-      <div class="detail-content">
-        <div class="page-hero-eyebrow">01 / 방화셔터</div>
-        <h1>철재방화셔터</h1>
-        <p class="lead">철재방화셔터는 화재 발생 시 화염과 연기의 확산을 차단하여 건축물의 안전구획을 유지하는 철재 재질의 방화설비입니다. 평상시에는 개방 상태로 사용되며, 화재 감지 시 자동으로 하강하여 출입구 및 개구부를 차단함으로써 인명 대피 시간 확보와 재산 피해 최소화에 도움을 줍니다.</p>
-        <p class="lead" style="margin-top: 16px;">국토교통부 승인 건축자재등 품질인정 기준에 준하여 설치되는 제품으로, 고온 환경에서도 견딜 수 있는 내화 성능과 안정적인 방재 시스템을 갖추고 있습니다. 또한 우수한 구동 안정성과 밀폐 성능을 통해 화염 및 연기의 이동을 효과적으로 억제하여 건축물의 안전성을 높입니다.</p>
-        <div class="detail-tags">
-          <span class="detail-tag">KICT 품질인정</span>
-          <span class="detail-tag">비차열 60분</span>
-          <span class="detail-tag">자동폐쇄</span>
-        </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn-primary">견적 문의 →</a>
-          <a href="#specs" class="btn btn-secondary">사양 확인</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="padded" id="specs" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="spec-grid">
-      <div>
-        <div class="section-eyebrow" style="margin-bottom: 16px;">SPECIFICATION / 주요 사양</div>
-        <h2 class="section-title" style="margin-bottom: 32px;">기본 사양</h2>
-        <table class="spec-table">
-          <tr><th>슬랫·셔터박스 재질</th><td>SECC 전기아연도금강대</td></tr>
-          <tr><th>슬랫·셔터박스 두께</th><td>1.55T</td></tr>
-          <tr><th>가이드레일 재질·두께</th><td>STS 304 1.2mm + SECC 1.15mm</td></tr>
-          <tr><th>최대 시공 사이즈</th><td>8,000 × 4,000 mm</td></tr>
-          <tr><th>제어 방식</th><td>연기·열감지기에 의한 2단 강하</td></tr>
-          <tr><th>내화 등급</th><td>비차열 60분</td></tr>
-        </table>
-        <p style="font-size: 12px; color: var(--text-light); margin-top: 24px;">※ 셔터박스 사양은 사이즈별로 상이하며, 정확한 사양은 견적 문의 시 안내드립니다.</p>
-      </div>
-      <img class="spec-image" src="images/fire-shutter-slat.png" alt="철재방화셔터 슬랫 단면도">
-    </div>
+    <div class="breadcrumb"><a href="index.html">HOME</a> / 자재 견적 문의</div>
+    <div class="page-hero-eyebrow">MATERIAL / 자재 견적 문의</div>
+    <h1>방화셔터 자재<br>견적을 문의해 주세요.</h1>
+    <p>철재방화셔터·방화스크린셔터 자재 세트를 시공업체에 공급합니다. 현장 사양·수량을 알려주시면 담당자가 24시간 이내(영업일 기준) 회신드립니다.</p>
   </div>
 </section>
 
 <section class="padded">
   <div class="container">
-    <div class="section-header">
+    <div class="contact-page-grid">
+      <form action="https://formspree.io/f/xnjwzovk" method="POST" class="form-card">
+        <input type="hidden" name="_subject" value="[경원에스아이 홈페이지] 새 자재 견적 문의 도착">
+        <input type="hidden" name="_language" value="ko">
+        <input type="hidden" name="문의분류" value="자재 견적 (시공업체용)">
+        <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.025em;">자재 견적 문의</h2>
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6;">시공업체에 공급되는 인정 자재 세트 견적입니다.<br>철재방화셔터·방화스크린셔터 자재 전용 폼이며, 인정 제품과 동일한 품질·규격으로 시공하셔야 합니다.</p>
+
+        <div class="form-section-title">신청자 정보</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">이름 / 담당자<span class="req">*</span></label>
+            <input type="text" name="이름" class="form-input" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">회사명<span class="req">*</span></label>
+            <input type="text" name="회사명" class="form-input" placeholder="○○건설" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">연락처<span class="req">*</span></label>
+            <input type="tel" name="연락처" class="form-input" placeholder="010-0000-0000" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">이메일<span class="req">*</span></label>
+            <input type="email" name="email" class="form-input" placeholder="example@email.com">
+          </div>
+        </div>
+
+        <p class="form-help" style="margin: -8px 0 0 0; padding: 12px 14px; background: var(--primary-tint); border-radius: 6px; color: var(--primary); font-weight: 500;">💡 견적서를 이메일로 받으실 경우 이메일 주소를 꼭 기재해 주세요.</p>
+
+        <div class="form-section-title">현장 정보</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">현장명</label>
+            <input type="text" name="현장명" class="form-input" placeholder="○○물류센터 신축">
+          </div>
+          <div class="form-group">
+            <label class="form-label">현장 위치<span class="req">*</span></label>
+            <input type="text" name="현장위치" class="form-input" placeholder="경기도 ○○시" required>
+          </div>
+        </div>
+
+        <div class="form-section-title">견적 요청 제품<span class="req" style="margin-left: 4px; font-size: 14px;">*</span></div>
+
+        <p class="product-row-help">자재가 필요한 제품을 선택하고 사이즈·수량을 입력해 주세요. 여러 제품이 필요하면 <strong>+ 제품 추가</strong> 버튼으로 행을 늘려주세요.</p>
+
+        <div id="product-rows">
+          <div class="product-row">
+            <select class="form-select product-name">
+              <option value="">제품 선택</option>
+              <option>철재방화셔터</option>
+              <option>방화스크린셔터</option>
+            </select>
+            <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
+            <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
+            <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+            <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
+          </div>
+        </div>
+
+        <button type="button" class="add-row-btn" id="add-product-row">+ 제품 추가</button>
+
+        <input type="hidden" name="견적요청제품" id="product-summary">
+
+        <div class="form-section-title">자재 사양 선택</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">가이드레일 유형<span class="req">*</span></label>
+            <select name="가이드레일유형" class="form-select" required>
+              <option value="">선택해 주세요</option>
+              <option>벽면형 (130 × 80)</option>
+              <option>전면형 (130 × 130)</option>
+              <option>혼합형 (전면형 1 + 벽면형 1)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">연동제어기 유형<span class="req">*</span></label>
+            <select name="연동제어기유형" class="form-select" required>
+              <option value="">선택해 주세요</option>
+              <option>노출형</option>
+              <option>매립형</option>
+              <option>매립세트</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section-title">문의 내용</div>
+
+        <div class="form-group">
+          <label class="form-label">추가 문의 내용</label>
+          <textarea name="추가문의내용" class="form-textarea" placeholder="추가로 알려주실 내용이 있다면 자유롭게 작성해 주세요. (예: 납기 일정, 도면 첨부 요청 등)"></textarea>
+          <div class="form-help">도면이나 사진은 이메일(kwsys0210@naver.com)로 보내주세요.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-checkbox">
+            <input type="checkbox" name="개인정보동의" value="동의함" required>
+            <span>개인정보 수집·이용에 동의합니다. <a href="#" style="color: var(--primary); text-decoration: underline;">전문 보기</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="form-submit">자재 견적 문의하기</button>
+        <p style="font-size: 12px; color: var(--text-light); margin-top: 16px; text-align: center;">※ 제출하시면 kwsys0210@naver.com으로 자동 전송됩니다.</p>
+      </form>
+
       <div>
-        <div class="section-eyebrow">PROS & CONS / 장단점</div>
-        <h2 class="section-title">철재방화셔터 장단점</h2>
-        <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">현장에 맞는 제품을 선택하실 수 있도록 솔직하게 안내드립니다.</p>
-      </div>
-    </div>
-    <div class="proscons-grid">
-      <div class="proscons-card pros">
-        <div class="proscons-label">PROS / 장점</div>
-        <div class="proscons-title">철재방화셔터의 강점</div>
-        <div class="proscons-item">
-          <strong>높은 내구성</strong>
-          강철 소재로 제작되어 외부 충격, 강한 바람, 화재에 강해 오래 사용할 수 있습니다.
+        <div class="contact-side-card">
+          <div class="contact-side-label">전화</div>
+          <div class="contact-side-value">031-8055-8458</div>
+          <div class="contact-side-meta">평일 09:00 - 18:00 (점심 12:00-13:00)<br>주말·공휴일 휴무</div>
         </div>
-        <div class="proscons-item">
-          <strong>견고한 방화 능력</strong>
-          화재 발생 시 빠른 차단으로 건물 내부 안전을 지켜줍니다.
+
+        <div class="contact-side-card">
+          <div class="contact-side-label">이메일</div>
+          <div class="contact-side-value">kwsys0210@naver.com</div>
+          <div class="contact-side-meta">도면·사진 첨부 시 이메일 권장</div>
         </div>
-        <div class="proscons-item">
-          <strong>외부도어 설치 가능</strong>
-          외기가 직접 접하는 외부도어로 설치 가능합니다.
-        </div>
-      </div>
-      <div class="proscons-card cons">
-        <div class="proscons-label">CONS / 단점</div>
-        <div class="proscons-title">고려할 점</div>
-        <div class="proscons-item">
-          <strong>설치 공간 필요</strong>
-          중량이 무거워 셔터박스 설치 공간 확보가 필요합니다.
-        </div>
-        <div class="proscons-item">
-          <strong>비용</strong>
-          방화스크린셔터 대비 시공 및 유지관리 비용이 높습니다.
+
+        <div class="faq-side-card">
+          <div class="faq-side-title">FAQ</div>
+          <div class="faq-side-heading">자주 묻는 질문</div>
+          <details>
+            <summary>견적은 얼마나 걸리나요?</summary>
+            <p>영업일 기준 1-2일 이내 회신드립니다. 도면 검토가 필요하거나 수량이 많은 경우 2-3일 정도 소요됩니다. 최대 소요 기간 기준으로 안내드린 것이며, 가능한 한 빠르게 회신드리고 있습니다.</p>
+          </details>
+          <details>
+            <summary>A/S는 어떻게 진행되나요?</summary>
+            <p>전화로 접수해 주시면 상태 확인 → 출장 일정 협의 → 현장 방문 순으로 진행됩니다.</p>
+          </details>
+          <details>
+            <summary>납기는 보통 얼마나 걸리나요?</summary>
+            <p>발주 후 약 2주 정도로 여유 있게 안내드리고 있습니다. 수량이 적은 경우 1주 내외로도 가능하며, 급한 일정은 별도 협의해 주시면 일정 조정이 가능합니다.</p>
+          </details>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-eyebrow">APPLICATION / 적용 분야</div>
-        <h2 class="section-title">적용 가능한 현장</h2>
-      </div>
-    </div>
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-num">01</div>
-        <div class="value-title">물류센터·창고</div>
-        <div class="value-text">대형 개구부의 방화구획용. 화재 시 화염 확산을 차단하여 인명·재산 피해를 최소화합니다.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">02</div>
-        <div class="value-title">제조공장</div>
-        <div class="value-text">생산라인이 분리된 공장의 구획별 방화 — 일부 라인 화재가 전체로 확산되는 것을 방지합니다.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-num">03</div>
-        <div class="value-title">공공시설·상업시설</div>
-        <div class="value-text">대형 마트·공공기관·주차장 등 다중이용시설의 법정 방화구획 요구를 충족합니다.</div>
-      </div>
-    </div>
-    <p style="margin-top: 36px; font-size: 15px; color: var(--text); line-height: 1.7; text-align: center; font-weight: 500;">대형 공간에서 높은 내구성과 방화 성능을 최우선으로 생각한다면 <strong style="color: var(--primary);">철재방화셔터</strong>를 추천드립니다.</p>
-  </div>
-</section>
-
-<section class="padded">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-eyebrow">RELATED / 관련 자료</div>
-        <h2 class="section-title">자료·문서</h2>
-      </div>
-    </div>
-    <div class="cert-grid">
-      <div class="cert-card" style="cursor: pointer;">
-        <div class="cert-icon">PDF</div>
-        <div>
-          <div class="cert-name">제품 카탈로그 다운로드</div>
-          <div class="cert-meta">철재방화셔터 사양서 (PDF)</div>
-        </div>
-      </div>
-      <div class="cert-card" style="cursor: pointer;">
-        <div class="cert-icon">DWG</div>
-        <div>
-          <div class="cert-name">표준 도면 다운로드</div>
-          <div class="cert-meta">CAD 도면 (DWG)</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 자료는 관리자가 업로드한 파일로 연결됩니다 (CMS 연동 예정).</p>
-  </div>
-</section>
-
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">자재 세트만 별도 공급</h2>
-        <p style="margin-top: 16px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">방화셔터를 직접 시공하시는 업체를 위해, <strong style="color: var(--text);">KICT 인정 완제품과 동일한 자재 세트</strong>를 별도 공급합니다. 슬랫·가이드레일·셔터박스 등 시공에 필요한 모든 자재를 세트로 구성하여 제공합니다.</p>
-      </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: stretch; margin-top: 16px;">
-      <!-- 좌측: 도면 -->
-      <div style="background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden;">
-        <a href="images/drawing-fire-shutter.png" target="_blank" rel="noopener" style="display: block; background: white; padding: 20px; cursor: zoom-in; position: relative;">
-          <img src="images/drawing-fire-shutter.png" alt="철재방화셔터 기본 도면" style="width: 100%; height: auto; display: block;">
-        </a>
-        <div style="padding: 14px 20px; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 13px; font-weight: 700; color: var(--text);">철재방화셔터 기본 도면</span>
-          <span style="font-size: 12px; color: var(--primary); font-weight: 600;">🔍 클릭하여 크게 보기</span>
-        </div>
-      </div>
-
-      <!-- 우측: 자재 구성 + 버튼 -->
-      <div style="background: white; border: 1px solid var(--border); border-radius: 14px; padding: 32px; display: flex; flex-direction: column;">
-        <div style="font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.15em; margin-bottom: 8px;">자재 세트 구성</div>
-        <h3 style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px;">철재방화셔터 (NVS) 자재</h3>
-
-        <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>슬랫</strong> · SECC 1.55mm</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>셔터박스</strong> · 500×610 / 550×710 / 600×800 / 630×830</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>가이드레일</strong> · 전면형 130×130 / 벽면형 130×80 / 혼합형 (전면형 1 + 벽면형 1)</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>샤프트</strong> · SGT 275</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>전동개폐기</strong> · 인정제품 사용 모델 이상</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6; padding-bottom: 10px; border-bottom: 1px dashed var(--border);"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>하단마감재</strong> · STS 304 1.5mm</span></li>
-          <li style="display: flex; gap: 10px; font-size: 13.5px; line-height: 1.6;"><span style="color: var(--primary); font-weight: 700;">✓</span><span><strong>부속 일체</strong> · 브라켓·벽체보강재 등</span></li>
-        </ul>
-
-        <a href="contact-material.html" class="btn btn-primary" style="text-align: center;">자재 견적 문의하기 →</a>
-        <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 12px; text-align: center;">※ 자재 사양·수량은 현장에 따라 협의 · 가격은 문의 시 견적</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  @media (max-width: 968px) {
-    section .container > div[style*="grid-template-columns: 1.2fr 1fr"] {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>
-
-<section class="padded contact">
-  <div class="container">
-    <div class="section-eyebrow">CONTACT / 견적 문의</div>
-    <h2>철재방화셔터<br>견적이 필요하신가요?</h2>
-    <p>현장 도면, 개구부 치수, 수량을 알려주시면 정확한 견적을 회신드립니다.</p>
-    <a href="contact.html" class="btn btn-white">온라인 견적 문의 →</a>
   </div>
 </section>
 
@@ -653,6 +572,158 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div><span class="preview-tag">PREVIEW v3</span></div>
   </div>
 </footer>
+
+<!-- 폼 제출 모달 -->
+<div id="form-success-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-card">
+    <div class="modal-icon">✓</div>
+    <h3 class="modal-title">문의 접수가 완료되었습니다</h3>
+    <p class="modal-text">문의주셔서 감사합니다.<br>빠른 시일 내에 견적서를<br>회신드리겠습니다.</p>
+    <button class="modal-button" type="button" onclick="closeModal()">확인</button>
+  </div>
+</div>
+
+<div id="form-error-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-card">
+    <div class="modal-icon error">!</div>
+    <h3 class="modal-title">전송에 실패했습니다</h3>
+    <p class="modal-text">잠시 후 다시 시도해 주시거나<br>전화(031-8055-8458)로<br>연락 부탁드립니다.</p>
+    <button class="modal-button" type="button" onclick="closeModal()">확인</button>
+  </div>
+</div>
+
+<script>
+const form = document.querySelector('form.form-card');
+const successModal = document.getElementById('form-success-modal');
+const errorModal = document.getElementById('form-error-modal');
+
+// 동적 제품 행 추가
+const productRowsContainer = document.getElementById('product-rows');
+const addRowBtn = document.getElementById('add-product-row');
+
+function createProductRow() {
+  const row = document.createElement('div');
+  row.className = 'product-row';
+  row.innerHTML = `
+    <select class="form-select product-name">
+      <option value="">제품 선택</option>
+      <option>철재방화셔터</option>
+      <option>방화스크린셔터</option>
+    </select>
+    <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
+    <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
+    <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+    <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
+  `;
+  return row;
+}
+
+if (addRowBtn) {
+  addRowBtn.addEventListener('click', () => {
+    productRowsContainer.appendChild(createProductRow());
+  });
+}
+
+function removeRow(btn) {
+  const rows = productRowsContainer.querySelectorAll('.product-row');
+  if (rows.length > 1) {
+    btn.closest('.product-row').remove();
+  } else {
+    alert('최소 1개의 제품 행은 필요합니다.');
+  }
+}
+
+// 행 데이터를 정리된 텍스트로 변환
+function buildProductSummary() {
+  const rows = productRowsContainer.querySelectorAll('.product-row');
+  const items = [];
+  rows.forEach((row, i) => {
+    const name = row.querySelector('.product-name').value.trim();
+    const width = row.querySelector('.product-width').value.trim();
+    const height = row.querySelector('.product-height').value.trim();
+    const qty = row.querySelector('.product-qty').value.trim();
+    if (name || width || height || qty) {
+      const sizeStr = (width || height) ? `${width || '-'} × ${height || '-'} mm` : '사이즈 미입력';
+      const qtyStr = qty ? `${qty}EA` : '수량 미입력';
+      items.push(`${i + 1}. ${name || '제품 미선택'} / ${sizeStr} / ${qtyStr}`);
+    }
+  });
+  if (items.length === 0) return '입력된 제품 없음';
+  return `[총 ${items.length}건]\n` + items.join('\n');
+}
+
+// 폼 제출
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // 견적 요청 제품 1개 이상 입력 검증
+    const rows = productRowsContainer.querySelectorAll('.product-row');
+    let hasValidProduct = false;
+    for (const row of rows) {
+      const name = row.querySelector('.product-name').value.trim();
+      if (name) { hasValidProduct = true; break; }
+    }
+    if (!hasValidProduct) {
+      alert('견적 요청 제품을 1개 이상 선택해 주세요.');
+      const firstSelect = productRowsContainer.querySelector('.product-name');
+      if (firstSelect) firstSelect.focus();
+      return;
+    }
+
+    // 견적 요청 제품 정리해서 hidden input에 담기
+    document.getElementById('product-summary').value = buildProductSummary();
+
+    // 제출 버튼 비활성화
+    const submitBtn = form.querySelector('.form-submit');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        successModal.style.display = 'flex';
+        form.reset();
+        // 동적 행도 1개만 남기고 모두 삭제
+        const rows = productRowsContainer.querySelectorAll('.product-row');
+        rows.forEach((row, i) => { if (i > 0) row.remove(); });
+      } else {
+        errorModal.style.display = 'flex';
+      }
+    } catch (err) {
+      errorModal.style.display = 'flex';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+
+function closeModal() {
+  if (successModal) successModal.style.display = 'none';
+  if (errorModal) errorModal.style.display = 'none';
+}
+
+[successModal, errorModal].forEach(modal => {
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
 
 </body>
 </html>
