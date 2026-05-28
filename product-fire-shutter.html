@@ -263,6 +263,69 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .detail-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .detail-tag { padding: 6px 12px; background: var(--primary-tint); color: var(--primary); border-radius: 100px; font-size: 12px; font-weight: 600; }
 
+/* ===== Hero v2 (GPT 시안 적용) ===== */
+.hero-visual-wrap { display: flex; flex-direction: column; gap: 14px; }
+.detail-image { position: relative; overflow: hidden; }
+.kict-overlay {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+.kict-overlay-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; border-radius: 50%; flex-shrink: 0; }
+.kict-overlay-icon svg { width: 24px; height: 24px; }
+.kict-overlay-text strong { display: block; font-size: 15px; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+.kict-overlay-text span { display: block; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.hero-mini-badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 14px; background: white; border: 1px solid var(--border); border-radius: 12px; }
+.mini-badge { display: flex; gap: 10px; align-items: center; padding: 8px 10px; }
+.mini-badge-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--primary-tint); color: var(--primary); border-radius: 8px; flex-shrink: 0; }
+.mini-badge-icon svg { width: 18px; height: 18px; }
+.mini-badge-text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.mini-badge-text strong { font-size: 12.5px; font-weight: 700; color: var(--text); white-space: nowrap; }
+.mini-badge-text span { font-size: 10.5px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.hero-tagline { font-size: 18px; font-weight: 700; color: var(--primary); line-height: 1.45; margin: 0 0 18px; letter-spacing: -0.01em; }
+.hero-checklist { list-style: none; padding: 0; margin: 28px 0 32px; display: flex; flex-direction: column; gap: 12px; }
+.hero-checklist li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.55; color: var(--text); }
+.hero-checklist li::before { content: '✓'; flex-shrink: 0; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; border-radius: 50%; font-size: 11px; font-weight: 800; margin-top: 1px; }
+.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ===== 차별점 4-아이콘 섹션 ===== */
+.diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.diff-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; text-align: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.diff-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.diff-icon { width: 56px; height: 56px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; background: var(--primary-tint); color: var(--primary); border-radius: 14px; }
+.diff-icon svg { width: 28px; height: 28px; }
+.diff-card strong { display: block; font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+.diff-card span { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+/* ===== 시공사례 섹션 ===== */
+.proj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+.proj-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.proj-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+.proj-image { aspect-ratio: 4/3; background: linear-gradient(135deg, var(--primary-tint) 0%, var(--surface) 100%); position: relative; display: flex; align-items: center; justify-content: center; }
+.proj-image-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; opacity: 0.6; }
+.proj-info { padding: 14px 16px; }
+.proj-info strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.proj-info span { font-size: 11.5px; color: var(--text-muted); }
+
+@media (max-width: 968px) {
+  .hero-mini-badges { grid-template-columns: repeat(2, 1fr); }
+  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .proj-grid { grid-template-columns: repeat(2, 1fr); }
+  .kict-overlay { padding: 12px 20px; gap: 10px; }
+  .kict-overlay-icon { width: 36px; height: 36px; }
+  .kict-overlay-icon svg { width: 20px; height: 20px; }
+}
+@media (max-width: 600px) {
+  .proj-grid { grid-template-columns: 1fr; }
+}
+
 .spec-table { width: 100%; border-collapse: collapse; }
 .spec-table tr { border-bottom: 1px solid var(--border); }
 .spec-table tr:first-child { border-top: 2px solid var(--text); }
@@ -447,21 +510,92 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="products.html">제품소개</a> / 철재방화셔터</div>
     <div class="detail-grid">
-      <div class="detail-image"></div>
+      <!-- 좌측: 사진 + KICT 배지 + 미니 배지 4개 -->
+      <div class="hero-visual-wrap">
+        <div class="detail-image">
+          <div class="kict-overlay">
+            <div class="kict-overlay-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+            </div>
+            <div class="kict-overlay-text">
+              <strong>KICT 인정제품</strong>
+              <span>국토교통부 인정</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-mini-badges">
+          <div class="mini-badge">
+            <div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20 M4 20V8l6-4 M10 20V4l6 4v12 M16 8l4 2v10"/></svg></div>
+            <div class="mini-badge-text"><strong>직접생산</strong><span>자체공장 보유</span></div>
+          </div>
+          <div class="mini-badge">
+            <div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+            <div class="mini-badge-text"><strong>품질관리</strong><span>엄격한 품질검사</span></div>
+          </div>
+          <div class="mini-badge">
+            <div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+            <div class="mini-badge-text"><strong>시공·자재</strong><span>원스톱 솔루션</span></div>
+          </div>
+          <div class="mini-badge">
+            <div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20 M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            <div class="mini-badge-text"><strong>전국 시공</strong><span>빠른 A/S</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우측: 슬로건 + 체크리스트 + CTA 2개 -->
       <div class="detail-content">
         <div class="page-hero-eyebrow">01 / 방화셔터</div>
         <h1>철재방화셔터</h1>
-        <p class="lead">철재방화셔터는 화재 발생 시 화염과 연기의 확산을 차단하여 건축물의 안전구획을 유지하는 철재 재질의 방화설비입니다. 평상시에는 개방 상태로 사용되며, 화재 감지 시 자동으로 하강하여 출입구 및 개구부를 차단함으로써 인명 대피 시간 확보와 재산 피해 최소화에 도움을 줍니다.</p>
-        <p class="lead" style="margin-top: 16px;">국토교통부 승인 건축자재등 품질인정 기준에 준하여 설치되는 제품으로, 고온 환경에서도 견딜 수 있는 내화 성능과 안정적인 방재 시스템을 갖추고 있습니다. 또한 우수한 구동 안정성과 밀폐 성능을 통해 화염 및 연기의 이동을 효과적으로 억제하여 건축물의 안전성을 높입니다.</p>
-        <div class="detail-tags">
-          <span class="detail-tag">KICT 품질인정</span>
-          <span class="detail-tag">비차열 60분</span>
-          <span class="detail-tag">자동폐쇄</span>
+        <p class="hero-tagline">화재로부터 생명과 재산을 보호하는<br>신뢰할 수 있는 차단 솔루션</p>
+        <p class="lead">경원에스아이는 KICT 인정 방화셔터 제조기업으로서, 설계 · 생산 · 시공 · 자재공급까지 원스톱으로 제공합니다.</p>
+
+        <ul class="hero-checklist">
+          <li>화재 시 화염 · 열기 · 연기의 확산을 차단</li>
+          <li>국토교통부 고시 방화셔터 인정제품 (비차열 60분)</li>
+          <li>전기아연도금강판 사용으로 부식에 강하고 유지관리 용이</li>
+          <li>다양한 건축물 및 산업시설에 적용 가능</li>
+        </ul>
+
+        <div class="hero-cta-row">
+          <a href="contact.html" class="btn btn-primary">견적 문의하기 →</a>
+          <a href="catalog.pdf" target="_blank" rel="noopener" class="btn btn-secondary">카탈로그 다운로드 ↓</a>
         </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn-primary">견적 문의 →</a>
-          <a href="#specs" class="btn btn-secondary">사양 확인</a>
-        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 차별점 4-아이콘 섹션 -->
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">WHY KWSYS / 경원에스아이의 차별점</div>
+        <h2 class="section-title">왜 경원에스아이인가요?</h2>
+      </div>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <strong>KICT 인정제품</strong>
+        <span>국토교통부 인정<br>방화셔터</span>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20 M4 20V8l6-4 M10 20V4l6 4v12 M16 8l4 2v10"/></svg></div>
+        <strong>직접생산 체제</strong>
+        <span>자체 공장 보유<br>안정적 납기</span>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <strong>엄격한 품질관리</strong>
+        <span>규격 검사<br>인정 사양 준수</span>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6 M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></div>
+        <strong>전국 대응 서비스</strong>
+        <span>빠른 시공<br>및 A/S</span>
       </div>
     </div>
   </div>
@@ -559,6 +693,39 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
+<!-- 시공 사례 섹션 -->
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">CASES / 시공 사례</div>
+        <h2 class="section-title">철재방화셔터 시공 사례</h2>
+        <p style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">경원에스아이가 직접 시공한 철재방화셔터 현장입니다.</p>
+      </div>
+      <a href="cases.html" class="section-link">전체 시공사례 보기 →</a>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-image"><span class="proj-image-label">철재방화셔터</span></div>
+        <div class="proj-info"><strong>물류센터 신축공사</strong><span>철재방화셔터 · 비차열 60분</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-image"><span class="proj-image-label">철재방화셔터</span></div>
+        <div class="proj-info"><strong>제조공장</strong><span>철재방화셔터 · 대형 개구부</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-image"><span class="proj-image-label">철재방화셔터</span></div>
+        <div class="proj-info"><strong>지하주차장</strong><span>철재방화셔터 · 방화구획</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-image"><span class="proj-image-label">철재방화셔터</span></div>
+        <div class="proj-info"><strong>복합건축물</strong><span>철재방화셔터 · 다중 설치</span></div>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--text-light); margin-top: 24px;">※ 실제 시공 사진은 준비 중입니다. 현장 사진 업로드 시 교체됩니다.</p>
+  </div>
+</section>
+
 <section class="padded">
   <div class="container">
     <div class="section-header">
@@ -580,8 +747,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="contact.html" class="cert-card" style="text-decoration: none; color: inherit; cursor: pointer; background: var(--surface); transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
         <div class="cert-icon" style="background: var(--text-muted); color: white;">PDF</div>
         <div style="flex: 1;">
-          <div class="cert-name">사용자 매뉴얼 <span style="display: inline-block; margin-left: 6px; padding: 2px 8px; background: rgba(30, 64, 175, 0.1); color: var(--primary); border-radius: 4px; font-size: 11px; font-weight: 700;">구매 고객 전용</span></div>
-          <div class="cert-meta">제품 인도 시 함께 제공 · 작동·유지관리 가이드</div>
+          <div class="cert-name">유지보수 매뉴얼 <span style="display: inline-block; margin-left: 6px; padding: 2px 8px; background: rgba(30, 64, 175, 0.1); color: var(--primary); border-radius: 4px; font-size: 11px; font-weight: 700;">현장 협의 후 안내</span></div>
+          <div class="cert-meta">설치·점검·유지관리 가이드 · 메일로 별도 발송</div>
         </div>
         <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">문의 →</div>
       </a>
@@ -589,7 +756,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="cert-icon" style="background: var(--text-muted); color: white;">DWG</div>
         <div style="flex: 1;">
           <div class="cert-name">철재방화셔터 기본도면 <span style="display: inline-block; margin-left: 6px; padding: 2px 8px; background: rgba(30, 64, 175, 0.1); color: var(--primary); border-radius: 4px; font-size: 11px; font-weight: 700;">견적 문의 시 안내</span></div>
-          <div class="cert-meta">현장 협의 후 보안 메일로 별도 발송</div>
+          <div class="cert-meta">현장 협의 후 메일로 별도 발송</div>
         </div>
         <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">문의 →</div>
       </a>
