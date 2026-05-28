@@ -271,7 +271,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .spec-table th { font-weight: 700; color: var(--text); width: 30%; }
 .spec-table td { color: #475569; }
 
-.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .cert-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; display: flex; align-items: center; gap: 16px; }
 
 /* AL 전동/단열 장단점 컴팩트 카드 */
@@ -722,25 +722,36 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <div>
         <div class="section-eyebrow">RELATED / 관련 자료</div>
         <h2 class="section-title">자료·문서</h2>
+        <p style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">제품 카탈로그는 자유롭게 다운로드 가능합니다. 도면 등 보안 자료는 견적 문의 시 별도 안내드립니다.</p>
       </div>
     </div>
     <div class="cert-grid">
-      <div class="cert-card" style="cursor: pointer;">
+      <a href="catalog.pdf" target="_blank" rel="noopener" class="cert-card" style="text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
         <div class="cert-icon">PDF</div>
-        <div>
+        <div style="flex: 1;">
           <div class="cert-name">제품 카탈로그 다운로드</div>
-          <div class="cert-meta">철재방화셔터 사양서 (PDF)</div>
+          <div class="cert-meta">㈜경원에스아이 통합 카탈로그 · PDF 2.8MB</div>
         </div>
-      </div>
-      <div class="cert-card" style="cursor: pointer;">
-        <div class="cert-icon">DWG</div>
-        <div>
-          <div class="cert-name">표준 도면 다운로드</div>
-          <div class="cert-meta">CAD 도면 (DWG)</div>
+        <div style="font-size: 18px; color: var(--primary); font-weight: 700;">↓</div>
+      </a>
+      <a href="contact.html" class="cert-card" style="text-decoration: none; color: inherit; cursor: pointer; background: var(--surface); transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <div class="cert-icon" style="background: var(--text-muted); color: white;">PDF</div>
+        <div style="flex: 1;">
+          <div class="cert-name">유지보수 매뉴얼 <span style="display: inline-block; margin-left: 6px; padding: 2px 8px; background: rgba(30, 64, 175, 0.1); color: var(--primary); border-radius: 4px; font-size: 11px; font-weight: 700;">현장 협의 후 안내</span></div>
+          <div class="cert-meta">설치·점검·유지관리 가이드 · 메일로 별도 발송</div>
         </div>
-      </div>
+        <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">문의 →</div>
+      </a>
+      <a href="contact.html" class="cert-card" style="text-decoration: none; color: inherit; cursor: pointer; background: var(--surface); transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <div class="cert-icon" style="background: var(--text-muted); color: white;">DWG</div>
+        <div style="flex: 1;">
+          <div class="cert-name">내풍압셔터 기본도면 <span style="display: inline-block; margin-left: 6px; padding: 2px 8px; background: rgba(30, 64, 175, 0.1); color: var(--primary); border-radius: 4px; font-size: 11px; font-weight: 700;">견적 문의 시 안내</span></div>
+          <div class="cert-meta">현장 협의 후 메일로 별도 발송</div>
+        </div>
+        <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">문의 →</div>
+      </a>
     </div>
-    <p style="font-size: 12px; color: var(--text-light); margin-top: 32px;">※ 자료는 관리자가 업로드한 파일로 연결됩니다 (CMS 연동 예정).</p>
+    <p style="font-size: 12px; color: var(--text-light); margin-top: 24px; line-height: 1.7;">※ 상세 도면은 영업비밀 보호를 위해 일반 공개하지 않습니다. 시공·자재 견적 협의 시 별도 안내드립니다.</p>
   </div>
 </section>
 
