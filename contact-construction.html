@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>견적 문의 | (주)경원에스아이</title>
+<title>시공 견적 문의 | (주)경원에스아이</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
 <style>
 /* ==========================================================================
@@ -412,50 +412,163 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">HOME</a> / 견적 문의</div>
-    <div class="page-hero-eyebrow">CONTACT / 견적 문의</div>
-    <h1>어떤 견적이<br>필요하신가요?</h1>
-    <p>경원에스아이는 셔터 완제품 제조·시공부터 시공업체용 자재 공급까지 함께 합니다. 필요하신 견적 유형을 선택해 주세요.</p>
+    <div class="breadcrumb"><a href="index.html">HOME</a> / <a href="contact.html">견적 문의</a> / 시공 견적</div>
+    <div class="page-hero-eyebrow">CONSTRUCTION / 시공 견적 문의</div>
+    <h1>시공 견적을<br>문의해 주세요.</h1>
+    <p>현장 사양·수량·납기 등을 알려주시면 담당자가 24시간 이내(영업일 기준) 회신드립니다. 긴급 A/S는 전화로 연락 부탁드립니다.</p>
   </div>
 </section>
 
 <section class="padded">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
+    <div class="contact-page-grid">
+      <form action="https://formspree.io/f/xnjwzovk" method="POST" class="form-card">
+        <input type="hidden" name="_subject" value="[경원에스아이 홈페이지] 새 시공 견적 문의 도착">
+        <input type="hidden" name="_language" value="ko">
+        <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.025em;">문의 내용을 입력해 주세요</h2>
 
-      <!-- 시공 견적 -->
-      <a href="contact-construction.html" style="text-decoration: none; color: inherit; display: block; background: white; border: 1px solid var(--border); border-radius: 18px; padding: 40px 36px; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'; this.style.borderColor='var(--primary)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='var(--border)'">
-        <div style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--primary-tint); color: var(--primary); border-radius: 16px; margin-bottom: 24px;">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 12px;">시공 견적 문의</h2>
-        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;">셔터 완제품 제조부터 현장 시공까지 필요하신 경우. 방화셔터·산업용 셔터 전 제품의 설계·제작·설치를 의뢰하실 수 있습니다.</p>
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px;">
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 완제품 제조 + 현장 시공</div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 전 제품군 (방화·전동·내풍압·도어 등)</div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 설계부터 유지관리까지 원스톱</div>
-        </div>
-        <span style="display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 700; font-size: 15px;">시공 견적 문의하기 →</span>
-      </a>
+        <div class="form-section-title">신청자 정보</div>
 
-      <!-- 자재 견적 -->
-      <a href="contact-material.html" style="text-decoration: none; color: inherit; display: block; background: white; border: 1px solid var(--border); border-radius: 18px; padding: 40px 36px; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'; this.style.borderColor='var(--primary)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='var(--border)'">
-        <div style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; background: var(--primary-tint); color: var(--primary); border-radius: 16px; margin-bottom: 24px;">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5 M2 12l10 5 10-5"/></svg>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">이름 / 담당자<span class="req">*</span></label>
+            <input type="text" name="이름" class="form-input" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">회사명<span class="req">*</span></label>
+            <input type="text" name="회사명" class="form-input" placeholder="○○건설" required>
+          </div>
         </div>
-        <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 12px;">자재 견적 문의</h2>
-        <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;">직접 시공하시는 업체를 위한 자재 세트 공급. 철재방화셔터·방화스크린셔터의 인정 자재를 세트로 구매하실 수 있습니다.</p>
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px;">
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 철재방화셔터 · 방화스크린셔터 자재</div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 인정 제품과 동일한 품질·규격</div>
-          <div style="display: flex; gap: 10px; align-items: center; font-size: 14px; color: var(--text);"><span style="color: var(--primary); font-weight: 800;">✓</span> 가이드레일·연동제어기 유형 선택</div>
-        </div>
-        <span style="display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 700; font-size: 15px;">자재 견적 문의하기 →</span>
-      </a>
 
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">연락처<span class="req">*</span></label>
+            <input type="tel" name="연락처" class="form-input" placeholder="010-0000-0000" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">이메일<span class="req">*</span></label>
+            <input type="email" name="email" class="form-input" placeholder="example@email.com">
+          </div>
+        </div>
+
+        <p class="form-help" style="margin: -8px 0 0 0; padding: 12px 14px; background: var(--primary-tint); border-radius: 6px; color: var(--primary); font-weight: 500;">💡 견적서를 이메일로 받으실 경우 이메일 주소를 꼭 기재해 주세요.</p>
+
+        <div class="form-section-title">현장 정보</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">현장명</label>
+            <input type="text" name="현장명" class="form-input" placeholder="○○물류센터 신축">
+          </div>
+          <div class="form-group">
+            <label class="form-label">현장 위치<span class="req">*</span></label>
+            <input type="text" name="현장위치" class="form-input" placeholder="경기도 ○○시" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">건물 구분<span class="req">*</span></label>
+            <select name="건물구분" class="form-select" required>
+              <option value="">선택해 주세요</option>
+              <option>신축건물 (공사 중 또는 공사 예정)</option>
+              <option>기존건물 (준공 완료)</option>
+              <option>기존건물 (대수선 등 공사 중 또는 공사 예정)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">설치 층수<span class="req">*</span></label>
+            <input type="text" name="설치층수" class="form-input" placeholder="예: 1층, 지하1층" required>
+          </div>
+        </div>
+
+        <div class="form-section-title">견적 요청 제품<span class="req" style="margin-left: 4px; font-size: 14px;">*</span></div>
+
+        <p class="product-row-help">설치하실 제품을 추가해 주세요. 같은 현장에 여러 제품이 들어갈 경우 <strong>+ 제품 추가</strong> 버튼으로 행을 늘려주세요.</p>
+
+        <div id="product-rows">
+          <div class="product-row">
+            <select class="form-select product-name">
+              <option value="">제품 선택</option>
+              <option>철재방화셔터</option>
+              <option>방화스크린셔터</option>
+              <option>전동셔터</option>
+              <option>내풍압셔터</option>
+              <option>스피드도어</option>
+              <option>오버헤드도어</option>
+              <option>특수도어</option>
+            </select>
+            <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
+            <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
+            <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+            <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
+          </div>
+        </div>
+
+        <button type="button" class="add-row-btn" id="add-product-row">+ 제품 추가</button>
+
+        <input type="hidden" name="견적요청제품" id="product-summary">
+
+        <div class="form-section-title">문의 내용</div>
+
+        <div class="form-group">
+          <label class="form-label">문의 유형<span class="req">*</span></label>
+          <select name="문의유형" class="form-select" required>
+            <option>견적 문의</option>
+            <option>제품 상담</option>
+            <option>자재 문의 (시공업체용 자재 세트)</option>
+            <option>기타</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">추가 문의 내용</label>
+          <textarea name="추가문의내용" class="form-textarea" placeholder="추가로 알려주실 내용이 있다면 자유롭게 작성해 주세요."></textarea>
+          <div class="form-help">도면이나 사진은 이메일(kwsys0210@naver.com)로 보내주세요.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-checkbox">
+            <input type="checkbox" name="개인정보동의" value="동의함" required>
+            <span>개인정보 수집·이용에 동의합니다. <a href="#" style="color: var(--primary); text-decoration: underline;">전문 보기</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="form-submit">문의 접수하기</button>
+        <p style="font-size: 12px; color: var(--text-light); margin-top: 16px; text-align: center;">※ 제출하시면 kwsys0210@naver.com으로 자동 전송됩니다.</p>
+      </form>
+
+      <div>
+        <div class="contact-side-card">
+          <div class="contact-side-label">전화</div>
+          <div class="contact-side-value">031-8055-8458</div>
+          <div class="contact-side-meta">평일 09:00 - 18:00 (점심 12:00-13:00)<br>주말·공휴일 휴무</div>
+        </div>
+
+        <div class="contact-side-card">
+          <div class="contact-side-label">이메일</div>
+          <div class="contact-side-value">kwsys0210@naver.com</div>
+          <div class="contact-side-meta">도면·사진 첨부 시 이메일 권장</div>
+        </div>
+
+        <div class="faq-side-card">
+          <div class="faq-side-title">FAQ</div>
+          <div class="faq-side-heading">자주 묻는 질문</div>
+          <details>
+            <summary>견적은 얼마나 걸리나요?</summary>
+            <p>영업일 기준 1-2일 이내 회신드립니다. 도면 검토가 필요하거나 수량이 많은 경우 2-3일 정도 소요됩니다. 최대 소요 기간 기준으로 안내드린 것이며, 가능한 한 빠르게 회신드리고 있습니다.</p>
+          </details>
+          <details>
+            <summary>A/S는 어떻게 진행되나요?</summary>
+            <p>전화로 접수해 주시면 상태 확인 → 출장 일정 협의 → 현장 방문 순으로 진행됩니다.</p>
+          </details>
+          <details>
+            <summary>납기는 보통 얼마나 걸리나요?</summary>
+            <p>발주 후 약 2주 정도로 여유 있게 안내드리고 있습니다. 수량이 적은 경우 1주 내외로도 가능하며, 급한 일정은 별도 협의해 주시면 일정 조정이 가능합니다.</p>
+          </details>
+        </div>
+      </div>
     </div>
-
-    <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 32px;">어떤 유형인지 모르시겠다면? <a href="tel:031-8055-8458" style="color: var(--primary); font-weight: 600;">📞 031-8055-8458</a> 로 편하게 문의해 주세요.</p>
   </div>
 </section>
 
