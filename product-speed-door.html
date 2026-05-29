@@ -247,7 +247,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     var(--surface);
 }
 
-.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
 .value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .value-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.025em; }
@@ -423,8 +423,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .proj-info { padding: 14px 16px; }
 .proj-info strong { display: block; font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .proj-info span { font-size: 11.5px; color: var(--text-muted); }
-@media (max-width: 968px) { .hero-mini-badges { grid-template-columns: repeat(2, 1fr); } .diff-grid { grid-template-columns: repeat(2, 1fr); } .proj-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .proj-grid { grid-template-columns: 1fr; } }
+@media (max-width: 968px) { .hero-mini-badges { grid-template-columns: repeat(2, 1fr); } .diff-grid { grid-template-columns: repeat(2, 1fr); } .proj-grid { grid-template-columns: repeat(2, 1fr); } .value-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .proj-grid { grid-template-columns: 1fr; } .guide-grid { grid-template-columns: 1fr !important; } }
 
 </style>
 </head>
@@ -474,22 +474,22 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           </div>
         </div>
         <div class="hero-mini-badges">
-          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20 M4 20V8l6-4 M10 20V4l6 4v12 M16 8l4 2v10"/></svg></div><div class="mini-badge-text"><strong>직접생산</strong><span>자체공장 보유</span></div></div>
-          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div class="mini-badge-text"><strong>품질관리</strong><span>엄격한 품질검사</span></div></div>
-          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div class="mini-badge-text"><strong>시공·자재</strong><span>원스톱 솔루션</span></div></div>
-          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20 M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div class="mini-badge-text"><strong>전국 시공</strong><span>빠른 A/S</span></div></div>
+          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="mini-badge-text"><strong>고속 개폐</strong><span>작업 동선 효율 향상</span></div></div>
+          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="mini-badge-text"><strong>환경 차단</strong><span>먼지·벌레·외기 감소</span></div></div>
+          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z M2 21c0-3 1.85-5.36 5.08-6"/></svg></div><div class="mini-badge-text"><strong>에너지 절감</strong><span>냉·난방 손실 최소화</span></div></div>
+          <div class="mini-badge"><div class="mini-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div><div class="mini-badge-text"><strong>맞춤 옵션</strong><span>투시창·센서·개폐방식</span></div></div>
         </div>
       </div>
       <div class="detail-content">
         <div class="page-hero-eyebrow">05 / 도어</div>
         <h1>스피드도어</h1>
         <p class="hero-tagline">빠른 개폐로 작업 효율을 높이는<br>산업용 고속 도어</p>
-        <p class="lead">경원에스아이는 KICT 인정 방화셔터 제조기업으로서, 설계 · 생산 · 시공 · 자재공급까지 원스톱으로 제공합니다.</p>
+        <p class="lead">경원에스아이는 방화셔터 제조 및 산업용 셔터·도어 시공 경험을 바탕으로, 현장 환경에 맞는 스피드도어를 제안하고 설치까지 지원합니다.</p>
         <ul class="hero-checklist">
-          <li>AL 6063-T5 이중압출, 윈드락으로 강풍 대응</li>
+          <li>AL 6063-T5 이중압출 사양 적용 가능</li>
+          <li>윈드락 적용으로 강풍 대응 가능</li>
           <li>알루미늄 롤업 150~300mm/sec (최대 1,000mm/sec)</li>
-          <li>냉·난방 손실 최소화 · 방진 · 방충에 효과적</li>
-          <li>물류·식품·생산공장 등 다양한 현장 적용</li>
+          <li>냉·난방 손실 저감 및 방진·방충 효과</li>
         </ul>
         <div class="hero-cta-row">
           <a href="contact.html" class="btn btn-primary">견적 문의하기 →</a>
@@ -507,10 +507,10 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-top: 8px;">왜 경원에스아이인가요?</h2>
     </div>
     <div class="diff-grid">
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20 M4 20V8l6-4 M10 20V4l6 4v12 M16 8l4 2v10"/></svg></div><div><strong>직접생산 체제</strong><span>자체 공장 보유</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div><strong>엄격한 품질관리</strong><span>규격 검사·인정 사양</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div><strong>원스톱 솔루션</strong><span>제조·시공·자재 공급</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6 M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></div><div><strong>전국 대응 서비스</strong><span>빠른 시공 및 A/S</span></div></div>
+      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div><strong>현장 조건 검토</strong><span>개구부·동선·사용환경 확인</span></div></div>
+      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M9 13h6 M9 17h4"/></svg></div><div><strong>제품 사양 제안</strong><span>속도·폭·옵션 맞춤 검토</span></div></div>
+      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div><strong>자재 납품·시공</strong><span>제품 공급부터 설치까지</span></div></div>
+      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20 M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><strong>전국 시공 대응</strong><span>현장 일정 협의 가능</span></div></div>
     </div>
   </div>
 </section>
@@ -644,6 +644,27 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
 
+    <!-- 설치 선택 가이드 -->
+    <div style="background: var(--primary-tint); border: 1px solid rgba(30,64,175,0.15); border-radius: 14px; padding: 26px 30px; margin-bottom: 32px;">
+      <div style="font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 18px; letter-spacing: 0.03em;">💡 어떤 제품을 선택해야 할까요?</div>
+      <div class="guide-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <span style="flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; border-radius: 10px; font-size: 14px; font-weight: 800;">01</span>
+          <div>
+            <div style="font-size: 14px; color: var(--text-muted); line-height: 1.55;">대형 개구부 · 강풍 대응 · 높은 내구성이 필요하다면</div>
+            <div style="font-size: 15.5px; font-weight: 700; color: var(--text); margin-top: 5px;">→ 알루미늄 스피드 롤업 도어</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 14px; align-items: flex-start;">
+          <span style="flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: white; border-radius: 10px; font-size: 14px; font-weight: 800;">02</span>
+          <div>
+            <div style="font-size: 14px; color: var(--text-muted); line-height: 1.55;">실내 구획 · 빠른 출입 · 에너지 절감이 중요하다면</div>
+            <div style="font-size: 15.5px; font-weight: 700; color: var(--text); margin-top: 5px;">→ 자중형 스피드 도어</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <p style="margin-top: 32px; font-size: 13px; color: var(--text-muted); text-align: center;">※ 상세 사양·치수는 현장 조건에 따라 협의 가능합니다. <a href="contact.html" style="color: var(--primary); text-decoration: underline;">문의하기 →</a></p>
   </div>
 </section>
@@ -660,17 +681,22 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <div class="value-card">
         <div class="value-num">01</div>
         <div class="value-title">식품·제약 공장</div>
-        <div class="value-text">청정구역의 온도·청결 유지가 중요한 환경에 적합.</div>
+        <div class="value-text">청정 구역의 온도·청결 유지가 필요한 현장</div>
       </div>
       <div class="value-card">
         <div class="value-num">02</div>
         <div class="value-title">물류센터</div>
-        <div class="value-text">잦은 차량·지게차 출입에 대응하는 고속 개폐.</div>
+        <div class="value-text">차량·지게차 출입이 빈번한 고속 개폐 구간</div>
       </div>
       <div class="value-card">
         <div class="value-num">03</div>
-        <div class="value-title">냉동·냉장 창고</div>
-        <div class="value-text">냉기 손실을 최소화하는 빠른 개폐 동작.</div>
+        <div class="value-title">냉동·냉장창고</div>
+        <div class="value-text">냉기 손실을 줄이고 빠른 출입이 필요한 공간</div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">04</div>
+        <div class="value-title">생산공장 내부 구획</div>
+        <div class="value-text">공정별 공간 분리와 작업 동선 관리가 필요한 구간</div>
       </div>
     </div>
   </div>
