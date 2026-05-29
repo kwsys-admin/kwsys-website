@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>건축자재등 품질 인정서 — ㈜경원에스아이</title>
+<style>
+  :root{
+    --primary:#1e40af;
+    --primary-dark:#1e3a8a;
+    --bg:#3a3f47;
+    --bg-deep:#2b2f35;
+    --text:#1f2937;
+    --text-muted:#6b7280;
+    --paper-shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Pretendard","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    background:var(--bg);
+    color:#e5e7eb;
+    -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+    -webkit-touch-callout:none;
+    overflow-x:hidden;
+  }
+
+  /* ===== 상단 바 ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;
+    padding:12px 20px;
+    background:rgba(30,58,138,.96);
+    backdrop-filter:blur(6px);
+    box-shadow:0 2px 10px rgba(0,0,0,.25);
+  }
+  .topbar .title{
+    display:flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;color:#fff;
+    letter-spacing:-.2px;
+  }
+  .topbar .title .badge{
+    background:#fff;color:var(--primary);
+    font-size:11px;font-weight:800;
+    padding:3px 8px;border-radius:5px;
+    white-space:nowrap;
+  }
+  .topbar .right{
+    display:flex;align-items:center;gap:14px;
+  }
+  .page-indicator{
+    font-size:13px;font-weight:600;color:#dbeafe;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .back-link{
+    font-size:13px;font-weight:600;color:#fff;
+    text-decoration:none;opacity:.9;
+    border:1px solid rgba(255,255,255,.4);
+    padding:6px 12px;border-radius:6px;
+    transition:background .15s ease;
+  }
+  .back-link:hover{background:rgba(255,255,255,.15);}
+
+  /* ===== 문서 영역 ===== */
+  .doc{
+    max-width:920px;
+    margin:0 auto;
+    padding:28px 16px 60px;
+    display:flex;flex-direction:column;
+    gap:22px;
+  }
+  .page{
+    position:relative;
+    width:100%;
+    /* A4 비율 (1190 x 1682) */
+    aspect-ratio:1190/1682;
+    background-color:#fff;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+    border-radius:3px;
+    box-shadow:var(--paper-shadow);
+    /* 드래그 저장 방지용 투명 오버레이 역할 */
+    pointer-events:none;
+  }
+  .page::after{
+    content:attr(data-page);
+    position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);
+    font-size:11px;color:rgba(255,255,255,.45);
+    font-weight:600;letter-spacing:.5px;
+  }
+  .page.loading{
+    background-color:#f1f3f5;
+    background-image:none;
+  }
+  .page.loading::before{
+    content:"불러오는 중…";
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    color:var(--text-muted);font-size:13px;font-weight:600;
+  }
+
+  /* 투명 차단막 — 이미지 직접 접근/드래그/길게누르기 방지 */
+  .shield{
+    position:fixed;inset:0;z-index:1;pointer-events:none;
+  }
+
+  /* ===== 하단 안내 ===== */
+  .footnote{
+    text-align:center;
+    font-size:12px;color:rgba(255,255,255,.55);
+    line-height:1.7;
+    padding:0 16px;
+  }
+
+  /* ===== 인쇄 차단 ===== */
+  @media print{
+    body *{display:none !important;}
+    body::before{
+      content:"본 인정서는 인쇄가 제한되어 있습니다. (㈜경원에스아이)";
+      display:block !important;
+      padding:40px;font-size:16px;color:#000;
+      font-family:sans-serif;
+    }
+  }
+
+  @media (max-width:600px){
+    .topbar{padding:10px 14px;}
+    .topbar .title{font-size:13px;}
+    .topbar .title .badge{display:none;}
+    .back-link{padding:5px 10px;font-size:12px;}
+    .doc{padding:18px 10px 48px;gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="title">
+      <span class="badge">KICT 인정</span>
+      <span>건축자재등 품질 인정서 · 자동방화셔터</span>
+    </div>
+    <div class="right">
+      <span class="page-indicator" id="indicator">1 / 16</span>
+      <a class="back-link" href="index.html">← 돌아가기</a>
+    </div>
+  </div>
+
+  <div class="doc" id="doc"></div>
+
+  <p class="footnote">
+    ㈜경원에스아이 · 인정번호 FDS-OTS24-0725-10<br>
+    본 문서는 열람 전용이며 무단 복제·배포를 금합니다.
+  </p>
+
+  <div class="shield"></div>
+
+<script>
+(function(){
+  "use strict";
+  var TOTAL = 16;
+  var PREFIX = "cert/cert-fire-shutter-";
+  var EXT = ".webp";
+  var doc = document.getElementById("doc");
+  var indicator = document.getElementById("indicator");
+
+  // 페이지 DOM 생성
+  var pages = [];
+  for (var i=1; i<=TOTAL; i++){
+    var div = document.createElement("div");
+    div.className = "page loading";
+    div.setAttribute("data-page", i + " / " + TOTAL);
+    div.setAttribute("data-idx", i);
+    doc.appendChild(div);
+    pages.push(div);
+  }
+
+  function num(n){ return (n<10?"0":"") + n; }
+
+  // 지연 로딩: 화면 근처 페이지만 배경이미지로 로드
+  var loaded = {};
+  function loadPage(div){
+    var idx = parseInt(div.getAttribute("data-idx"),10);
+    if (loaded[idx]) return;
+    loaded[idx] = true;
+    var url = PREFIX + num(idx) + EXT;
+    var img = new Image();
+    img.onload = function(){
+      div.style.backgroundImage = "url('" + url + "')";
+      div.classList.remove("loading");
+    };
+    img.onerror = function(){
+      div.classList.remove("loading");
+      div.textContent = "";
+    };
+    img.src = url;
+  }
+
+  if ("IntersectionObserver" in window){
+    var loadObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ loadPage(e.target); loadObs.unobserve(e.target); }
+      });
+    }, { rootMargin: "600px 0px" });
+    pages.forEach(function(p){ loadObs.observe(p); });
+
+    // 현재 보이는 페이지 표시
+    var current = 1;
+    var viewObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          var idx = parseInt(e.target.getAttribute("data-idx"),10);
+          if (idx !== current){
+            current = idx;
+            indicator.textContent = idx + " / " + TOTAL;
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+    pages.forEach(function(p){ viewObs.observe(p); });
+  } else {
+    pages.forEach(loadPage); // 폴백: 전부 로드
+  }
+
+  /* ===== 보호 (억제 수단) ===== */
+  // 우클릭 메뉴 차단
+  document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, {passive:false});
+  // 드래그 차단
+  document.addEventListener("dragstart", function(e){ e.preventDefault(); }, {passive:false});
+  // 텍스트 선택 차단
+  document.addEventListener("selectstart", function(e){ e.preventDefault(); });
+  // 인쇄/저장 단축키 차단 + 인쇄창 차단
+  document.addEventListener("keydown", function(e){
+    var k = (e.key||"").toLowerCase();
+    if ((e.ctrlKey||e.metaKey) && (k==="s"||k==="p"||k==="u")){ e.preventDefault(); return false; }
+    if (k==="printscreen"){ e.preventDefault(); return false; }
+  });
+  window.addEventListener("beforeprint", function(){ /* CSS @media print 가 처리 */ });
+})();
+</script>
+</body>
+</html>
