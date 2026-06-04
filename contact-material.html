@@ -414,8 +414,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="container">
     <div class="breadcrumb"><a href="index.html">HOME</a> / 자재 견적 문의</div>
     <div class="page-hero-eyebrow">MATERIAL / 자재 견적 문의</div>
-    <h1>방화셔터 자재<br>견적을 문의해 주세요.</h1>
-    <p>철재방화셔터·방화스크린셔터 제작 및 시공에 필요한 주요 자재를 공급합니다. 필요한 규격과 수량을 남겨주시면 확인 후 안내드립니다.</p>
+    <h1>방화셔터 자재 견적을 문의해 주세요.</h1>
+    <p>철재방화셔터·방화스크린셔터 제작 및 설치에 필요한 주요 자재를 공급합니다. 필요한 제품, 규격, 수량을 남겨주시면 확인 후 안내드립니다.</p>
   </div>
 </section>
 
@@ -428,6 +428,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     <div class="contact-page-grid">
       <form action="https://formspree.io/f/xnjwzovk" method="POST" class="form-card">
         <input type="hidden" name="_subject" value="[경원에스아이 홈페이지] 새 자재 견적 문의 도착">
+        <input type="hidden" name="접수시간" id="submit-time-m">
         <input type="hidden" name="_language" value="ko">
         <input type="hidden" name="문의분류" value="자재 견적 (시공업체용)">
         <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.025em;">자재 견적 문의</h2>
@@ -491,6 +492,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
               <option>벽면형 (130×80)</option>
               <option>전면형 (130×130)</option>
               <option>혼합형</option>
+              <option>확인 필요</option>
             </select>
             <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
           </div>
@@ -509,6 +511,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <option>노출형</option>
             <option>매립형</option>
             <option>매립세트</option>
+            <option>확인 필요</option>
           </select>
           <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">※ 가이드레일 유형은 위 제품별로 선택해 주세요. 제품마다 다르게 적용할 수 있습니다.</p>
         </div>
@@ -518,7 +521,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="form-group">
           <label class="form-label">추가 문의 내용</label>
           <textarea name="추가문의내용" class="form-textarea" placeholder="추가로 알려주실 내용이 있다면 자유롭게 작성해 주세요. (예: 납기 일정, 도면 첨부 요청 등)"></textarea>
-          <div class="form-help">도면이나 사진은 이메일(kwsys0210@naver.com)로 보내주세요.</div>
+          <div class="form-help">정확한 견적을 위해 도면, 기존 셔터 사진, 개구부 치수 자료가 있으면 이메일(kwsys0210@naver.com)로 함께 보내주세요.</div>
         </div>
 
         <div class="form-group">
@@ -550,11 +553,15 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="faq-side-heading">자주 묻는 질문</div>
           <details>
             <summary>필요한 자재만 선택해서 구매할 수 있나요?</summary>
-            <p>방화셔터 자재는 인정 사양에 맞는 규격과 품질 기준에 따라 공급되어야 하므로, 원칙적으로 개별 선택 구매는 어렵습니다. 다만 모터·연동제어기(전동개폐기)는 인정받은 제품일 경우 별도 구매가 가능합니다.</p>
+            <p>방화셔터 자재는 인정 사양과 현장 적용 조건을 함께 확인해야 하므로, 일부 자재만 별도 공급이 어려울 수 있습니다. 필요한 자재와 사용 목적을 남겨주시면 공급 가능 여부를 검토해 안내드립니다.</p>
           </details>
           <details>
             <summary>자재 규격은 어떻게 맞추나요?</summary>
             <p>현장 규격을 확인하여 자재를 준비합니다. 정확한 규격을 남겨주시면 검토 후 안내드립니다.</p>
+          </details>
+          <details>
+            <summary>급하게 견적이 필요한 경우 어떻게 하나요?</summary>
+            <p>긴급한 납기나 현장 일정이 있으신 경우, 문의 접수 후 전화로 연락 주시면 우선 확인해 드리겠습니다.</p>
           </details>
           <details>
             <summary>견적은 얼마나 걸리나요?</summary>
@@ -582,7 +589,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   <div class="modal-card">
     <div class="modal-icon">✓</div>
     <h3 class="modal-title">문의 접수가 완료되었습니다</h3>
-    <p class="modal-text">문의주셔서 감사합니다.<br>빠른 시일 내에 견적서를<br>회신드리겠습니다.</p>
+    <p class="modal-text">문의 내용을 확인 후<br>견적서를 회신 드리겠습니다.</p>
     <button class="modal-button" type="button" onclick="closeModal()">확인</button>
   </div>
 </div>
@@ -622,6 +629,7 @@ function createProductRow() {
       <option>벽면형 (130×80)</option>
       <option>전면형 (130×130)</option>
       <option>혼합형</option>
+      <option>확인 필요</option>
     </select>
     <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
   `;
@@ -685,6 +693,9 @@ if (form) {
 
     // 견적 요청 제품 정리해서 hidden input에 담기
     document.getElementById('product-summary').value = buildProductSummary();
+
+    // 접수 시각 (한국 시간 KST)
+    document.getElementById('submit-time-m').value = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }) + ' (KST)';
 
     // 제출 버튼 비활성화
     const submitBtn = form.querySelector('.form-submit');
