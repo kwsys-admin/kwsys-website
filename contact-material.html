@@ -309,7 +309,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .form-section-title:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
 
 /* Dynamic product rows */
-.product-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: stretch; }
+.product-row { display: grid; grid-template-columns: 1.5fr 0.9fr 0.9fr 0.8fr 1.2fr auto; gap: 8px; margin-bottom: 8px; align-items: stretch; }
 .product-row .form-input, .product-row .form-select { padding: 10px 12px; font-size: 13px; }
 .row-remove { width: 36px; border: 1px solid var(--border); background: white; border-radius: 8px; font-size: 16px; color: var(--text-muted); cursor: pointer; transition: all 0.2s; line-height: 1; padding: 0; display: flex; align-items: center; justify-content: center; }
 .row-remove:hover { border-color: #dc2626; color: #dc2626; background: #fef2f2; }
@@ -421,6 +421,10 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <section class="padded">
   <div class="container">
+    <div style="display: flex; gap: 8px; max-width: 440px; margin: 0 auto 40px; background: var(--surface); padding: 6px; border-radius: 14px; border: 1px solid var(--border);">
+      <a href="contact-construction.html" style="flex: 1; text-align: center; padding: 13px; border-radius: 9px; font-weight: 700; font-size: 14.5px; text-decoration: none; color: var(--text-muted); transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='white'; this.style.color='var(--primary)'" onmouseout="this.style.background='transparent'; this.style.color='var(--text-muted)'">시공 견적 문의</a>
+      <span style="flex: 1; text-align: center; padding: 13px; border-radius: 9px; font-weight: 700; font-size: 14.5px; background: var(--primary); color: white; box-shadow: 0 2px 8px rgba(30,64,175,0.2);">자재 견적 문의</span>
+    </div>
     <div class="contact-page-grid">
       <form action="https://formspree.io/f/xnjwzovk" method="POST" class="form-card">
         <input type="hidden" name="_subject" value="[경원에스아이 홈페이지] 새 자재 견적 문의 도착">
@@ -482,6 +486,12 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
             <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
             <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+            <select class="form-select product-rail">
+              <option value="">가이드레일</option>
+              <option>벽면형 (130×80)</option>
+              <option>전면형 (130×130)</option>
+              <option>혼합형</option>
+            </select>
             <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
           </div>
         </div>
@@ -490,27 +500,17 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
         <input type="hidden" name="견적요청제품" id="product-summary">
 
-        <div class="form-section-title">자재 사양 선택</div>
+        <div class="form-section-title">연동제어기 사양</div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">가이드레일 유형<span class="req">*</span></label>
-            <select name="가이드레일유형" class="form-select" required>
-              <option value="">선택해 주세요</option>
-              <option>벽면형 (130 × 80)</option>
-              <option>전면형 (130 × 130)</option>
-              <option>혼합형 (전면형 1 + 벽면형 1)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">연동제어기 유형<span class="req">*</span></label>
-            <select name="연동제어기유형" class="form-select" required>
-              <option value="">선택해 주세요</option>
-              <option>노출형</option>
-              <option>매립형</option>
-              <option>매립세트</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label class="form-label">연동제어기 유형<span class="req">*</span></label>
+          <select name="연동제어기유형" class="form-select" required>
+            <option value="">선택해 주세요</option>
+            <option>노출형</option>
+            <option>매립형</option>
+            <option>매립세트</option>
+          </select>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">※ 가이드레일 유형은 위 제품별로 선택해 주세요. 제품마다 다르게 적용할 수 있습니다.</p>
         </div>
 
         <div class="form-section-title">문의 내용</div>
@@ -549,16 +549,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <div class="faq-side-title">FAQ</div>
           <div class="faq-side-heading">자주 묻는 질문</div>
           <details>
-            <summary>어떤 자재를 공급하나요?</summary>
-            <p>철재방화셔터·방화스크린셔터 제작 및 시공에 필요한 슬랫, 가이드레일, 셔터박스 등 주요 자재를 공급합니다.</p>
-          </details>
-          <details>
             <summary>필요한 자재만 선택해서 구매할 수 있나요?</summary>
-            <p>필요한 자재 종류와 규격, 수량을 남겨주시면 확인 후 공급 가능 여부를 안내드립니다.</p>
+            <p>방화셔터 자재는 인정 사양에 맞는 규격과 품질 기준에 따라 공급되어야 하므로, 원칙적으로 개별 선택 구매는 어렵습니다. 다만 모터·연동제어기(전동개폐기)는 인정받은 제품일 경우 별도 구매가 가능합니다.</p>
           </details>
           <details>
             <summary>자재 규격은 어떻게 맞추나요?</summary>
-            <p>현장 규격과 요청 사양에 맞춰 자재를 준비합니다. 정확한 규격을 남겨주시면 검토 후 안내드립니다.</p>
+            <p>현장 규격을 확인하여 자재를 준비합니다. 정확한 규격을 남겨주시면 검토 후 안내드립니다.</p>
+          </details>
+          <details>
+            <summary>견적은 얼마나 걸리나요?</summary>
+            <p>접수 후 담당자가 확인하여 안내드립니다. 규격·수량 확인이 필요한 경우 시간이 조금 더 소요될 수 있습니다.</p>
+          </details>
+          <details>
+            <summary>납기는 보통 얼마나 걸리나요?</summary>
+            <p>자재 종류와 수량에 따라 다르며, 발주 후 일정을 협의하여 안내드립니다.</p>
           </details>
         </div>
       </div>
@@ -613,6 +617,12 @@ function createProductRow() {
     <input type="number" placeholder="가로(mm)" class="form-input product-width" min="0">
     <input type="number" placeholder="세로(mm)" class="form-input product-height" min="0">
     <input type="number" placeholder="수량(EA)" class="form-input product-qty" min="0">
+    <select class="form-select product-rail">
+      <option value="">가이드레일</option>
+      <option>벽면형 (130×80)</option>
+      <option>전면형 (130×130)</option>
+      <option>혼합형</option>
+    </select>
     <button type="button" class="row-remove" onclick="removeRow(this)" title="삭제">×</button>
   `;
   return row;
@@ -642,10 +652,12 @@ function buildProductSummary() {
     const width = row.querySelector('.product-width').value.trim();
     const height = row.querySelector('.product-height').value.trim();
     const qty = row.querySelector('.product-qty').value.trim();
-    if (name || width || height || qty) {
+    const rail = row.querySelector('.product-rail').value.trim();
+    if (name || width || height || qty || rail) {
       const sizeStr = (width || height) ? `${width || '-'} × ${height || '-'} mm` : '사이즈 미입력';
       const qtyStr = qty ? `${qty}EA` : '수량 미입력';
-      items.push(`${i + 1}. ${name || '제품 미선택'} / ${sizeStr} / ${qtyStr}`);
+      const railStr = rail ? `가이드레일 ${rail}` : '가이드레일 미선택';
+      items.push(`${i + 1}. ${name || '제품 미선택'} / ${sizeStr} / ${qtyStr} / ${railStr}`);
     }
   });
   if (items.length === 0) return '입력된 제품 없음';
