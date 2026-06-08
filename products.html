@@ -146,6 +146,11 @@ nav {
 /* Products Grid ======================================================== */
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .product-card { background: white; padding: 32px; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; min-height: 280px; position: relative; overflow: hidden; }
+.product-thumb { margin: -32px -32px 24px; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface); }
+.product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.product-card:hover .product-thumb img { transform: scale(1.06); }
+.product-thumb-placeholder { margin: -32px -32px 24px; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--primary-deep), var(--primary)); color: rgba(255,255,255,0.92); }
+.product-thumb-placeholder svg { width: 52px; height: 52px; }
 .product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--primary); transform: translateX(-100%); transition: transform 0.3s; }
 .product-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(30, 64, 175, 0.12); }
 .product-card:hover::before { transform: translateX(0); }
@@ -404,6 +409,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     </div>
     <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
       <a href="product-fire-shutter.html" class="product-card">
+        <div class="product-thumb"><img src="images/fire-shutter.png" alt="철재방화셔터" loading="lazy"></div>
         <div class="product-num">01 / 방화셔터</div>
         <div class="product-name">철재방화셔터</div>
         <div class="product-keywords"><span class="product-keyword-badge">화재 차단</span><span class="product-keyword-badge">인정제품</span></div>
@@ -411,6 +417,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-arrow">→</div>
       </a>
       <a href="product-fire-screen.html" class="product-card">
+        <div class="product-thumb"><img src="images/fire-screen.png" alt="방화스크린셔터" loading="lazy"></div>
         <div class="product-num">02 / 방화셔터</div>
         <div class="product-name">방화스크린셔터</div>
         <div class="product-keywords"><span class="product-keyword-badge">화재 차단</span><span class="product-keyword-badge">인정제품</span></div>
@@ -432,6 +439,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     </div>
     <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
       <a href="product-electric.html" class="product-card">
+        <div class="product-thumb"><img src="images/electric.png" alt="전동셔터" loading="lazy"></div>
         <div class="product-num">03 / 셔터</div>
         <div class="product-name">전동셔터</div>
         <div class="product-keywords"><span class="product-keyword-badge">자동 제어</span><span class="product-keyword-badge">출입 보안</span></div>
@@ -439,6 +447,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-arrow">→</div>
       </a>
       <a href="product-wind-resistant.html" class="product-card">
+        <div class="product-thumb"><img src="images/wind-resistant.png" alt="내풍압셔터" loading="lazy"></div>
         <div class="product-num">04 / 셔터</div>
         <div class="product-name">내풍압셔터</div>
         <div class="product-keywords"><span class="product-keyword-badge">강풍 대응</span><span class="product-keyword-badge">고내구성</span></div>
@@ -460,6 +469,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     </div>
     <div class="product-grid">
       <a href="product-speed-door.html" class="product-card">
+        <div class="product-thumb"><img src="images/speed-door.png" alt="스피드도어" loading="lazy"></div>
         <div class="product-num">05 / 도어</div>
         <div class="product-name">스피드도어</div>
         <div class="product-keywords"><span class="product-keyword-badge">물류 환경</span><span class="product-keyword-badge">작업 효율</span></div>
@@ -467,6 +477,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-arrow">→</div>
       </a>
       <a href="product-overhead-door.html" class="product-card">
+        <div class="product-thumb"><img src="images/overhead-door.png" alt="오버헤드도어" loading="lazy"></div>
         <div class="product-num">06 / 도어</div>
         <div class="product-name">오버헤드도어</div>
         <div class="product-keywords"><span class="product-keyword-badge">공간 활용</span><span class="product-keyword-badge">산업용</span></div>
@@ -474,6 +485,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-arrow">→</div>
       </a>
       <a href="product-special-door.html" class="product-card">
+        <div class="product-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 42V14l14-8 14 8v28"/><path d="M10 42h28 M18 42V26h12v16"/><circle cx="24" cy="19" r="2.5"/></svg></div>
         <div class="product-num">07 / 도어</div>
         <div class="product-name">특수도어</div>
         <div class="product-keywords"><span class="product-keyword-badge">맞춤형</span><span class="product-keyword-badge">현장 설계</span></div>
