@@ -378,6 +378,9 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 .lineup-tag { display: inline-flex; align-items: center; padding: 9px 18px; background: #fff; border: 1px solid var(--border); border-radius: 100px; font-size: 14px; font-weight: 700; color: var(--text); text-decoration: none; transition: all 0.2s; }
 .lineup-tag:hover { background: var(--primary); border-color: var(--primary); color: #fff; transform: translateY(-2px); }
+@keyframes cardFlash { 0%, 100% { box-shadow: 0 0 0 0 rgba(30,64,175,0); border-color: var(--border); } 25% { box-shadow: 0 0 0 5px rgba(30,64,175,0.28); border-color: var(--primary); } 60% { box-shadow: 0 0 0 5px rgba(30,64,175,0.28); border-color: var(--primary); } }
+.product-card.card-flash { animation: cardFlash 1.3s ease; }
+html { scroll-behavior: smooth; }
 
 .float-cta { position: fixed; right: 20px; bottom: 28px; display: flex; flex-direction: column; gap: 10px; z-index: 200; }
 .float-cta a { display: flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 100px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.18); transition: transform 0.2s; white-space: nowrap; }
@@ -416,15 +419,14 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 <section style="padding: 36px 0; background: var(--surface); border-bottom: 1px solid var(--border);">
   <div class="container">
     <div style="text-align: center;">
-      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.15em; color: var(--primary); margin-bottom: 16px;">7 PRODUCT LINE-UP</div>
+      <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: var(--primary); margin-bottom: 16px;">6종 라인업</div>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-        <a href="product-fire-shutter.html" class="lineup-tag">방화셔터</a>
-        <a href="product-fire-screen.html" class="lineup-tag">방화스크린</a>
-        <a href="product-electric.html" class="lineup-tag">전동셔터</a>
-        <a href="product-wind-resistant.html" class="lineup-tag">내풍압셔터</a>
-        <a href="product-speed-door.html" class="lineup-tag">스피드도어</a>
-        <a href="product-overhead-door.html" class="lineup-tag">오버헤드도어</a>
-        <a href="product-special-door.html" class="lineup-tag">특수도어</a>
+        <a href="#card-fire-shutter" class="lineup-tag">방화셔터</a>
+        <a href="#card-fire-screen" class="lineup-tag">방화스크린</a>
+        <a href="#card-electric" class="lineup-tag">전동셔터</a>
+        <a href="#card-wind" class="lineup-tag">내풍압셔터</a>
+        <a href="#card-speed" class="lineup-tag">스피드도어</a>
+        <a href="#card-overhead" class="lineup-tag">오버헤드도어</a>
       </div>
     </div>
   </div>
@@ -441,20 +443,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
     <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
-      <a href="product-fire-shutter.html" class="product-card">
+      <a href="product-fire-shutter.html" class="product-card" id="card-fire-shutter">
         <div class="product-thumb"><img src="images/fire-shutter.png" alt="철재방화셔터" loading="lazy"></div>
         <div class="product-num">01 / 방화셔터</div>
         <div class="product-name">철재방화셔터</div>
-        <div class="product-keywords"><span class="product-keyword-badge">인정 제품</span><span class="product-keyword-badge">방화구획</span></div>
-        <div class="product-desc">화재 시 자동 폐쇄되어 인명과 재산을 보호합니다. 방화구획이 필요한 산업시설에 적합합니다.</div>
+        <div class="product-keywords"><span class="product-keyword-badge">인정 제품</span><span class="product-keyword-badge">방화구획</span><span class="product-keyword-badge">방폭모터 옵션</span></div>
+        <div class="product-desc">화재 시 자동 폐쇄되어 인명과 재산을 보호합니다. 방화구획이 필요한 산업시설에 적합합니다. 방폭이 필요한 현장은 방폭모터로 변경 가능합니다.</div>
         <div class="product-arrow">→</div>
       </a>
-      <a href="product-fire-screen.html" class="product-card">
+      <a href="product-fire-screen.html" class="product-card" id="card-fire-screen">
         <div class="product-thumb"><img src="images/fire-screen.png" alt="방화스크린셔터" loading="lazy"></div>
         <div class="product-num">02 / 방화셔터</div>
         <div class="product-name">방화스크린셔터</div>
-        <div class="product-keywords"><span class="product-keyword-badge">인정 제품</span><span class="product-keyword-badge">방화구획</span><span class="product-keyword-badge">대형개구부</span></div>
-        <div class="product-desc">넓은 개구부에도 적용 가능한 방화 솔루션입니다. 공간 활용성과 방화 성능을 동시에 제공합니다.</div>
+        <div class="product-keywords"><span class="product-keyword-badge">인정 제품</span><span class="product-keyword-badge">방화구획</span><span class="product-keyword-badge">대형개구부</span><span class="product-keyword-badge">방폭모터 옵션</span></div>
+        <div class="product-desc">넓은 개구부에도 적용 가능한 방화 솔루션입니다. 공간 활용성과 방화 성능을 동시에 제공합니다. 방폭이 필요한 현장은 방폭모터로 변경 가능합니다.</div>
         <div class="product-arrow">→</div>
       </a>
     </div>
@@ -471,7 +473,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
     <div class="product-grid" style="grid-template-columns: repeat(2, 1fr);">
-      <a href="product-electric.html" class="product-card">
+      <a href="product-electric.html" class="product-card" id="card-electric">
         <div class="product-thumb"><img src="images/electric.png" alt="전동셔터" loading="lazy"></div>
         <div class="product-num">03 / 셔터</div>
         <div class="product-name">전동셔터</div>
@@ -479,7 +481,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-desc">매일 사용하는 출입구를 더욱 편리하게. 안정적인 자동 개폐로 운영 효율을 높입니다.</div>
         <div class="product-arrow">→</div>
       </a>
-      <a href="product-wind-resistant.html" class="product-card">
+      <a href="product-wind-resistant.html" class="product-card" id="card-wind">
         <div class="product-thumb"><img src="images/wind-resistant.png" alt="내풍압셔터" loading="lazy"></div>
         <div class="product-num">04 / 셔터</div>
         <div class="product-name">내풍압셔터</div>
@@ -501,7 +503,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
     <div class="product-grid">
-      <a href="product-speed-door.html" class="product-card">
+      <a href="product-speed-door.html" class="product-card" id="card-speed">
         <div class="product-thumb"><img src="images/speed-door.png" alt="스피드도어" loading="lazy"></div>
         <div class="product-num">05 / 도어</div>
         <div class="product-name">스피드도어</div>
@@ -509,20 +511,12 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <div class="product-desc">빠른 개폐로 물류 흐름을 개선하고 에너지 손실을 최소화합니다.</div>
         <div class="product-arrow">→</div>
       </a>
-      <a href="product-overhead-door.html" class="product-card">
+      <a href="product-overhead-door.html" class="product-card" id="card-overhead">
         <div class="product-thumb"><img src="images/overhead-door.png" alt="오버헤드도어" loading="lazy"></div>
         <div class="product-num">06 / 도어</div>
         <div class="product-name">오버헤드도어</div>
         <div class="product-keywords"><span class="product-keyword-badge">산업용</span><span class="product-keyword-badge">공간활용</span></div>
         <div class="product-desc">산업시설과 물류센터에 최적화된 도어입니다. 단열성과 내구성을 동시에 확보했습니다.</div>
-        <div class="product-arrow">→</div>
-      </a>
-      <a href="product-special-door.html" class="product-card">
-        <div class="product-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 42V14l14-8 14 8v28"/><path d="M10 42h28 M18 42V26h12v16"/><circle cx="24" cy="19" r="2.5"/></svg></div>
-        <div class="product-num">07 / 도어</div>
-        <div class="product-name">특수도어</div>
-        <div class="product-keywords"><span class="product-keyword-badge">맞춤제작</span><span class="product-keyword-badge">방폭</span></div>
-        <div class="product-desc">일반 제품으로 해결하기 어려운 현장을 위한 맞춤형 도어 솔루션입니다.</div>
         <div class="product-arrow">→</div>
       </a>
     </div>
@@ -560,5 +554,19 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.lineup-tag').forEach(function(tag) {
+  tag.addEventListener('click', function(e) {
+    e.preventDefault();
+    var id = tag.getAttribute('href').slice(1);
+    var card = document.getElementById(id);
+    if (!card) return;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.remove('card-flash');
+    void card.offsetWidth;
+    card.classList.add('card-flash');
+  });
+});
+</script>
 </body>
 </html>
