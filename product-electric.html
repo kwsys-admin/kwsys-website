@@ -793,7 +793,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <h2 class="section-title">전동셔터 시공 사례</h2>
         <p style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">경원에스아이가 직접 시공한 전동셔터 현장입니다.</p>
       </div>
-      <a href="cases.html" class="section-link">전체 시공사례 보기 →</a>
+      <a href="cases.html?product=전동셔터" class="section-link">전체 시공사례 보기 →</a>
     </div>
     <div class="proj-grid" id="product-cases"></div>
   </div>
@@ -917,7 +917,7 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
       grid.innerHTML = '';
       filtered.slice(0, 4).forEach(c => {
         const card = document.createElement('a');
-        card.href = 'cases.html'; card.className = 'proj-card';
+        card.href = 'cases.html?product=전동셔터'; card.className = 'proj-card';
         card.style.textDecoration = 'none'; card.style.color = 'inherit';
         const bg = c.image ? `background-image: url('${c.image}'); background-size: cover; background-position: center;` : '';
         const lbl = c.image ? '' : `<span class="proj-image-label">${escapeHtml(PRODUCT_NAME)}</span>`;

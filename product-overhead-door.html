@@ -426,6 +426,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 @media (max-width: 968px) { .hero-mini-badges { grid-template-columns: repeat(2, 1fr); } .diff-grid { grid-template-columns: repeat(2, 1fr); } .proj-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .proj-grid { grid-template-columns: 1fr; } }
 
+
+  .float-cta { position: fixed; right: 20px; bottom: 28px; display: flex; flex-direction: column; gap: 10px; z-index: 200; }
+  .float-cta a { display: flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 100px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,0.18); transition: transform 0.2s; white-space: nowrap; }
+  .float-cta a:hover { transform: translateX(-4px); }
+  .float-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .float-cta .fc-quote { background: var(--primary); color: #fff; }
+  .float-cta .fc-material { background: #fbbf24; color: var(--primary-deep); }
+  .float-cta .fc-tel { background: #fff; color: var(--primary); border: 1px solid var(--border); }
+  @media (max-width: 768px) {
+    .float-cta { right: 0; left: 0; bottom: 0; flex-direction: row; gap: 0; background: #fff; border-top: 1px solid var(--border); padding: 7px; box-shadow: 0 -2px 14px rgba(0,0,0,0.1); }
+    .float-cta a { flex: 1; justify-content: center; border-radius: 9px; box-shadow: none; padding: 12px 6px; font-size: 13px; }
+    .float-cta a:hover { transform: none; }
+    .float-cta .fc-tel { border: none; }
+  }
 </style>
 </head>
 <body>
@@ -564,6 +578,22 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
+<section class="padded">
+  <div class="container">
+    <div style="margin-bottom: 36px;">
+      <div class="section-eyebrow">MOTION / 작동 비교</div>
+      <h2 class="section-title" style="font-size: clamp(28px, 3.5vw, 40px);">버티컬 vs 하이리프트 작동 비교</h2>
+      <p style="margin-top: 14px; font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 720px;">개구부 상부 공간과 천장 높이에 따라 작동 방식을 선택할 수 있습니다. 버티컬은 곡선 없이 천장까지 수직으로 적재되고, 하이리프트는 상단에서 곡선으로 꺾여 천장 아래 수평으로 적재됩니다.</p>
+    </div>
+    <div style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #000; max-width: 960px;">
+      <video controls playsinline preload="metadata" style="width: 100%; display: block;" poster="images/overhead-door.png">
+        <source src="videos/overhead-comparison.mp4" type="video/mp4">
+        브라우저가 영상을 지원하지 않습니다.
+      </video>
+    </div>
+  </div>
+</section>
+
 <section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="container">
     <div class="section-header">
@@ -601,7 +631,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <h2 class="section-title">오버헤드도어 시공 사례</h2>
         <p style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">경원에스아이가 직접 시공한 오버헤드도어 현장입니다.</p>
       </div>
-      <a href="cases.html" class="section-link">전체 시공사례 보기 →</a>
+      <a href="cases.html?product=오버헤드도어" class="section-link">전체 시공사례 보기 →</a>
     </div>
     <div class="proj-grid" id="product-cases"></div>
   </div>
@@ -656,6 +686,11 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 </section>
 
 
+<div class="float-cta">
+  <a href="contact-construction.html" class="fc-quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6 M8 13h8 M8 17h5"/></svg><span>시공 견적</span></a>
+  <a href="tel:031-8055-8458" class="fc-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>전화 상담</span></a>
+</div>
+
 <footer>
   <div class="container footer-inner">
     <div>© 2026 (주)경원에스아이 · 대표 신명희 · 사업자등록번호 727-81-02039</div>
@@ -683,7 +718,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       grid.innerHTML = '';
       filtered.slice(0, 4).forEach(c => {
         const card = document.createElement('a');
-        card.href = 'cases.html'; card.className = 'proj-card';
+        card.href = 'cases.html?product=오버헤드도어'; card.className = 'proj-card';
         card.style.textDecoration = 'none'; card.style.color = 'inherit';
         const bg = c.image ? `background-image: url('${c.image}'); background-size: cover; background-position: center;` : '';
         const lbl = c.image ? '' : `<span class="proj-image-label">${escapeHtml(PRODUCT_NAME)}</span>`;
