@@ -535,6 +535,23 @@ function renderCases(cases) {
 
     casesContainer.appendChild(card);
   });
+  applyUrlFilter();
+}
+
+function applyUrlFilter() {
+  var product = new URLSearchParams(location.search).get('product');
+  if (!product) return;
+  var chips = document.querySelectorAll('.filter-chip');
+  var matched = false;
+  chips.forEach(function(chip) {
+    var isMatch = chip.textContent.trim() === product;
+    chip.classList.toggle('active', isMatch);
+    if (isMatch) matched = true;
+  });
+  if (!matched) return;
+  document.querySelectorAll('.cases-list .case-item').forEach(function(item) {
+    item.style.display = (item.dataset.product === product) ? '' : 'none';
+  });
 }
 
 // 필터 칩 클릭 시 시공사례 필터링 (data-product 기준)
