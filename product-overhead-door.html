@@ -440,6 +440,24 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     .float-cta a:hover { transform: none; }
     .float-cta .fc-tel { border: none; }
   }
+
+  .proscons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  .proscons-card { padding: 32px 28px; border-radius: 12px; border: 1px solid var(--border); background: white; }
+  .proscons-card.pros { border-top: 4px solid var(--primary); }
+  .proscons-card.cons { border-top: 4px solid #94a3b8; }
+  .proscons-card.alt { border-top: 4px solid #0d9488; }
+  .proscons-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; text-transform: uppercase; }
+  .proscons-card.pros .proscons-label { color: var(--primary); }
+  .proscons-card.cons .proscons-label { color: #64748b; }
+  .proscons-card.alt .proscons-label { color: #0d9488; }
+  .proscons-title { font-size: 22px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+  .proscons-item { margin-bottom: 18px; padding-left: 22px; position: relative; font-size: 14px; line-height: 1.7; color: #475569; }
+  .proscons-item:last-child { margin-bottom: 0; }
+  .proscons-item::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+  .proscons-card.cons .proscons-item::before { background: #94a3b8; }
+  .proscons-card.alt .proscons-item::before { background: #0d9488; }
+  .proscons-item strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; font-size: 15px; }
+  @media (max-width: 768px) { .proscons-grid { grid-template-columns: 1fr; gap: 16px; } }
 </style>
 </head>
 <body>
@@ -606,6 +624,61 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <source src="videos/overhead-comparison.mp4" type="video/mp4">
         브라우저가 영상을 지원하지 않습니다.
       </video>
+    </div>
+  </div>
+</section>
+
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-header"><div>
+      <div class="section-eyebrow">LIFT TYPE / 작동 방식별 장점</div>
+      <h2 class="section-title">버티컬 · 하이리프트, 어떤 장점이 있나요?</h2>
+      <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">천장 높이와 상부 공간 조건에 따라 적합한 작동 방식이 달라집니다.</p>
+    </div></div>
+    <div class="proscons-grid">
+      <div class="proscons-card pros">
+        <div class="proscons-label">VERTICAL / 버티컬</div>
+        <div class="proscons-title">버티컬 (수직 적재)</div>
+        <div class="proscons-item"><strong>천장이 높은 현장에 적합</strong>도어가 천장까지 수직으로 올라가 상부 공간을 효율적으로 사용합니다.</div>
+        <div class="proscons-item"><strong>단순하고 안정적인 구조</strong>곡선 레일이 없어 구조가 간단하고 유지관리가 쉽습니다.</div>
+        <div class="proscons-item"><strong>좌우 벽면 활용</strong>도어가 위로 수납되어 개구부 좌우 공간을 차지하지 않습니다.</div>
+        <div class="proscons-item"><strong>높은 개구부 대응</strong>층고가 높은 출입구에 안정적으로 적용됩니다.</div>
+      </div>
+      <div class="proscons-card alt">
+        <div class="proscons-label">HIGH-LIFT / 하이리프트</div>
+        <div class="proscons-title">하이리프트 (곡선 적재)</div>
+        <div class="proscons-item"><strong>상부 공간이 제한적일 때 적합</strong>도어가 천장 아래 수평으로 적재되어 천장이 낮아도 설치할 수 있습니다.</div>
+        <div class="proscons-item"><strong>천장 장애물 회피</strong>크레인·배관 등 천장 구조물이 있어도 설치가 가능합니다.</div>
+        <div class="proscons-item"><strong>천장 공간 효율 활용</strong>도어가 천장 아래 보관되어 실내 공간을 효율적으로 사용합니다.</div>
+        <div class="proscons-item"><strong>까다로운 현장 대응</strong>천장 조건이 복잡한 현장에도 유연하게 적용됩니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="padded">
+  <div class="container">
+    <div class="section-header"><div>
+      <div class="section-eyebrow">SELECTION / 선택 기준</div>
+      <h2 class="section-title">오버헤드도어 선택 기준</h2>
+      <p class="section-subtitle" style="margin-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.7;">현장 조건에 따라 적합 여부가 달라지며, 경우에 따라 다른 제품 검토가 필요할 수 있습니다.</p>
+    </div></div>
+    <div class="proscons-grid">
+      <div class="proscons-card pros">
+        <div class="proscons-label">RECOMMEND / 추천</div>
+        <div class="proscons-title">이런 현장에 추천합니다</div>
+        <div class="proscons-item"><strong>넓은 개구부가 필요한 현장</strong>물류센터·공장 출입구 등 대형 개구부에 적합합니다.</div>
+        <div class="proscons-item"><strong>단열·기밀이 중요한 현장</strong>냉동·냉장 창고 등 온도 관리가 필요한 공간에 적합합니다.</div>
+        <div class="proscons-item"><strong>좌우 공간 활용이 필요한 현장</strong>도어가 상부로 수납되어 벽면을 효율적으로 사용합니다.</div>
+        <div class="proscons-item"><strong>대형 차량·장비 출입 구간</strong>트럭·지게차 등 대형 장비가 출입하는 구간에 적합합니다.</div>
+      </div>
+      <div class="proscons-card cons">
+        <div class="proscons-label">CHECK / 검토 필요</div>
+        <div class="proscons-title">이런 경우는 검토가 필요합니다</div>
+        <div class="proscons-item"><strong>초고속 개폐가 필요한 경우</strong>빠른 개폐가 핵심이라면 스피드도어 검토가 필요할 수 있습니다.</div>
+        <div class="proscons-item"><strong>방화구획이 필요한 경우</strong>방화 성능이 필요하면 방화셔터·방화스크린셔터 검토가 필요합니다.</div>
+        <div class="proscons-item"><strong>천장 상부 공간이 매우 제한적인 경우</strong>설치 공간 확인이 필요하며, 하이리프트 방식으로 대응할 수 있습니다.</div>
+      </div>
     </div>
   </div>
 </section>
