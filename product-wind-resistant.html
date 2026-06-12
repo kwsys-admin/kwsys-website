@@ -476,6 +476,16 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     .float-cta a:hover { transform: none; }
     .float-cta .fc-tel { border: none; }
   }
+
+  .lineup-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0 28px; }
+  .lsum-card { padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .lsum-name { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 5px; }
+  .lsum-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+  .lineup-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; border-bottom: 2px solid var(--border); }
+  .ltab { padding: 12px 20px; background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 14.5px; font-weight: 700; color: var(--text-muted); cursor: pointer; font-family: inherit; transition: color 0.2s, border-color 0.2s; }
+  .ltab:hover { color: var(--text); }
+  .ltab.active { color: var(--primary); border-bottom-color: var(--primary); }
+  @media (max-width: 768px) { .ltab { padding: 10px 14px; font-size: 13px; } }
 </style>
 </head>
 <body>
@@ -574,6 +584,14 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
     </div>
 
+    <div class="lineup-summary">
+      <div class="lsum-card"><div class="lsum-name">AL 내풍압셔터</div><div class="lsum-desc">강풍 대응 중심</div></div>
+      <div class="lsum-card"><div class="lsum-name">AL 단열 내풍압셔터</div><div class="lsum-desc">강풍 대응 + 단열</div></div>
+    </div>
+    <div class="lineup-tabs">
+      <button class="ltab active" data-target="al-wind">AL 내풍압셔터</button>
+      <button class="ltab" data-target="al-insulated-wind">AL 단열 내풍압셔터</button>
+    </div>
     <div class="lineup-items">
       <article id="al-wind" class="lineup-item" style="background: white; border: 1px solid var(--border); border-radius: 18px; padding: 40px;">
         <div style="margin: -40px -40px 28px; border-radius: 18px 18px 0 0; overflow: hidden; aspect-ratio: 21/8; background: var(--surface);">
@@ -600,7 +618,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         </div>
       </article>
 
-      <article id="al-insulated-wind" class="lineup-item" style="background: white; border: 1px solid var(--border); border-radius: 18px; padding: 40px;">
+      <article id="al-insulated-wind" class="lineup-item" style="background: white; border: 1px solid var(--border); border-radius: 18px; padding: 40px; display: none;">
         <div style="margin: -40px -40px 28px; border-radius: 18px 18px 0 0; overflow: hidden; aspect-ratio: 21/8; background: var(--surface);">
           <img src="images/al-insulated-wind.png" alt="AL 단열 내풍압셔터" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
@@ -822,6 +840,24 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
     } catch (e) { console.error('시공사례 로드 실패:', e); }
   }
   loadProductCases();
+})();
+</script>
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.ltab');
+  function showTab(target) {
+    tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.target === target); });
+    document.querySelectorAll('.lineup-items > article').forEach(function(a) {
+      a.style.display = (a.id === target) ? '' : 'none';
+    });
+  }
+  tabs.forEach(function(tab) { tab.addEventListener('click', function() { showTab(tab.dataset.target); }); });
+  document.querySelectorAll('.product-side-nav-sublink').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var t = link.getAttribute('href').slice(1);
+      if (document.querySelector('.ltab[data-target="' + t + '"]')) showTab(t);
+    });
+  });
 })();
 </script>
 </body>
