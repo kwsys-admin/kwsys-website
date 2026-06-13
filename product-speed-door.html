@@ -450,27 +450,6 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   .ltab:hover { color: var(--text); }
   .ltab.active { color: var(--primary); border-bottom-color: var(--primary); }
   @media (max-width: 768px) { .ltab { padding: 10px 14px; font-size: 13px; } }
-
-/* === 라인업 카드 보강(전동셔터와 동일): 핵심강점 아이콘 + 제품사양표 === */
-.elec-highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px; }
-.elec-hl { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 12px; text-align: center; }
-.elec-hl-ic { width: 34px; height: 34px; margin: 0 auto 9px; color: var(--primary); }
-.elec-hl-ic svg { width: 100%; height: 100%; }
-.elec-hl-t { font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-.elec-hl-d { font-size: 11.5px; color: var(--text-muted); line-height: 1.4; }
-.elec-detail-grid { margin-bottom: 0; }
-.elec-spec { margin-top: 18px; background: white; border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; }
-.elec-spec h4 { font-size: 13px; font-weight: 800; color: var(--primary); margin-bottom: 8px; letter-spacing: 0.05em; }
-.elec-spec table { width: 100%; border-collapse: collapse; }
-.elec-spec td { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: top; }
-.elec-spec tr:last-child td { border-bottom: none; }
-.elec-spec td.k { width: 130px; color: var(--text-muted); font-weight: 600; white-space: nowrap; }
-.elec-spec td.v { color: var(--text); font-weight: 500; }
-.elec-spec .todo { color: var(--text-light); }
-.elec-spec-note { margin-top: 14px; font-size: 12px; color: var(--text-light); line-height: 1.7; }
-@media (max-width: 968px) { .elec-detail-grid { grid-template-columns: 1fr !important; } }
-@media (max-width: 768px) { .elec-highlights { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .elec-spec td.k { width: 96px; } }
 </style>
 </head>
 <body>
@@ -540,22 +519,6 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
           <a href="catalog.pdf" target="_blank" rel="noopener" class="btn btn-secondary">카탈로그 다운로드 ↓</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding-top: 56px; padding-bottom: 56px;">
-  <div class="container">
-    <div style="margin-bottom: 28px;">
-      <div class="section-eyebrow">WHY KWSYS / 경원에스아이의 차별점</div>
-      <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-top: 8px;">왜 경원에스아이인가요?</h2>
-    </div>
-    <div class="diff-grid">
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div><strong>현장 조건 검토</strong><span>개구부·동선·사용환경 확인</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6 M9 13h6 M9 17h4"/></svg></div><div><strong>제품 사양 제안</strong><span>속도·폭·옵션 맞춤 검토</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div><strong>자재 납품·시공</strong><span>제품 공급부터 설치까지</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20 M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div><div><strong>전국 시공 대응</strong><span>현장 일정 협의 가능</span></div></div>
-      <div class="diff-card"><div class="diff-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6 M8 13h4 M8 17h6"/></svg></div><div><strong>도면 지원 가능</strong><span>현장 도면 작성·검토 지원</span></div></div>
     </div>
   </div>
 </section>
@@ -633,10 +596,12 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <span style="padding: 6px 14px; background: var(--primary-tint); color: var(--primary); border-radius: 100px; font-size: 13px; font-weight: 700;">내구성</span>
       </div>
 
-      <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px;">AL 6063-T5 알루미늄 이중 압출 슬랫 구조로 내구성이 우수하며, 부식과 마모에 강한 제품입니다. 기본 개폐 속도는 150~300mm/sec이며, 발주처 요구에 따라 최대 1,000mm/sec까지 설계 가능합니다. 최대 폭 12m까지 설치 가능하며, 풍속 45m/sec 성능 성적서를 보유하고 있습니다.</p>
+      <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px;">AL 6063-T5 알루미늄 이중 압출 슬랫 구조로 제작되어 내구성이 우수하며, 부식과 마모에 강한 제품입니다. 기본 개폐 속도는 150~300mm/sec이며, 발주처 요구에 따라 최대 1,000mm/sec까지 설계 가능합니다. 최대 폭 12m까지 설치 가능하며, 풍속 45m/sec 성능 성적서를 보유하고 있습니다.</p>
 
-      <div class="elec-highlights"><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="elec-hl-t">고속 개폐</div><div class="elec-hl-d">최대 1,000mm/sec 설계</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="elec-hl-t">고내구 슬랫</div><div class="elec-hl-d">AL 6063-T5 이중압출</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h13a3 3 0 1 0-3-3"/><path d="M3 12h17a3 3 0 1 1-3 3"/><path d="M3 16h9a3 3 0 1 1-3 3"/></svg></div><div class="elec-hl-t">강풍 대응</div><div class="elec-hl-d">윈드락 적용</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="elec-hl-t">안전 구조</div><div class="elec-hl-d">자유낙하 방지</div></div></div>
-          <div class="elec-detail-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch;"><div style="background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px;"><h4 style="font-size: 13px; font-weight: 800; color: var(--primary); margin-bottom: 16px; letter-spacing: 0.05em;">주요 특징</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px;">
+        <div>
+          <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary);">●</span> 주요 특징</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> AL 6063-T5 알루미늄 이중 압출 슬랫 적용</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 강한 내구성과 우수한 내식성 확보</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 윈드락 적용으로 강풍 시에도 슬랫 이탈 방지</li>
@@ -645,7 +610,13 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 현장·발주처 요구에 따른 색상 표면처리 가능</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 투시창·안전센서·루프코일 등 다양한 옵션</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 전동 작동 방식, 비상 시 수동 개폐 가능</li>
-          </ul></div><div style="background: var(--primary-tint); border: 1px solid rgba(30,64,175,0.12); border-radius: 14px; padding: 24px 26px;"><h4 style="font-size: 13px; font-weight: 800; color: var(--primary); margin-bottom: 16px; letter-spacing: 0.05em;">적용 장소</h4><p style="font-size: 14px; color: var(--text-muted); line-height: 1.8;">물류창고, 공장 출입구, 대형 개구부, 차량 이동 통로, 지게차 이동 구간, 산업시설, 창고시설 등 빠른 개폐와 내구성이 필요한 장소에 적합합니다.</p></div></div>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary);">●</span> 적용 장소</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;"><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 물류창고·공장 출입구</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 대형 개구부·차량 이동 통로</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 지게차 이동 구간</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 빠른 개폐·내구성이 필요한 산업·창고시설</li></ul>
+        </div>
+      </div>
     </div>
 
     <!-- 제품 2 -->
@@ -670,8 +641,10 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
       <p style="font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 28px;">출입이 빈번한 물류센터, 공장, 창고 등의 통로에 적합한 제품입니다. 빠른 개폐를 통해 작업 효율을 높이고, 실내외 공기 유출입을 줄여 냉·난방 손실을 최소화합니다. 또한 분진, 먼지, 곤충 등의 유입을 줄여 공장 내부의 온도와 습도를 안정적으로 유지하는 데 도움을 줍니다. 기능성과 외관 대비 경제성이 우수합니다.</p>
 
-      <div class="elec-highlights"><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="elec-hl-t">고속 개폐</div><div class="elec-hl-d">자중 활용 개폐</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></div><div class="elec-hl-t">에너지 절감</div><div class="elec-hl-d">냉·난방 손실 감소</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="elec-hl-t">먼지·벌레 차단</div><div class="elec-hl-d">위생 환경 유지</div></div><div class="elec-hl"><div class="elec-hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg></div><div class="elec-hl-t">채광·경제성</div><div class="elec-hl-d">경제적 설치</div></div></div>
-          <div class="elec-detail-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch;"><div style="background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px;"><h4 style="font-size: 13px; font-weight: 800; color: var(--primary); margin-bottom: 16px; letter-spacing: 0.05em;">주요 특징</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
+      <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px;">
+        <div>
+          <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary);">●</span> 주요 특징</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;">
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 신속한 개폐로 작업 동선 및 업무 효율 향상</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 냉·난방 손실 감소를 통한 에너지 절감 효과</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 바람·열·먼지·분진·곤충 유입 차단</li>
@@ -679,7 +652,13 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 안전성 및 채광성 확보 가능</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 위생·환경 관리가 필요한 장소에 적합</li>
             <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 기능성과 외관 대비 경제적인 설치 가능</li>
-          </ul></div><div style="background: var(--primary-tint); border: 1px solid rgba(30,64,175,0.12); border-radius: 14px; padding: 24px 26px;"><h4 style="font-size: 13px; font-weight: 800; color: var(--primary); margin-bottom: 16px; letter-spacing: 0.05em;">적용 장소</h4><p style="font-size: 14px; color: var(--text-muted); line-height: 1.8;">물류센터, 냉동창고, 자재창고, 생산공장, 식품공장, 공장 내부 구획 연결 통로, 온도 차이가 큰 작업장, 출입이 빈번한 산업시설 등에 적용할 수 있습니다.</p></div></div>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary);">●</span> 적용 장소</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px;"><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 물류센터·냉동창고·자재창고</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 생산공장·식품공장</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 공장 내부 구획 연결 통로</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 온도 차이가 큰 작업장</li><li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--text);"><span style="color: var(--primary); font-weight: 800; flex-shrink: 0;">✓</span> 출입이 빈번한 산업시설</li></ul>
+        </div>
+      </div>
     </div>
 
     <!-- 설치 선택 가이드 -->
@@ -893,6 +872,9 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
   function showTab(target) {
     tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.target === target); });
     document.querySelectorAll('.speed-panel').forEach(function(p) { p.style.display = (p.id === target) ? '' : 'none'; });
+    document.querySelectorAll('.product-side-nav-sublink').forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + target);
+    });
   }
   tabs.forEach(function(tab) { tab.addEventListener('click', function() { showTab(tab.dataset.target); }); });
   document.querySelectorAll('.product-side-nav-sublink').forEach(function(link) {
@@ -901,6 +883,8 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
       if (document.querySelector('.ltab[data-target="' + t + '"]')) showTab(t);
     });
   });
+  var actSpeed = document.querySelector('.ltab.active');
+  if (actSpeed) showTab(actSpeed.dataset.target);
 })();
 </script>
 </body>
