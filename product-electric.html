@@ -750,7 +750,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
-<section class="padded">
+<section class="padded" style="border-top: 1px solid var(--border);">
   <div class="container">
     <div class="section-header" style="margin-bottom: 32px;">
       <div>
@@ -824,7 +824,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   </div>
 </section>
 
-<section class="padded">
+<section class="padded" style="border-top: 1px solid var(--border);">
   <div class="container">
     <div class="section-header">
       <div>
@@ -887,18 +887,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 
 <script>
 // 라인업 사이드바: 부드러운 스크롤 + 현재 섹션 자동 강조
-document.querySelectorAll('.product-side-nav-sublink').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const target = document.getElementById(href.substring(1));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  });
-});
+
 
 const lineupItems = document.querySelectorAll('.lineup-item');
 const lineupSublinks = document.querySelectorAll('.product-side-nav-sublink');
@@ -970,9 +959,14 @@ if (lineupItems.length > 0 && 'IntersectionObserver' in window) {
   }
   tabs.forEach(function(tab) { tab.addEventListener('click', function() { showTab(tab.dataset.target); }); });
   document.querySelectorAll('.product-side-nav-sublink').forEach(function(link) {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
       var t = link.getAttribute('href').slice(1);
-      if (document.querySelector('.ltab[data-target="' + t + '"]')) showTab(t);
+      if (document.querySelector('.ltab[data-target="' + t + '"]')) {
+        e.preventDefault();
+        showTab(t);
+        var sec = document.querySelector('.lineup-tabs');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
   var actInit = document.querySelector('.ltab.active');
