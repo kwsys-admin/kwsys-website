@@ -136,7 +136,7 @@ nav {
 .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
 /* Section ============================================================== */
-.padded { padding: 120px 0; }
+.padded { padding: 104px 0; }
 .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 32px; flex-wrap: wrap; }
 .section-eyebrow { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; max-width: 720px; }
@@ -453,7 +453,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   .stats { padding: 48px 0; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
   .stat-item:nth-child(3) { border-left: none; padding-left: 16px; }
-  .padded { padding: 60px 0; }
+  .padded { padding: 52px 0; }
   .section-header { margin-bottom: 36px; }
   .product-grid { grid-template-columns: 1fr; gap: 12px; }
   .product-special { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px; }
@@ -824,7 +824,34 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     .float-cta a:hover { transform: none; }
     .float-cta .fc-tel { border: none; }
   }
+
+  .faq-list { max-width: 840px; }
+  .faq-list details { border-bottom: 1px solid var(--border); padding: 22px 0; }
+  .faq-list details:first-child { padding-top: 0; }
+  .faq-list summary { font-size: 16px; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; position: relative; padding-right: 36px; line-height: 1.5; transition: color 0.2s; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 24px; color: var(--primary); font-weight: 400; }
+  .faq-list details[open] summary::after { content: '\2212'; }
+  .faq-list details[open] summary { color: var(--primary); }
+  .faq-list summary:hover { color: var(--primary); }
+  .faq-list details p { margin-top: 14px; font-size: 14.5px; color: var(--text-muted); line-height: 1.7; padding-right: 36px; }
 </style>
+
+<section class="padded">
+  <div class="container">
+    <div style="margin-bottom: 36px;">
+      <div class="section-eyebrow">FAQ / 자주 묻는 질문</div>
+      <h2 class="section-title">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>철재방화셔터는 어디에 설치하나요?</summary><p>공장, 물류센터, 근린생활시설, 지하주차장 등 방화구획이 필요한 개구부에 설치합니다.</p></details>
+      <details><summary>방화셔터와 일반 전동셔터의 차이는 무엇인가요?</summary><p>방화셔터는 화재 시 자동 폐쇄되어 화염 및 연기의 확산을 지연시키는 품질인정 제품이며, 일반 전동셔터는 방화 성능이 없습니다.</p></details>
+      <details><summary>화재 발생 시 어떻게 작동하나요?</summary><p>감지기 또는 수신반 신호를 받아 자동으로 하강하여 방화구획을 형성합니다.</p></details>
+      <details><summary>품질인정 제품인가요?</summary><p>네. 품질인정 기준에 따라 제작된 인정방화셔터입니다.</p></details>
+      <details><summary>최대 제작 가능 크기는 어떻게 되나요?</summary><p>인정 범위 및 현장 조건에 따라 달라지므로 별도 문의가 필요합니다.</p></details>
+    </div>
+  </div>
+</section>
 
 <section class="padded contact">
   <div class="container">

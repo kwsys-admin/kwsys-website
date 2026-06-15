@@ -136,7 +136,7 @@ nav {
 .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
 /* Section ============================================================== */
-.padded { padding: 120px 0; }
+.padded { padding: 104px 0; }
 .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; gap: 32px; flex-wrap: wrap; }
 .section-eyebrow { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
 .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; line-height: 1.15; letter-spacing: -0.035em; max-width: 720px; }
@@ -382,7 +382,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   .stats { padding: 48px 0; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
   .stat-item:nth-child(3) { border-left: none; padding-left: 16px; }
-  .padded { padding: 60px 0; }
+  .padded { padding: 52px 0; }
   .section-header { margin-bottom: 36px; }
   .product-grid { grid-template-columns: 1fr; gap: 12px; }
   .product-special { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px; }
@@ -779,7 +779,34 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     .float-cta a:hover { transform: none; }
     .float-cta .fc-tel { border: none; }
   }
+
+  .faq-list { max-width: 840px; }
+  .faq-list details { border-bottom: 1px solid var(--border); padding: 22px 0; }
+  .faq-list details:first-child { padding-top: 0; }
+  .faq-list summary { font-size: 16px; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; position: relative; padding-right: 36px; line-height: 1.5; transition: color 0.2s; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 24px; color: var(--primary); font-weight: 400; }
+  .faq-list details[open] summary::after { content: '\2212'; }
+  .faq-list details[open] summary { color: var(--primary); }
+  .faq-list summary:hover { color: var(--primary); }
+  .faq-list details p { margin-top: 14px; font-size: 14.5px; color: var(--text-muted); line-height: 1.7; padding-right: 36px; }
 </style>
+
+<section class="padded">
+  <div class="container">
+    <div style="margin-bottom: 36px;">
+      <div class="section-eyebrow">FAQ / 자주 묻는 질문</div>
+      <h2 class="section-title">자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>방화스크린은 어떤 곳에 사용하나요?</summary><p>대형 개구부, 로비, 아트리움, 복도 등 일반 방화셔터 설치가 어려운 공간에 적용합니다.</p></details>
+      <details><summary>방화셔터 대신 사용할 수 있나요?</summary><p>인정 범위와 설계 조건에 따라 가능합니다. 현장 검토 후 적용 여부를 확인해야 합니다.</p></details>
+      <details><summary>평소에는 어떻게 보관되나요?</summary><p>상부 케이스 내부에 말려 보관되며 평상시에는 공간을 개방 상태로 사용할 수 있습니다.</p></details>
+      <details><summary>정전 시에도 작동하나요?</summary><p>비상전원 또는 중력하강 방식 등 적용 사양에 따라 자동 작동이 가능합니다.</p></details>
+      <details><summary>차열 성능이 있나요?</summary><p>제품 종류에 따라 차열형 및 비차열형으로 구분됩니다.</p></details>
+    </div>
+  </div>
+</section>
 
 <section class="padded contact">
   <div class="container">
