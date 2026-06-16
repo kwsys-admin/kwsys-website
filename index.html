@@ -160,7 +160,7 @@ nav {
 .section-link:hover { gap: 14px; }
 
 /* Products Grid ======================================================== */
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .product-card { background: white; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; min-height: 300px; position: relative; overflow: hidden; }
   .product-img { width: 100%; height: 170px; background-size: cover; background-position: center; background-color: var(--surface); flex-shrink: 0; }
   .product-body { padding: 26px 28px; display: flex; flex-direction: column; flex-grow: 1; }
@@ -317,10 +317,20 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
     var(--surface);
 }
 
-.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
-.value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 16px; }
-.value-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.025em; }
+  .strength-carousel { position: relative; padding: 0 6px; }
+  .sc-viewport { overflow: hidden; }
+  .sc-track { display: flex; gap: 20px; transition: transform 0.55s cubic-bezier(0.4,0,0.2,1); }
+  .sc-track .value-card { flex: 0 0 calc((100% - 40px) / 3); box-sizing: border-box; }
+  .sc-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; background: white; border: 1px solid var(--border); color: var(--primary); font-size: 24px; line-height: 1; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 12px rgba(0,0,0,0.1); transition: all 0.2s; }
+  .sc-arrow:hover { background: var(--primary); color: white; border-color: var(--primary); }
+  .sc-prev { left: -12px; }
+  .sc-next { right: -12px; }
+  @media (max-width: 1100px) { .sc-track .value-card { flex: 0 0 calc((100% - 20px) / 2); } }
+  @media (max-width: 600px) { .sc-track .value-card { flex: 0 0 86%; } .sc-arrow { width: 38px; height: 38px; font-size: 20px; } .sc-prev { left: 2px; } .sc-next { right: 2px; } }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+.value-num { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em; margin-bottom: 12px; }
+.value-title { font-size: 21px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.025em; }
 .value-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
 
 /* OUR STRENGTHS (5 column grid) */
@@ -329,7 +339,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
 .value-grid-5 .value-title { font-size: 18px; }
 .value-grid-5 .value-text { font-size: 13px; }
 .value-grid-5 .value-card hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-.strength-icon { color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; }
+.strength-icon { color: var(--primary); margin-bottom: 18px; display: flex; align-items: center; justify-content: flex-start; }
 .strength-icon svg { width: 44px; height: 44px; stroke: currentColor; }
 .value-grid-5 .value-card .value-num { margin-top: 4px; }
 @media (max-width: 1100px) { .value-grid-5 { grid-template-columns: repeat(2, 1fr); } .value-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -523,7 +533,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="product-fire-screen.html" class="product-card"><div class="product-img" style="background-image:url('images/fire-screen.png')"></div><div class="product-body"><div class="product-num">02 / 방화셔터</div><div class="product-name">방화스크린셔터</div><div class="product-keywords"><span class="product-keyword-badge">화재 차단</span><span class="product-keyword-badge">인정제품</span></div><div class="product-desc">공간 활용성과 방화 성능을 동시에 고려한 스크린 셔터.</div><div class="product-arrow">→</div></div></a>
     </div>
 
-    <div style="margin-top: 56px;"><h3 style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); display: inline-block;">산업용 도어</h3></div>
+    <div style="margin-top: 40px;"><h3 style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); display: inline-block;">산업용 도어</h3></div>
     <div class="product-grid">
       <a href="product-electric.html" class="product-card"><div class="product-img" style="background-image:url('images/electric.png')"></div><div class="product-body"><div class="product-num">01 / 셔터</div><div class="product-name">전동셔터</div><div class="product-keywords"><span class="product-keyword-badge">자동 제어</span><span class="product-keyword-badge">출입 보안</span></div><div class="product-desc">효율적인 출입 관리와 보안을 위한 산업용 전동셔터.</div><div class="product-arrow">→</div></div></a>
       <a href="product-wind-resistant.html" class="product-card"><div class="product-img" style="background-image:url('images/al-wind.png')"></div><div class="product-body"><div class="product-num">02 / 셔터</div><div class="product-name">내풍압셔터</div><div class="product-keywords"><span class="product-keyword-badge">강풍 대응</span><span class="product-keyword-badge">고내구성</span></div><div class="product-desc">강풍과 외부 압력에 대응하는 고강성 산업용 셔터.</div><div class="product-arrow">→</div></div></a>
@@ -531,7 +541,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="product-overhead-door.html" class="product-card"><div class="product-img" style="background-image:url('images/overhead-door.png')"></div><div class="product-body"><div class="product-num">04 / 도어</div><div class="product-name">오버헤드도어</div><div class="product-keywords"><span class="product-keyword-badge">공간 활용</span><span class="product-keyword-badge">산업용</span></div><div class="product-desc">상부 개폐 방식으로 공간 활용성을 높인 산업용 도어.</div><div class="product-arrow">→</div></div></a>
     </div>
 
-    <div style="margin-top: 56px;"><h3 style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); display: inline-block;">자재 공급</h3></div>
+    <div style="margin-top: 40px;"><h3 style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); display: inline-block;">자재 공급</h3></div>
     <div class="product-grid">
       <a href="contact-material.html" class="product-card"><div class="product-num">자재 / MATERIAL</div><div class="product-name">방화셔터 자재</div><div class="product-keywords"><span class="product-keyword-badge">자재 세트</span><span class="product-keyword-badge">인정 사양</span></div><div class="product-desc">슬랫·가이드레일·셔터박스 등 방화셔터 자재 세트를 공급합니다.</div><div class="product-arrow">→</div></a>
     </div>
@@ -545,9 +555,9 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       <a href="cases.html" class="section-link">전체 사례 보기 →</a>
     </div>
     <div class="cases-stats">
-      <div class="cs-stat"><div class="cs-num">1,000+</div><div class="cs-label">누적 시공 실적</div></div>
-      <div class="cs-stat"><div class="cs-num">10년+</div><div class="cs-label">업력</div></div>
-      <div class="cs-stat"><div class="cs-num">전국</div><div class="cs-label">시공 대응</div></div>
+      <div class="cs-stat"><div class="cs-ic">🏢</div><div class="cs-num">1,000+</div><div class="cs-label">누적 시공 실적</div></div>
+      <div class="cs-stat"><div class="cs-ic">📅</div><div class="cs-num">10년+</div><div class="cs-label">업력</div></div>
+      <div class="cs-stat"><div class="cs-ic">🚚</div><div class="cs-num">전국</div><div class="cs-label">시공 대응</div></div>
     </div>
     <div class="cases-grid" id="main-cases-grid">
       <p style="grid-column: 1/-1; grid-row: 1/3; text-align: center; padding: 80px 20px; color: var(--text-muted);">시공사례를 불러오는 중...</p>
@@ -565,7 +575,9 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
       </div>
       <a href="about.html" class="section-link">회사소개 자세히 보기 →</a>
     </div>
-    <div class="value-grid">
+    <div class="strength-carousel">
+      <button class="sc-arrow sc-prev" aria-label="이전">&#8249;</button>
+      <div class="sc-viewport"><div class="sc-track">
       <div class="value-card">
         <div class="strength-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -643,6 +655,8 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
         <hr>
         <div class="value-text">도면이 없으셔도 현장 조건에 맞춰 도면 작성을 지원해 드립니다.</div>
       </div>
+    </div></div>
+      <button class="sc-arrow sc-next" aria-label="다음">&#8250;</button>
     </div>
   </div>
 </section>
@@ -771,6 +785,7 @@ footer { background: white; border-top: 1px solid var(--border); padding: 32px 0
   }
   .cases-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 48px; }
   .cs-stat { text-align: center; padding: 30px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+  .cs-ic { font-size: 32px; margin-bottom: 12px; line-height: 1; }
   .cs-num { font-size: 38px; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; line-height: 1; }
   .cs-label { font-size: 14px; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
   @media (max-width: 600px) { .cases-stats { gap: 10px; } .cs-num { font-size: 28px; } .cs-stat { padding: 22px 12px; } }
@@ -971,5 +986,36 @@ function renderMainCases(cases) {
 loadMainCases();
 </script>
 
+<script>
+(function(){
+  var track = document.querySelector('.sc-track');
+  if (!track) return;
+  var cards = track.querySelectorAll('.value-card');
+  var prevBtn = document.querySelector('.sc-prev'), nextBtn = document.querySelector('.sc-next');
+  var idx = 0, timer = null;
+  function perView(){ var w = window.innerWidth; return w <= 600 ? 1 : (w <= 1100 ? 2 : 3); }
+  function maxIdx(){ return Math.max(0, cards.length - perView()); }
+  function go(){
+    if (idx > maxIdx()) idx = 0;
+    if (idx < 0) idx = maxIdx();
+    var st = getComputedStyle(track);
+    var gap = parseFloat(st.columnGap || st.gap) || 20;
+    var cw = cards[0].getBoundingClientRect().width + gap;
+    track.style.transform = 'translateX(-' + (idx * cw) + 'px)';
+  }
+  function nextSlide(){ idx = idx >= maxIdx() ? 0 : idx + 1; go(); }
+  function prevSlide(){ idx = idx <= 0 ? maxIdx() : idx - 1; go(); }
+  function start(){ stop(); timer = setInterval(nextSlide, 3500); }
+  function stop(){ if (timer) clearInterval(timer); }
+  if (nextBtn) nextBtn.addEventListener('click', function(){ nextSlide(); start(); });
+  if (prevBtn) prevBtn.addEventListener('click', function(){ prevSlide(); start(); });
+  var car = document.querySelector('.strength-carousel');
+  car.addEventListener('mouseenter', stop);
+  car.addEventListener('mouseleave', start);
+  var rt;
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ idx = Math.min(idx, maxIdx()); go(); }, 150); });
+  go(); start();
+})();
+</script>
 </body>
 </html>
