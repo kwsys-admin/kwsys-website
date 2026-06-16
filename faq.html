@@ -406,19 +406,24 @@ html { scroll-behavior: smooth; }
 
   .strength-icon { color: var(--primary); margin-bottom: 24px; display: flex; align-items: center; justify-content: flex-start; }
   .strength-icon svg { width: 44px; height: 44px; stroke: currentColor; }
-  .faq-list { max-width: 860px; margin: 0 auto; }
+  .faq-title { font-size: clamp(22px, 2.6vw, 28px); font-weight: 800; letter-spacing: -0.02em; margin: 0 auto; }
+  .faq-list { max-width: 920px; margin: 0 auto; }
   .faq-list details { border-bottom: 1px solid var(--border); padding: 22px 0; }
   .faq-list details:first-child { padding-top: 0; }
   .faq-list summary { font-size: 16px; font-weight: 600; color: var(--text); cursor: pointer; list-style: none; position: relative; padding-right: 36px; line-height: 1.5; transition: color 0.2s; }
   .faq-list summary::-webkit-details-marker { display: none; }
-  .faq-list summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 24px; color: var(--primary); transition: transform 0.25s; }
+  .faq-list summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 24px; color: var(--primary); }
   .faq-list details[open] summary::after { content: '\2212'; }
   .faq-list details[open] summary { color: var(--primary); }
   .faq-list summary:hover { color: var(--primary); }
   .faq-list details p { margin-top: 14px; font-size: 14.5px; color: var(--text-muted); line-height: 1.7; padding-right: 36px; }
   .faq-list details[open] p { animation: faqSlide 0.28s ease; }
   @keyframes faqSlide { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-  .faq-search { max-width: 600px; margin: 0 auto 44px; position: relative; }
+  .faqitem.faq-hidden { display: none; }
+  .faq-more { text-align: center; margin-top: 28px; }
+  .faq-more button { padding: 12px 32px; border: 1.5px solid var(--primary); color: var(--primary); background: white; border-radius: 999px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .faq-more button:hover { background: var(--primary); color: white; }
+  .faq-search { max-width: 600px; margin: 0 auto 8px; position: relative; }
   .faq-search input { width: 100%; padding: 16px 20px 16px 52px; border: 1.5px solid var(--border); border-radius: 12px; font-size: 15px; font-family: inherit; transition: border-color 0.2s; }
   .faq-search input:focus { border-color: var(--primary); outline: none; }
   .faq-search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 17px; opacity: 0.5; }
@@ -427,12 +432,14 @@ html { scroll-behavior: smooth; }
   .faq-tab { display: inline-flex; align-items: center; gap: 7px; padding: 11px 22px; border: 1px solid var(--border); background: white; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
   .faq-tab:hover { border-color: var(--primary); color: var(--primary); }
   .faq-tab.active { background: var(--primary); border-color: var(--primary); color: white; box-shadow: 0 4px 14px rgba(30,64,175,0.25); }
+  .faq-tab .faq-count { opacity: 0.6; font-weight: 600; margin-left: 1px; }
   .faq-tab .ic { font-size: 16px; }
   .faq-panel { display: none; }
   .faq-panel.active { display: block; }
-  .trust-badges { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: center; margin-top: 28px; }
-  .trust-badge { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: var(--text); }
-  .trust-badge::before { content: '\2713'; color: var(--primary); font-weight: 800; }
+  .trust-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 760px; margin: 36px auto 0; }
+  .trust-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 16px; text-align: center; }
+  .trust-card .tc-ic { font-size: 28px; margin-bottom: 12px; }
+  .trust-card .tc-tx { font-size: 14px; font-weight: 700; color: var(--text); }
   .faq-cta { background: var(--primary); color: white; text-align: center; }
   .faq-cta h2 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
   .faq-cta p { font-size: 15px; opacity: 0.9; margin-bottom: 28px; }
@@ -443,8 +450,9 @@ html { scroll-behavior: smooth; }
   .faq-cta-btns a:hover { transform: translateY(-2px); }
   @media (max-width: 600px) {
     .faq-list { max-width: 100%; }
-    .faq-tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; padding-bottom: 10px; margin-left: -4px; margin-right: -4px; }
+    .faq-tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; padding-bottom: 10px; }
     .faq-tab { flex-shrink: 0; }
+    .trust-cards { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -464,31 +472,25 @@ html { scroll-behavior: smooth; }
   </div>
 </nav>
 
-<section class="padded" style="padding-top: 132px; padding-bottom: 52px; border-bottom: 1px solid var(--border); text-align: center;">
+<section class="padded" style="padding-top: 132px; padding-bottom: 56px; border-bottom: 1px solid var(--border); text-align: center;">
   <div class="container">
     <div class="section-eyebrow" style="display: inline-block;">FAQ / 자주 묻는 질문</div>
     <h1 style="font-size: clamp(32px, 4vw, 44px); font-weight: 800; letter-spacing: -0.03em; margin-top: 8px;">자주 묻는 질문</h1>
     <p style="margin-top: 16px; font-size: 16px; color: var(--text-muted); line-height: 1.7;">견적·시공에 대한 공통 질문과 제품별 질문을 모았습니다.</p>
-    <div class="trust-badges">
-      <span class="trust-badge">전국 시공 가능</span>
-      <span class="trust-badge">품질인증 보유</span>
-      <span class="trust-badge">맞춤 제작 가능</span>
-      <span class="trust-badge">사후관리 지원</span>
-    </div>
   </div>
 </section>
 
-<section class="padded">
+<section class="padded" style="background: var(--surface);">
   <div class="container">
     <div class="faq-search">
       <span class="faq-search-icon">🔍</span>
       <input type="text" id="faqSearch" placeholder="궁금한 내용을 검색해 보세요 (예: 견적, 시공기간, 방화셔터)">
     </div>
-    <div style="text-align: center; margin-bottom: 40px;">
+    <div style="text-align: center; margin: 36px 0 36px;">
       <div class="section-eyebrow" style="display: inline-block;">COMMON / 공통 질문</div>
-      <h2 class="section-title" style="margin: 0 auto;">견적 · 시공 공통 질문</h2>
+      <h2 class="faq-title">견적 · 시공 공통 질문</h2>
     </div>
-    <div class="faq-list" id="commonFaq">
+    <div class="faq-list">
       <details open><summary>견적은 어떻게 받을 수 있나요?</summary><p>전화(031-8055-8458) 또는 홈페이지 문의를 통해 요청해 주시면 됩니다. 도면이나 현장 정보를 보내주시면 검토 후 견적서를 전달해 드립니다.</p></details>
       <details><summary>견적은 얼마나 걸리나요?</summary><p>문의 접수 후 담당자가 내용을 검토한 뒤 순차적으로 회신드립니다. 도면 검토가 필요하거나 현장 규모가 큰 경우에는 견적 산출에 추가 시간이 소요될 수 있습니다.</p></details>
       <details><summary>전국 시공이 가능한가요?</summary><p>네, 가능합니다. 전국 모든 지역의 현장에 시공 서비스를 제공하고 있으며, 현장 여건에 맞는 제품 선정 및 시공을 지원해 드립니다.</p></details>
@@ -498,85 +500,95 @@ html { scroll-behavior: smooth; }
   </div>
 </section>
 
-<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border);">
+<section class="padded" style="border-top: 1px solid var(--border);">
   <div class="container">
     <div style="text-align: center; margin-bottom: 32px;">
       <div class="section-eyebrow" style="display: inline-block;">PRODUCT / 제품별 질문</div>
-      <h2 class="section-title" style="margin: 0 auto;">제품별 자주 묻는 질문</h2>
+      <h2 class="faq-title">제품별 자주 묻는 질문</h2>
     </div>
-    <div class="faq-tabs"><button class="faq-tab active" data-target="fire-shutter"><span class="ic">🛡</span>철재방화셔터</button><button class="faq-tab" data-target="fire-screen"><span class="ic">🏭</span>방화스크린셔터</button><button class="faq-tab" data-target="electric"><span class="ic">🚪</span>전동셔터</button><button class="faq-tab" data-target="wind"><span class="ic">💨</span>내풍압셔터</button><button class="faq-tab" data-target="speed"><span class="ic">⚡</span>스피드도어</button><button class="faq-tab" data-target="overhead"><span class="ic">📦</span>오버헤드도어</button></div>
+    <div class="faq-tabs"><button class="faq-tab active" data-target="fire-shutter"><span class="ic">🛡</span>철재방화셔터 <span class="faq-count">(12)</span></button><button class="faq-tab" data-target="fire-screen"><span class="ic">🏭</span>방화스크린셔터 <span class="faq-count">(13)</span></button><button class="faq-tab" data-target="electric"><span class="ic">🚪</span>전동셔터 <span class="faq-count">(5)</span></button><button class="faq-tab" data-target="wind"><span class="ic">💨</span>내풍압셔터 <span class="faq-count">(5)</span></button><button class="faq-tab" data-target="speed"><span class="ic">⚡</span>스피드도어 <span class="faq-count">(5)</span></button><button class="faq-tab" data-target="overhead"><span class="ic">📦</span>오버헤드도어 <span class="faq-count">(5)</span></button></div>
     <div class="faq-panels">
       <div class="faq-panel active" data-product="fire-shutter">
         <div class="faq-list">
-        <details open><summary>인정방화셔터란 무엇인가요?</summary><p>인정방화셔터는 「건축자재등 품질인정 및 관리기준」에 따라 성능시험과 공장심사를 거쳐 품질인정을 취득한 방화셔터입니다.<br><br>기존에는 시험성적서를 통해 성능을 확인하였으나, 현재는 품질인정제도가 시행됨에 따라 일정 규모 이상의 건축물에는 품질인정을 받은 방화셔터를 사용해야 합니다.<br><br>인정방화셔터는 화재 발생 시 화염의 확산을 차단하는 방화성능과 연기의 확산을 억제하는 차연성능이 검증된 제품으로, 건축물의 방화구획을 유지하여 인명과 재산을 보호하는 역할을 합니다.</p></details>
-        <details><summary>방화셔터 설치 의무 대상은 어디인가요?</summary><p>방화셔터는 건축법령에 따라 방화구획이 필요한 건축물의 개구부에 설치됩니다.<br><br>주요 적용 대상은 물류센터, 공장, 판매시설, 지하주차장, 복합건축물 등이며, 내화구조 벽체를 설치하기 어려운 개구부에 방화구획을 형성하기 위해 사용됩니다.<br><br>적용 여부는 건축물의 용도, 면적, 층수 및 설계 조건에 따라 달라질 수 있으므로 설계도서 및 관련 법령 검토가 필요합니다.</p></details>
-        <details><summary>철재방화셔터는 어디에 설치하나요?</summary><p>공장, 물류센터, 판매시설, 근린생활시설, 지하주차장 등 방화구획이 필요한 개구부에 설치합니다.<br><br>철재 슬랫 구조로 제작되어 내구성이 우수하며, 화재 발생 시 화염과 연기의 확산을 지연시키고 방화구획을 유지하는 역할을 합니다.</p></details>
-        <details><summary>방화셔터와 방화스크린의 차이점은 무엇인가요?</summary><p>방화셔터는 철재 슬랫으로 구성된 제품이며, 방화스크린은 특수 내화섬유 원단으로 제작됩니다.<br><br>철재방화셔터는 내구성이 우수하고 충격에 강하여 공장, 물류센터, 주차장 등에 주로 적용되며, 방화스크린은 경량 구조로 대형 개구부나 개방감이 필요한 공간에 적합합니다.<br><br>현장 구조와 법규 적용 기준에 따라 적합한 제품이 달라질 수 있습니다.</p></details>
-        <details><summary>일체형 방화셔터는 설치가 가능한가요?</summary><p>일체형 방화셔터는 「자동방화셔터 및 방화문의 기준」 개정(국토교통부고시 제2020-44호, 2020.01.30.)에 따라 현재 신규 설치가 사실상 불가능합니다.<br><br>해당 고시는 2년의 유예기간을 두고 시행되어 2022년 1월 30일 이후 건축허가를 신청한 현장부터 일체형 방화셔터를 사용할 수 없도록 변경되었습니다.<br><br>또한 2021년 1월 30일부터는 일체형 방화셔터에 대한 신규 시험이 중단되었으며, 기존 시험성적서 역시 사용 가능한 기간이 종료되었습니다. 따라서 현재는 품질인정을 취득한 인정방화셔터(분리형)를 적용해야 합니다.<br><br><span style="color: var(--text-light);">※ 현장별 건축허가일, 변경허가 여부 및 자재승인 시점에 따라 적용 기준이 달라질 수 있습니다.</span></p></details>
-        <details><summary>최대 설치 가능 크기는 어떻게 되나요?</summary><p>최대 설치 가능 규격은 8,000 × 4,000mm입니다.<br><br>다만 설치 위치, 풍압 조건, 구조 검토 결과에 따라 적용 가능 규격이 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
-        <details><summary>방화셔터 설치 시 상부 여유 공간은 얼마나 필요한가요?</summary><p>철재방화셔터는 슬랫이 적층되는 구조로 인해 일반적으로 최소 500mm 이상의 셔터박스 공간이 필요합니다.<br><br>정확한 셔터박스 크기는 개구부의 가로·세로 크기 및 제품 사양에 따라 달라질 수 있으므로 도면 검토 후 안내해 드립니다.</p></details>
-        <details><summary>방화셔터 설치 시 내화벽체가 필요한가요?</summary><p>자동방화셔터는 내화구조 벽체를 설치할 수 없는 개구부에 적용되는 방화설비입니다.<br><br>가이드레일과 셔터박스는 내화구조 벽체와 접하도록 설치되어야 하며, 방화문과 연결되는 구간에는 내화구조 벽체를 구성한 후 설치해야 합니다.<br><br>부적절한 벽체 시공은 방화구획 성능에 영향을 줄 수 있으므로 관련 기준에 따라 시공해야 합니다.</p></details>
-        <details><summary>인정서를 제공받을 수 있나요?</summary><p>네, 제공해드립니다.<br><br>자재승인에 필요한 품질인정서 및 관련 기술자료를 제공해 드리며, 시공 완료 후 준공서류 제출에 필요한 서류도 함께 제공해 드립니다.</p></details>
-        <details><summary>기존 방화셔터를 철거하고 교체할 수 있나요?</summary><p>네, 가능합니다.<br><br>노후화되었거나 성능기준에 적합하지 않은 기존 방화셔터를 철거하고 인정방화셔터로 교체 시공할 수 있습니다. 현장 구조와 개구부 상태를 검토한 후 최적의 시공 방안을 안내해 드립니다.</p></details>
-        <details><summary>신규 설치와 교체 시공 모두 가능한가요?</summary><p>네, 가능합니다.<br><br>신축 현장의 신규 설치는 물론 기존 건축물의 방화셔터 교체 공사까지 모두 진행하고 있습니다.</p></details>
-        <details><summary>방화셔터 설치 후 유지관리는 어떻게 하나요?</summary><p>방화셔터는 정기적인 점검과 유지관리가 필요합니다.<br><br>모터, 제어반, 감지기, 연동장치 및 하강 동작의 정상 작동 여부를 주기적으로 확인해야 하며, 이상 발생 시 즉시 점검 및 보수를 진행하는 것이 안전합니다.</p></details>
+        <details open class="faqitem"><summary>인정방화셔터란 무엇인가요?</summary><p>인정방화셔터는 「건축자재등 품질인정 및 관리기준」에 따라 성능시험과 공장심사를 거쳐 품질인정을 취득한 방화셔터입니다.<br><br>기존에는 시험성적서를 통해 성능을 확인하였으나, 현재는 품질인정제도가 시행됨에 따라 일정 규모 이상의 건축물에는 품질인정을 받은 방화셔터를 사용해야 합니다.<br><br>인정방화셔터는 화재 발생 시 화염의 확산을 차단하는 방화성능과 연기의 확산을 억제하는 차연성능이 검증된 제품으로, 건축물의 방화구획을 유지하여 인명과 재산을 보호하는 역할을 합니다.</p></details>
+        <details class="faqitem"><summary>방화셔터 설치 의무 대상은 어디인가요?</summary><p>방화셔터는 건축법령에 따라 방화구획이 필요한 건축물의 개구부에 설치됩니다.<br><br>주요 적용 대상은 물류센터, 공장, 판매시설, 지하주차장, 복합건축물 등이며, 내화구조 벽체를 설치하기 어려운 개구부에 방화구획을 형성하기 위해 사용됩니다.<br><br>적용 여부는 건축물의 용도, 면적, 층수 및 설계 조건에 따라 달라질 수 있으므로 설계도서 및 관련 법령 검토가 필요합니다.</p></details>
+        <details class="faqitem"><summary>철재방화셔터는 어디에 설치하나요?</summary><p>공장, 물류센터, 판매시설, 근린생활시설, 지하주차장 등 방화구획이 필요한 개구부에 설치합니다.<br><br>철재 슬랫 구조로 제작되어 내구성이 우수하며, 화재 발생 시 화염과 연기의 확산을 지연시키고 방화구획을 유지하는 역할을 합니다.</p></details>
+        <details class="faqitem"><summary>방화셔터와 방화스크린의 차이점은 무엇인가요?</summary><p>방화셔터는 철재 슬랫으로 구성된 제품이며, 방화스크린은 특수 내화섬유 원단으로 제작됩니다.<br><br>철재방화셔터는 내구성이 우수하고 충격에 강하여 공장, 물류센터, 주차장 등에 주로 적용되며, 방화스크린은 경량 구조로 대형 개구부나 개방감이 필요한 공간에 적합합니다.<br><br>현장 구조와 법규 적용 기준에 따라 적합한 제품이 달라질 수 있습니다.</p></details>
+        <details class="faqitem"><summary>일체형 방화셔터는 설치가 가능한가요?</summary><p>일체형 방화셔터는 「자동방화셔터 및 방화문의 기준」 개정(국토교통부고시 제2020-44호, 2020.01.30.)에 따라 현재 신규 설치가 사실상 불가능합니다.<br><br>해당 고시는 2년의 유예기간을 두고 시행되어 2022년 1월 30일 이후 건축허가를 신청한 현장부터 일체형 방화셔터를 사용할 수 없도록 변경되었습니다.<br><br>또한 2021년 1월 30일부터는 일체형 방화셔터에 대한 신규 시험이 중단되었으며, 기존 시험성적서 역시 사용 가능한 기간이 종료되었습니다. 따라서 현재는 품질인정을 취득한 인정방화셔터(분리형)를 적용해야 합니다.<br><br><span style="color: var(--text-light);">※ 현장별 건축허가일, 변경허가 여부 및 자재승인 시점에 따라 적용 기준이 달라질 수 있습니다.</span></p></details>
+        <details class="faqitem faq-hidden"><summary>최대 설치 가능 크기는 어떻게 되나요?</summary><p>최대 설치 가능 규격은 8,000 × 4,000mm입니다.<br><br>다만 설치 위치, 풍압 조건, 구조 검토 결과에 따라 적용 가능 규격이 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화셔터 설치 시 상부 여유 공간은 얼마나 필요한가요?</summary><p>철재방화셔터는 슬랫이 적층되는 구조로 인해 일반적으로 최소 500mm 이상의 셔터박스 공간이 필요합니다.<br><br>정확한 셔터박스 크기는 개구부의 가로·세로 크기 및 제품 사양에 따라 달라질 수 있으므로 도면 검토 후 안내해 드립니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화셔터 설치 시 내화벽체가 필요한가요?</summary><p>자동방화셔터는 내화구조 벽체를 설치할 수 없는 개구부에 적용되는 방화설비입니다.<br><br>가이드레일과 셔터박스는 내화구조 벽체와 접하도록 설치되어야 하며, 방화문과 연결되는 구간에는 내화구조 벽체를 구성한 후 설치해야 합니다.<br><br>부적절한 벽체 시공은 방화구획 성능에 영향을 줄 수 있으므로 관련 기준에 따라 시공해야 합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>인정서를 제공받을 수 있나요?</summary><p>네, 제공해드립니다.<br><br>자재승인에 필요한 품질인정서 및 관련 기술자료를 제공해 드리며, 시공 완료 후 준공서류 제출에 필요한 서류도 함께 제공해 드립니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>기존 방화셔터를 철거하고 교체할 수 있나요?</summary><p>네, 가능합니다.<br><br>노후화되었거나 성능기준에 적합하지 않은 기존 방화셔터를 철거하고 인정방화셔터로 교체 시공할 수 있습니다. 현장 구조와 개구부 상태를 검토한 후 최적의 시공 방안을 안내해 드립니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>신규 설치와 교체 시공 모두 가능한가요?</summary><p>네, 가능합니다.<br><br>신축 현장의 신규 설치는 물론 기존 건축물의 방화셔터 교체 공사까지 모두 진행하고 있습니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화셔터 설치 후 유지관리는 어떻게 하나요?</summary><p>방화셔터는 정기적인 점검과 유지관리가 필요합니다.<br><br>모터, 제어반, 감지기, 연동장치 및 하강 동작의 정상 작동 여부를 주기적으로 확인해야 하며, 이상 발생 시 즉시 점검 및 보수를 진행하는 것이 안전합니다.</p></details>
+        <div class="faq-more"><button onclick="var pn=this.closest('.faq-panel'); pn.querySelectorAll('.faq-hidden').forEach(function(d){d.classList.remove('faq-hidden');}); this.parentElement.remove();">더보기 (7개 더) ▾</button></div>
         </div>
       </div>
       <div class="faq-panel" data-product="fire-screen">
         <div class="faq-list">
-        <details open><summary>방화스크린이란 무엇인가요?</summary><p>방화스크린은 특수 내화섬유 원단을 사용하여 화재 발생 시 화염과 연기의 확산을 지연시키는 방화설비입니다.<br><br>철재방화셔터 대비 경량 구조로 제작되어 대형 개구부에도 적용이 가능하며, 개방감이 필요한 공간에 효과적으로 적용할 수 있습니다.</p></details>
-        <details><summary>인정방화스크린인가요?</summary><p>네. 당사 방화스크린은 관련 법규에 따른 품질인정을 취득한 제품으로 방화 및 차연 성능이 검증된 제품입니다.</p></details>
-        <details><summary>차연성능이 있나요?</summary><p>네. 품질인정 기준에 따라 차연성능이 검증된 제품으로 화재 발생 시 연기의 확산을 억제하여 피난 안전성을 확보할 수 있습니다.</p></details>
-        <details><summary>방화스크린은 어디에 설치하나요?</summary><p>아트리움, 로비, 쇼핑몰, 판매시설, 복합건축물, 물류시설 등 대형 개구부가 있는 공간에 설치합니다.<br><br>개방감을 유지하면서 방화구획을 형성해야 하는 공간에 주로 적용됩니다.</p></details>
-        <details><summary>방화스크린과 방화셔터의 차이점은 무엇인가요?</summary><p>방화셔터는 철재 슬랫 구조이며, 방화스크린은 특수 내화섬유 원단 구조입니다.<br><br>방화스크린은 경량 구조로 대형 개구부에 적합하며, 개방감과 디자인 측면에서 유리합니다. 반면 철재방화셔터는 내구성이 우수하여 공장, 물류센터, 주차장 등에 주로 적용됩니다.</p></details>
-        <details><summary>일체형 방화셔터 대신 방화스크린을 설치할 수 있나요?</summary><p>현장 조건에 따라 가능합니다.<br><br>일체형 방화셔터는 현재 신규 설치가 사실상 불가능하므로, 대형 개구부나 개방감이 필요한 공간에서는 인정방화스크린이 대안으로 검토되는 경우가 많습니다.<br><br>다만 건축물의 용도, 개구부 크기, 방화구획 조건 및 설계 기준에 따라 적용 가능 여부가 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
-        <details><summary>대형 개구부에도 설치가 가능한가요?</summary><p>네. 방화스크린은 대형 개구부 적용을 고려하여 설계된 제품으로 아트리움, 로비, 쇼핑몰 중앙홀 등 넓은 공간에도 적용 가능합니다.</p></details>
-        <details><summary>최대 설치 가능 크기는 어떻게 되나요?</summary><p>일반 방화스크린의 경우 8,000 × 4,000mm이며, 대형 방화스크린의 경우 12,000 × 8,500mm까지 설치 가능합니다.<br><br>다만 현장 조건, 풍압 조건 및 구조 검토 결과에 따라 적용 가능 규격이 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
-        <details><summary>방화스크린 설치 시 상부 여유 공간은 얼마나 필요한가요?</summary><p>방화스크린은 특수 내화섬유 원단이 권취되는 구조로 일반적으로 최소 350mm 이상의 셔터박스 공간이 필요합니다.<br><br>정확한 셔터박스 크기는 개구부의 가로·세로 크기 및 제품 사양에 따라 달라질 수 있으므로 도면 검토 후 안내해 드립니다.</p></details>
-        <details><summary>방화스크린 설치 시 내화벽체가 필요한가요?</summary><p>네. 방화스크린 역시 방화구획을 형성하는 방화설비이므로 가이드레일과 케이스는 내화구조 벽체와 접하도록 설치해야 합니다.<br><br>또한 방화문과 연결되는 구간은 내화구조 벽체를 통해 방화구획이 연속되도록 시공해야 하며, 관련 법령 및 품질인정 기준에 따라 설치하여야 합니다.</p></details>
-        <details><summary>품질인정서를 제공받을 수 있나요?</summary><p>네. 자재승인에 필요한 품질인정서 및 관련 기술자료를 제공해 드리며, 준공 시 필요한 서류도 함께 제공해 드립니다.</p></details>
-        <details><summary>신규 설치와 교체 시공 모두 가능한가요?</summary><p>네. 신축 현장의 신규 설치는 물론 기존 방화설비의 교체 시공도 가능합니다.</p></details>
-        <details><summary>방화스크린 설치 후 유지관리는 어떻게 하나요?</summary><p>원단 상태, 모터, 제어반, 감지기 및 연동장치의 정상 작동 여부를 정기적으로 점검해야 합니다.<br><br>또한 화재감지기 연동 상태와 자동 하강 기능이 정상적으로 작동하는지 주기적으로 확인하는 것이 중요하며, 이상 발생 시 즉시 점검 및 보수를 권장합니다.</p></details>
+        <details open class="faqitem"><summary>방화스크린이란 무엇인가요?</summary><p>방화스크린은 특수 내화섬유 원단을 사용하여 화재 발생 시 화염과 연기의 확산을 지연시키는 방화설비입니다.<br><br>철재방화셔터 대비 경량 구조로 제작되어 대형 개구부에도 적용이 가능하며, 개방감이 필요한 공간에 효과적으로 적용할 수 있습니다.</p></details>
+        <details class="faqitem"><summary>인정방화스크린인가요?</summary><p>네. 당사 방화스크린은 관련 법규에 따른 품질인정을 취득한 제품으로 방화 및 차연 성능이 검증된 제품입니다.</p></details>
+        <details class="faqitem"><summary>차연성능이 있나요?</summary><p>네. 품질인정 기준에 따라 차연성능이 검증된 제품으로 화재 발생 시 연기의 확산을 억제하여 피난 안전성을 확보할 수 있습니다.</p></details>
+        <details class="faqitem"><summary>방화스크린은 어디에 설치하나요?</summary><p>아트리움, 로비, 쇼핑몰, 판매시설, 복합건축물, 물류시설 등 대형 개구부가 있는 공간에 설치합니다.<br><br>개방감을 유지하면서 방화구획을 형성해야 하는 공간에 주로 적용됩니다.</p></details>
+        <details class="faqitem"><summary>방화스크린과 방화셔터의 차이점은 무엇인가요?</summary><p>방화셔터는 철재 슬랫 구조이며, 방화스크린은 특수 내화섬유 원단 구조입니다.<br><br>방화스크린은 경량 구조로 대형 개구부에 적합하며, 개방감과 디자인 측면에서 유리합니다. 반면 철재방화셔터는 내구성이 우수하여 공장, 물류센터, 주차장 등에 주로 적용됩니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>일체형 방화셔터 대신 방화스크린을 설치할 수 있나요?</summary><p>현장 조건에 따라 가능합니다.<br><br>일체형 방화셔터는 현재 신규 설치가 사실상 불가능하므로, 대형 개구부나 개방감이 필요한 공간에서는 인정방화스크린이 대안으로 검토되는 경우가 많습니다.<br><br>다만 건축물의 용도, 개구부 크기, 방화구획 조건 및 설계 기준에 따라 적용 가능 여부가 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>대형 개구부에도 설치가 가능한가요?</summary><p>네. 방화스크린은 대형 개구부 적용을 고려하여 설계된 제품으로 아트리움, 로비, 쇼핑몰 중앙홀 등 넓은 공간에도 적용 가능합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>최대 설치 가능 크기는 어떻게 되나요?</summary><p>일반 방화스크린의 경우 8,000 × 4,000mm이며, 대형 방화스크린의 경우 12,000 × 8,500mm까지 설치 가능합니다.<br><br>다만 현장 조건, 풍압 조건 및 구조 검토 결과에 따라 적용 가능 규격이 달라질 수 있으므로 사전 검토가 필요합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화스크린 설치 시 상부 여유 공간은 얼마나 필요한가요?</summary><p>방화스크린은 특수 내화섬유 원단이 권취되는 구조로 일반적으로 최소 350mm 이상의 셔터박스 공간이 필요합니다.<br><br>정확한 셔터박스 크기는 개구부의 가로·세로 크기 및 제품 사양에 따라 달라질 수 있으므로 도면 검토 후 안내해 드립니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화스크린 설치 시 내화벽체가 필요한가요?</summary><p>네. 방화스크린 역시 방화구획을 형성하는 방화설비이므로 가이드레일과 케이스는 내화구조 벽체와 접하도록 설치해야 합니다.<br><br>또한 방화문과 연결되는 구간은 내화구조 벽체를 통해 방화구획이 연속되도록 시공해야 하며, 관련 법령 및 품질인정 기준에 따라 설치하여야 합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>품질인정서를 제공받을 수 있나요?</summary><p>네. 자재승인에 필요한 품질인정서 및 관련 기술자료를 제공해 드리며, 준공 시 필요한 서류도 함께 제공해 드립니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>신규 설치와 교체 시공 모두 가능한가요?</summary><p>네. 신축 현장의 신규 설치는 물론 기존 방화설비의 교체 시공도 가능합니다.</p></details>
+        <details class="faqitem faq-hidden"><summary>방화스크린 설치 후 유지관리는 어떻게 하나요?</summary><p>원단 상태, 모터, 제어반, 감지기 및 연동장치의 정상 작동 여부를 정기적으로 점검해야 합니다.<br><br>또한 화재감지기 연동 상태와 자동 하강 기능이 정상적으로 작동하는지 주기적으로 확인하는 것이 중요하며, 이상 발생 시 즉시 점검 및 보수를 권장합니다.</p></details>
+        <div class="faq-more"><button onclick="var pn=this.closest('.faq-panel'); pn.querySelectorAll('.faq-hidden').forEach(function(d){d.classList.remove('faq-hidden');}); this.parentElement.remove();">더보기 (8개 더) ▾</button></div>
         </div>
       </div>
       <div class="faq-panel" data-product="electric">
         <div class="faq-list">
-        <details open><summary>전동셔터는 어디에 적합한가요?</summary><p>상가, 창고, 공장, 근린생활시설 등 일반 출입구에 널리 사용됩니다.</p></details>
-        <details><summary>AL 단열셔터와 일반 AL 셔터 차이는 무엇인가요?</summary><p>단열재 충진 여부에 따라 단열 성능과 차음 성능이 달라집니다.</p></details>
-        <details><summary>정전 시 수동 조작이 가능한가요?</summary><p>수동 체인 또는 비상 개폐장치를 통해 조작 가능합니다.</p></details>
-        <details><summary>리모컨 사용이 가능한가요?</summary><p>가능합니다. 무선 리모컨, 벽부 스위치 등 다양한 제어방식을 지원합니다.</p></details>
-        <details><summary>유지보수는 얼마나 자주 해야 하나요?</summary><p>사용 빈도에 따라 다르지만 연 1회 이상 점검을 권장합니다.</p></details>
+        <details open class="faqitem"><summary>전동셔터는 어디에 적합한가요?</summary><p>상가, 창고, 공장, 근린생활시설 등 일반 출입구에 널리 사용됩니다.</p></details>
+        <details class="faqitem"><summary>AL 단열셔터와 일반 AL 셔터 차이는 무엇인가요?</summary><p>단열재 충진 여부에 따라 단열 성능과 차음 성능이 달라집니다.</p></details>
+        <details class="faqitem"><summary>정전 시 수동 조작이 가능한가요?</summary><p>수동 체인 또는 비상 개폐장치를 통해 조작 가능합니다.</p></details>
+        <details class="faqitem"><summary>리모컨 사용이 가능한가요?</summary><p>가능합니다. 무선 리모컨, 벽부 스위치 등 다양한 제어방식을 지원합니다.</p></details>
+        <details class="faqitem"><summary>유지보수는 얼마나 자주 해야 하나요?</summary><p>사용 빈도에 따라 다르지만 연 1회 이상 점검을 권장합니다.</p></details>
         </div>
       </div>
       <div class="faq-panel" data-product="wind">
         <div class="faq-list">
-        <details open><summary>내풍압셔터는 어떤 현장에 사용하나요?</summary><p>해안가, 고층 건물, 강풍 지역 등 풍압에 대한 저항이 필요한 곳에 사용합니다.</p></details>
-        <details><summary>일반 전동셔터와 차이점은 무엇인가요?</summary><p>슬랫 구조와 가이드레일을 보강하여 강풍에 대한 내구성을 높인 제품입니다.</p></details>
-        <details><summary>태풍 지역에도 사용할 수 있나요?</summary><p>설계 풍압 기준을 충족하는 사양으로 제작 시 적용 가능합니다.</p></details>
-        <details><summary>제작 가능한 크기는 어느 정도인가요?</summary><p>설치 환경과 풍압 조건에 따라 달라지므로 별도 검토가 필요합니다.</p></details>
-        <details><summary>단열 사양도 적용 가능한가요?</summary><p>제품 모델에 따라 적용 가능합니다.</p></details>
+        <details open class="faqitem"><summary>내풍압셔터는 어떤 현장에 사용하나요?</summary><p>해안가, 고층 건물, 강풍 지역 등 풍압에 대한 저항이 필요한 곳에 사용합니다.</p></details>
+        <details class="faqitem"><summary>일반 전동셔터와 차이점은 무엇인가요?</summary><p>슬랫 구조와 가이드레일을 보강하여 강풍에 대한 내구성을 높인 제품입니다.</p></details>
+        <details class="faqitem"><summary>태풍 지역에도 사용할 수 있나요?</summary><p>설계 풍압 기준을 충족하는 사양으로 제작 시 적용 가능합니다.</p></details>
+        <details class="faqitem"><summary>제작 가능한 크기는 어느 정도인가요?</summary><p>설치 환경과 풍압 조건에 따라 달라지므로 별도 검토가 필요합니다.</p></details>
+        <details class="faqitem"><summary>단열 사양도 적용 가능한가요?</summary><p>제품 모델에 따라 적용 가능합니다.</p></details>
         </div>
       </div>
       <div class="faq-panel" data-product="speed">
         <div class="faq-list">
-        <details open><summary>스피드도어는 왜 사용하나요?</summary><p>빠른 개폐를 통해 냉난방 손실을 줄이고 물류 동선을 개선하기 위해 사용합니다.</p></details>
-        <details><summary>개폐 속도는 어느 정도인가요?</summary><p>제품 사양에 따라 다르며 일반 셔터보다 훨씬 빠르게 개폐됩니다.</p></details>
-        <details><summary>차량 통행도 가능한가요?</summary><p>가능합니다. 지게차 및 물류 차량 출입구에 많이 사용됩니다.</p></details>
-        <details><summary>안전장치는 어떤 것이 있나요?</summary><p>광전센서, 안전센서, 비상정지 기능 등이 적용됩니다.</p></details>
-        <details><summary>식품공장에도 사용할 수 있나요?</summary><p>네. 식품공장, 물류센터, 클린룸 등에 많이 적용됩니다.</p></details>
+        <details open class="faqitem"><summary>스피드도어는 왜 사용하나요?</summary><p>빠른 개폐를 통해 냉난방 손실을 줄이고 물류 동선을 개선하기 위해 사용합니다.</p></details>
+        <details class="faqitem"><summary>개폐 속도는 어느 정도인가요?</summary><p>제품 사양에 따라 다르며 일반 셔터보다 훨씬 빠르게 개폐됩니다.</p></details>
+        <details class="faqitem"><summary>차량 통행도 가능한가요?</summary><p>가능합니다. 지게차 및 물류 차량 출입구에 많이 사용됩니다.</p></details>
+        <details class="faqitem"><summary>안전장치는 어떤 것이 있나요?</summary><p>광전센서, 안전센서, 비상정지 기능 등이 적용됩니다.</p></details>
+        <details class="faqitem"><summary>식품공장에도 사용할 수 있나요?</summary><p>네. 식품공장, 물류센터, 클린룸 등에 많이 적용됩니다.</p></details>
         </div>
       </div>
       <div class="faq-panel" data-product="overhead">
         <div class="faq-list">
-        <details open><summary>오버헤드도어는 어디에 적합한가요?</summary><p>물류센터, 공장, 하역장, 창고 등 대형 출입구에 적합합니다.</p></details>
-        <details><summary>버티컬 타입과 하이리프트 타입 차이는 무엇인가요?</summary><p>버티컬은 수직 상승 방식이며, 하이리프트는 일정 구간 상승 후 천장 방향으로 이동하는 방식입니다.</p></details>
-        <details><summary>단열 패널 적용이 가능한가요?</summary><p>가능합니다. 단열 성능이 필요한 현장에 적합한 패널 사양을 제공합니다.</p></details>
-        <details><summary>정전 시 수동 개폐가 가능한가요?</summary><p>수동 체인 또는 비상 개폐장치를 통해 조작 가능합니다.</p></details>
-        <details><summary>유지보수 주기는 어떻게 되나요?</summary><p>스프링, 와이어, 롤러 등 주요 부품의 정기 점검을 권장합니다.</p></details>
+        <details open class="faqitem"><summary>오버헤드도어는 어디에 적합한가요?</summary><p>물류센터, 공장, 하역장, 창고 등 대형 출입구에 적합합니다.</p></details>
+        <details class="faqitem"><summary>버티컬 타입과 하이리프트 타입 차이는 무엇인가요?</summary><p>버티컬은 수직 상승 방식이며, 하이리프트는 일정 구간 상승 후 천장 방향으로 이동하는 방식입니다.</p></details>
+        <details class="faqitem"><summary>단열 패널 적용이 가능한가요?</summary><p>가능합니다. 단열 성능이 필요한 현장에 적합한 패널 사양을 제공합니다.</p></details>
+        <details class="faqitem"><summary>정전 시 수동 개폐가 가능한가요?</summary><p>수동 체인 또는 비상 개폐장치를 통해 조작 가능합니다.</p></details>
+        <details class="faqitem"><summary>유지보수 주기는 어떻게 되나요?</summary><p>스프링, 와이어, 롤러 등 주요 부품의 정기 점검을 권장합니다.</p></details>
         </div>
       </div>
     </div>
     <div class="faq-no-result" id="faqNoResult">검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</div>
+  </div>
+</section>
+
+<section class="padded" style="background: var(--surface); border-top: 1px solid var(--border); text-align: center;">
+  <div class="container">
+    <div class="section-eyebrow" style="display: inline-block;">WHY / 경원에스아이</div>
+    <h2 class="faq-title" style="margin-bottom: 4px;">믿고 맡기실 수 있습니다</h2>
+    <div class="trust-cards"><div class="trust-card"><div class="tc-ic">🚚</div><div class="tc-tx">전국 시공 가능</div></div><div class="trust-card"><div class="tc-ic">🏅</div><div class="tc-tx">품질인증 보유</div></div><div class="trust-card"><div class="tc-ic">🔧</div><div class="tc-tx">맞춤 제작 가능</div></div><div class="trust-card"><div class="tc-ic">🛠</div><div class="tc-tx">사후관리 지원</div></div></div>
   </div>
 </section>
 
@@ -677,7 +689,7 @@ tabs.forEach(function(tab) {
     var t = tab.getAttribute('data-target');
     tabs.forEach(function(x){ x.classList.toggle('active', x===tab); });
     panels.forEach(function(pn){ pn.classList.toggle('active', pn.getAttribute('data-product')===t); pn.style.display=''; });
-    document.getElementById('faqSearch').value='';
+    var s=document.getElementById('faqSearch'); if(s) s.value='';
     document.querySelectorAll('.faq-list details').forEach(function(d){ d.style.display=''; });
     document.getElementById('faqNoResult').style.display='none';
   });
@@ -685,14 +697,16 @@ tabs.forEach(function(tab) {
 var search = document.getElementById('faqSearch');
 search.addEventListener('input', function() {
   var q = this.value.trim().toLowerCase();
-  var anyMatch = false;
   if (!q) {
     document.querySelectorAll('.faq-list details').forEach(function(d){ d.style.display=''; });
     panels.forEach(function(pn){ pn.style.display=''; });
+    document.querySelectorAll('.faq-more').forEach(function(m){ m.style.display=''; });
     document.getElementById('faqNoResult').style.display='none';
     return;
   }
   panels.forEach(function(pn){ pn.style.display='block'; });
+  document.querySelectorAll('.faq-more').forEach(function(m){ m.style.display='none'; });
+  var anyMatch = false;
   document.querySelectorAll('.faq-list details').forEach(function(d){
     var match = d.textContent.toLowerCase().indexOf(q) !== -1;
     d.style.display = match ? '' : 'none';
