@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>품질관리서 기재사항 작성 | 경원에스아이</title>
+<style>
+  :root{--bg:#f4f6f8;--panel:#fff;--ink:#1a2733;--muted:#66788a;--line:#dde3ea;
+    --brand:#1f6feb;--brand-d:#1a5ed1;--ok:#137a4d;--warn:#8a6d00;--warnbg:#fff4cc;--danger:#c0392b}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Malgun Gothic","맑은 고딕",system-ui,sans-serif;background:var(--bg);
+    color:var(--ink);font-size:14px;line-height:1.5}
+  header{background:var(--panel);border-bottom:1px solid var(--line);padding:18px 0}
+  header .in{max-width:880px;margin:0 auto;padding:0 18px}
+  header h1{margin:0 0 4px;font-size:19px}
+  header p{margin:0;color:var(--muted);font-size:13px}
+  .wrap{max-width:880px;margin:0 auto;padding:22px 18px 90px}
+  .notice{background:#eef4ff;border:1px solid #cfe0ff;border-radius:9px;padding:14px 16px;margin:18px 0;font-size:13.5px}
+  .notice b{color:var(--brand)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px;margin-bottom:16px}
+  .card h2{margin:0 0 14px;font-size:15px;display:flex;align-items:center;gap:8px}
+  .card h2 .n{background:var(--brand);color:#fff;width:22px;height:22px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+  .card h2 .memo{font-size:12px;color:var(--muted);font-weight:400;margin-left:auto}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .f{margin-bottom:2px}
+  .f.full{grid-column:1/-1}
+  .f label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:5px;font-weight:600}
+  .f label .req{color:var(--danger);margin-left:3px}
+  .f label .opt{color:var(--muted);font-weight:400;margin-left:4px;font-size:11.5px}
+  .f input{width:100%;border:1px solid var(--line);border-radius:7px;padding:9px 11px;
+    font-size:14px;font-family:inherit;background:#fff}
+  .f input:focus{outline:2px solid #cfe0ff;border-color:var(--brand)}
+  .f input.err{border-color:var(--danger);background:#fdf3f2}
+  .f input.locked{background:#f0f3f7;color:#41525f}
+  .bar{position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--line);
+    padding:12px 18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;z-index:30}
+  button{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:12px 20px;
+    border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;font-family:inherit}
+  button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  button.primary:hover{background:var(--brand-d)}
+  button:hover{border-color:#c3ccd6}
+  .toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%);background:#1a2733;color:#fff;
+    padding:12px 22px;border-radius:8px;font-size:13.5px;opacity:0;transition:opacity .25s;z-index:100}
+  .toast.show{opacity:1}
+  .done{background:#e7f6ee;border:1px solid #b6e0c6;color:var(--ok);border-radius:9px;
+    padding:16px;margin-bottom:16px;display:none}
+  .done.show{display:block}
+  .done h3{margin:0 0 8px;font-size:15px}
+  .fh{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.45}
+  .fh b{color:var(--ink)}
+  .fh details{display:inline;margin-left:2px}
+  .fh summary{cursor:pointer;color:var(--brand);font-weight:600;display:inline}
+  .fh details[open] summary{display:block;margin-bottom:4px}
+  .fh .detail-body{background:#f7f9fc;border:1px solid var(--line);border-radius:6px;padding:8px 10px;margin-top:5px;color:var(--ink)}
+  .caution{background:#fff8e6;border:1px solid #f0d68a;border-radius:11px;padding:16px 18px;margin-bottom:16px}
+  .caution h3{margin:0 0 10px;font-size:14.5px;color:#8a6d00}
+  .caution ol{margin:0;padding-left:20px}
+  .caution li{margin-bottom:8px;font-size:13px;line-height:1.55}
+  .caution .contact{margin-top:10px;padding-top:10px;border-top:1px dashed #f0d68a;font-size:13px;font-weight:700;color:#8a6d00}
+  #print-area{display:none}
+  @media print{
+    body>*:not(#print-area){display:none !important}
+    #print-area{display:block !important}
+    @page{size:A4;margin:13mm}
+  }
+  .pf{font-family:"Malgun Gothic","맑은 고딕",sans-serif;color:#111}
+  .pf-head{text-align:center;border-bottom:2.5px solid #1f6feb;padding-bottom:10px;margin-bottom:14px}
+  .pf-head h1{font-size:19px;margin:0 0 4px}
+  .pf-head .sub{font-size:12px;color:#555}
+  .pf-sec{margin-bottom:12px;break-inside:avoid}
+  .pf-sec .t{background:#1f6feb;color:#fff;font-size:13px;font-weight:700;padding:5px 10px;border-radius:5px 5px 0 0}
+  table.pf-t{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.pf-t th,table.pf-t td{border:1px solid #cdd5df;padding:6px 9px;text-align:left;vertical-align:top}
+  table.pf-t th{background:#f1f5fb;width:150px;font-weight:600;color:#333;white-space:nowrap}
+  .pf-note{margin-top:14px;border:1px solid #f0d68a;background:#fff8e6;border-radius:7px;padding:10px 12px;font-size:11px;line-height:1.5;color:#6b5600}
+  .pf-note b{color:#8a6d00}
+  .pf-foot{margin-top:12px;font-size:10px;color:#888;word-break:break-all;border-top:1px dashed #ccc;padding-top:8px}
+  .pf-foot .lbl{color:#aaa}
+  .code{background:#fff;border:1px solid var(--line);border-radius:7px;padding:10px;
+    font-family:Consolas,monospace;font-size:11px;word-break:break-all;max-height:100px;overflow:auto;margin-top:8px}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <h1>자동방화셔터 품질관리서 기재사항 작성</h1>
+  <p>㈜경원에스아이 · 품질관리팀</p>
+</div></header>
+
+<div class="wrap">
+  <div class="notice">
+    아래 항목을 작성 후 맨 아래 <b>제출하기</b>를 누르면 담당자에게 자동으로 전송됩니다.<br>
+    「건축물의 피난·방화구조 등의 기준에 관한 규칙」 별지 제4호서식 기재 내용으로,
+    <b>실제와 다르게 기재될 경우 관련 법령에 따라 책임이 따를 수 있으니</b> 정확히 입력해 주세요.<br>
+    <span style="color:var(--muted);font-size:12.5px">※ 생년월일은 선택 항목입니다. 그 외 항목은 모두 필수입니다.</span>
+  </div>
+
+  <div class="caution">
+    <h3>⚠ 작성 시 주의사항</h3>
+    <ol>
+      <li>본 정보는 준공 시 필요한 <b>품질관리서</b>에 기재될 정보로 빠짐없이 기재해 주셔야 합니다. 인허가기관(준공서류) 및 제조업자의 건설기술연구원 실적신고에 제출됩니다.</li>
+      <li>자동방화셔터 품질관리서는 <b>제품 출하 시 발행</b>되며, 건설기술연구원에 실적신고(분기별) 후 <b>정정이 불가</b>합니다.</li>
+      <li>인허가기관(시·군·구청)에 제출된 품질관리서와 인정기관(한국건설기술연구원)에 제출된 서류가 <b>상이할 경우 형사고발 대상</b>이 될 수 있다고 합니다.</li>
+      <li>본 정보가 회신되지 않을 경우 <b>자재 출고가 불가</b>하며 시공 일정 또한 지연되오니 빠른 회신 부탁드립니다. 번거로우시더라도 정확한 정보를 요청드립니다.</li>
+    </ol>
+    <div class="contact">문의 : 010-8226-1293 (김자경 대리)</div>
+  </div>
+
+  <div class="done" id="done"><h3>✅ 작성 완료</h3><div id="done-msg"></div></div>
+
+  <div class="card">
+    <h2><span class="n">1</span> 공사현장</h2>
+    <div class="grid">
+      <div class="f full"><label>현장명<span class="req">*</span></label><input id="현장명" placeholder="예: ○○○ 신축공사"><div class="hint" id="site-hint" style="display:none;font-size:12px;color:var(--muted);margin-top:4px">담당자가 지정한 현장명입니다. 수정하지 마세요.</div></div>
+      <div class="f"><label>대지위치<span class="req">*</span></label><input id="대지위치" placeholder="예: 충남 서산시"></div>
+      <div class="f"><label>지번<span class="req">*</span></label><input id="지번" placeholder="예: 동문동 123-4"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">2</span> 제출인 (건축주)</h2>
+    <div class="grid">
+      <div class="f full"><label>성명 (법인명)<span class="req">*</span></label><input id="건축주명" placeholder="예: ㈜○○개발 / 홍길동"></div>
+      <div class="f"><label>주소<span class="req">*</span></label><input id="건축주주소" placeholder="예: 충남 서산시 ○○로 12"></div>
+      <div class="f"><label>전화번호<span class="req">*</span></label><input id="건축주전화" placeholder="예: 041-123-4567"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">3</span> 공사시공자</h2>
+    <div class="grid">
+      <div class="f"><label>성명 (대표)<span class="req">*</span></label><input id="시공성명" placeholder="예: 홍길동"><div class="fh">회사 <b>대표님 성함</b>을 적어주세요.</div></div>
+      <div class="f"><label>생년월일<span class="opt">(선택)</span></label><input id="시공생년월일" placeholder="예: 1970-01-01"><div class="fh">기재해도 되고, 안 하셔도 됩니다.</div></div>
+      <div class="f"><label>회사명<span class="req">*</span></label><input id="시공회사명" placeholder="예: ○○종합건설㈜"></div>
+      <div class="f"><label>법인등록번호(사업자번호)<span class="req">*</span></label><input id="시공법인등록번호" placeholder="예: 110114-0020087"></div>
+      <div class="f"><label>주소<span class="req">*</span></label><input id="시공회사주소" placeholder="예: 서울시 ○○구 ○○로 12"></div>
+      <div class="f"><label>전화번호<span class="req">*</span></label><input id="시공회사전화" placeholder="예: 02-123-4567"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">4</span> 자재유통업자 <span class="memo">비워두면 경원에스아이 정보가 자동으로 들어갑니다. (다른 유통업자일 때만 입력)</span></h2>
+    <div class="grid">
+      <div class="f"><label>성명</label><input id="유통성명"><div class="fh">회사 <b>대표님 성함</b> (비우면 경원에스아이)</div></div>
+      <div class="f"><label>생년월일<span class="opt">(선택)</span></label><input id="유통생년월일"><div class="fh">기재해도 되고, 안 하셔도 됩니다.</div></div>
+      <div class="f"><label>회사명</label><input id="유통회사"></div>
+      <div class="f"><label>법인등록번호</label><input id="유통법인등록번호"></div>
+      <div class="f"><label>주소</label><input id="유통주소"></div>
+      <div class="f"><label>전화번호</label><input id="유통전화"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">5</span> 공사감리자</h2>
+    <div class="grid">
+      <div class="f"><label>성명<span class="req">*</span></label><input id="감리성명" placeholder="예: 김철수"><div class="fh">사무소 대표가 아니라, <b>실제 이 현장에 배치되어 감리를 수행하는 감리자</b>의 성명을 적어주세요.</div></div>
+      <div class="f"><label>자격번호<span class="req">*</span></label><input id="감리자격번호" placeholder="예: 22-123456"><div class="fh">감리자의 <b>법적 자격번호</b>를 적어주세요.<details><summary>자격 유형별 기준 보기</summary><div class="detail-body">· 건설기술인 감리 → <b>건설기술인 경력수첩 번호</b>(= 건설기술인 번호)<br>· 건축사 감리 → <b>건축사 면허번호</b><br>· 기술사 감리 → <b>기술사 자격번호</b></div></details></div></div>
+      <div class="f"><label>사무소명<span class="req">*</span></label><input id="감리사무소명" placeholder="예: ○○건축사사무소"></div>
+      <div class="f"><label>신고번호<span class="req">*</span></label><input id="감리신고번호" placeholder="예: 1997-03-05"></div>
+      <div class="f"><label>사무소 주소<span class="req">*</span></label><input id="감리사무소주소" placeholder="예: 대전시 ○○구 ○○로 12"></div>
+      <div class="f"><label>사무소 전화번호<span class="req">*</span></label><input id="감리사무소전화" placeholder="예: 042-123-4567"></div>
+    </div>
+  </div>
+</div>
+
+<div class="bar">
+  <button class="primary" id="btn-submit">📤 작성 완료 · 제출하기</button>
+  <button id="btn-pdf">📄 PDF로 저장</button>
+  <button id="btn-copy">📋 코드 복사</button>
+</div>
+
+<div id="print-area"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const TO_EMAIL = "kwsys0210@naver.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mdengazb";
+// 유통업자 기본값(경원)
+const DIST_DEFAULT={유통성명:"신명희",유통생년월일:"",유통회사:"㈜경원에스아이",
+  유통법인등록번호:"134811-0548505",유통주소:"경기도 화성시 송산포도로 676-20",유통전화:"031-8055-8458"};
+const FIELDS=["현장명","대지위치","지번","건축주명","건축주주소","건축주전화",
+  "시공성명","시공생년월일","시공회사명","시공법인등록번호","시공회사주소","시공회사전화",
+  "유통성명","유통생년월일","유통회사","유통법인등록번호","유통주소","유통전화",
+  "감리성명","감리자격번호","감리사무소명","감리신고번호","감리사무소주소","감리사무소전화"];
+const OPTIONAL=["시공생년월일","유통성명","유통생년월일","유통회사","유통법인등록번호","유통주소","유통전화"];
+const REQUIRED=FIELDS.filter(f=>!OPTIONAL.includes(f));
+const LABELS={현장명:"현장명",대지위치:"대지위치",지번:"지번",건축주명:"건축주 성명(법인명)",건축주주소:"건축주 주소",건축주전화:"건축주 전화",
+  시공성명:"시공자 성명",시공생년월일:"시공자 생년월일",시공회사명:"시공 회사명",시공법인등록번호:"시공 법인등록번호",시공회사주소:"시공 회사주소",시공회사전화:"시공 회사전화",
+  유통성명:"유통 성명",유통생년월일:"유통 생년월일",유통회사:"유통 회사명",유통법인등록번호:"유통 법인등록번호",유통주소:"유통 회사주소",유통전화:"유통 회사전화",
+  감리성명:"감리자 성명",감리자격번호:"감리 자격번호",감리사무소명:"감리 사무소명",감리신고번호:"감리 신고번호",감리사무소주소:"감리 사무소주소",감리사무소전화:"감리 사무소전화"};
+
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2400);}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function collect(){const o={};FIELDS.forEach(f=>o[f]=(document.getElementById(f).value||"").trim());return o;}
+function validate(){
+  let bad=null;
+  REQUIRED.forEach(f=>{const el=document.getElementById(f);
+    if(!el.value.trim()){el.classList.add("err"); if(!bad)bad=el;} else el.classList.remove("err");});
+  if(bad){bad.scrollIntoView({block:"center",behavior:"smooth"});bad.focus();toast("빨간 칸을 모두 입력해 주세요.");return false;}
+  return true;
+}
+function b64enc(str){const u=new TextEncoder().encode(str);let s="";u.forEach(c=>s+=String.fromCharCode(c));return btoa(s);}
+function nowKST(){ try{ return new Date().toLocaleString("sv-SE",{timeZone:"Asia/Seoul"}).slice(0,16).replace("T"," "); }catch(e){ return new Date().toISOString().slice(0,16).replace("T"," "); } }
+function buildPayload(){ return {_type:"kwsi_site_form", v:2, 작성일시:nowKST(), site:collect()}; }
+function makeCode(){return "KWSI1:"+b64enc(JSON.stringify(buildPayload()));}
+function fname(){const s=(collect().현장명||"현장").replace(/[\\/:*?"<>|]/g,"").slice(0,30);const dt=nowKST().replace(/[: ]/g,"-");return `품질관리서_기재사항_${s}_${dt}.json`;}
+
+document.getElementById("btn-copy").onclick=async()=>{
+  if(!validate())return;
+  const code=makeCode();
+  try{await navigator.clipboard.writeText(code);toast("코드가 복사됐습니다. 메일 본문에 붙여넣어 주세요.");}
+  catch(e){const d=document.getElementById("done");
+    document.getElementById("done-msg").innerHTML=`아래 코드를 전체 선택·복사해 <b>${esc(TO_EMAIL)}</b> 로 보내주세요.<div class="code">${esc(code)}</div>`;
+    d.classList.add("show");d.scrollIntoView({block:"center",behavior:"smooth"});}
+};
+function pfRow(l,v){ return `<tr><th>${esc(l)}</th><td>${esc(v||"-")}</td></tr>`; }
+function buildPrintForm(){
+  const o=collect();
+  const distEmpty = !o.유통성명 && !o.유통회사 && !o.유통법인등록번호 && !o.유통주소 && !o.유통전화;
+  const distNote = distEmpty ? ' <span style="color:#1f6feb">(미기재 → 경원에스아이 자동 적용)</span>' : '';
+  return `<div class="pf">
+    <div class="pf-head"><h1>자동방화셔터 품질관리서 기재사항</h1><div class="sub">㈜경원에스아이 · 작성일시 ${esc(nowKST())}</div></div>
+    <div class="pf-sec"><div class="t">1. 공사현장</div><table class="pf-t">
+      ${pfRow("현장명",o.현장명)}${pfRow("대지위치",o.대지위치)}${pfRow("지번",o.지번)}</table></div>
+    <div class="pf-sec"><div class="t">2. 제출인 (건축주)</div><table class="pf-t">
+      ${pfRow("성명(법인명)",o.건축주명)}${pfRow("주소",o.건축주주소)}${pfRow("전화번호",o.건축주전화)}</table></div>
+    <div class="pf-sec"><div class="t">3. 공사시공자</div><table class="pf-t">
+      ${pfRow("성명(대표)",o.시공성명)}${pfRow("생년월일",o.시공생년월일)}${pfRow("회사명",o.시공회사명)}${pfRow("법인등록번호",o.시공법인등록번호)}${pfRow("주소",o.시공회사주소)}${pfRow("전화번호",o.시공회사전화)}</table></div>
+    <div class="pf-sec"><div class="t">4. 자재유통업자${distNote}</div><table class="pf-t">
+      ${pfRow("성명",o.유통성명)}${pfRow("생년월일",o.유통생년월일)}${pfRow("회사명",o.유통회사)}${pfRow("법인등록번호",o.유통법인등록번호)}${pfRow("주소",o.유통주소)}${pfRow("전화번호",o.유통전화)}</table></div>
+    <div class="pf-sec"><div class="t">5. 공사감리자</div><table class="pf-t">
+      ${pfRow("성명(현장 배치 감리자)",o.감리성명)}${pfRow("자격번호",o.감리자격번호)}${pfRow("사무소명",o.감리사무소명)}${pfRow("신고번호",o.감리신고번호)}${pfRow("사무소 주소",o.감리사무소주소)}${pfRow("사무소 전화",o.감리사무소전화)}</table></div>
+    <div class="pf-note"><b>안내</b> · 본 정보는 준공 품질관리서에 기재되어 인허가기관·건설기술연구원에 제출됩니다. 출하 후 정정이 불가하며, 서류 상이 시 형사고발 대상이 될 수 있으니 정확히 기재 바랍니다. · 문의 010-8226-1293 (김자경 대리)</div>
+    <div class="pf-foot"><span class="lbl">자동입력 코드(지우지 마세요):</span> ${esc(makeCode())}</div>
+  </div>`;
+}
+document.getElementById("btn-submit").onclick=async()=>{
+  if(!validate())return;
+  if(FORMSPREE_ENDPOINT.indexOf("__FORMSPREE__")>=0){
+    toast("온라인 제출은 홈페이지에 올린 뒤부터 됩니다. 지금은 📄 PDF로 저장 또는 📋 코드 복사를 이용하세요.");
+    return;
+  }
+  const o=collect(); const payload={};
+  FIELDS.forEach(f=>payload[LABELS[f]]=o[f]||"-");
+  payload["작성일시"]=nowKST();
+  payload["_subject"]="[품질관리서 기재사항] "+(o.현장명||"");
+  payload["■ 자동입력코드(지우지마세요)"]=makeCode();
+  const btn=document.getElementById("btn-submit"); const old=btn.textContent; btn.disabled=true; btn.textContent="전송 중…";
+  try{
+    const res=await fetch(FORMSPREE_ENDPOINT,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(payload)});
+    if(res.ok){
+      const d=document.getElementById("done");
+      document.getElementById("done-msg").innerHTML=`✅ 제출되었습니다. 담당자에게 자동으로 전송되었어요.<br><span style="font-size:12.5px;color:#66788a">확인 후 처리해 드리겠습니다. 감사합니다.</span>`;
+      d.classList.add("show"); d.scrollIntoView({block:"center",behavior:"smooth"});
+    } else { toast("전송에 실패했어요. 📄 PDF로 저장해서 보내주세요."); }
+  }catch(e){ toast("전송 실패(네트워크). 📄 PDF로 저장해서 보내주세요."); }
+  btn.disabled=false; btn.textContent=old;
+};
+document.getElementById("btn-pdf").onclick=()=>{
+  if(!validate())return;
+  document.getElementById("print-area").innerHTML=buildPrintForm();
+  const d=document.getElementById("done");
+  document.getElementById("done-msg").innerHTML=`인쇄 창이 열립니다. 프린터 목록에서 <b>"PDF로 저장"</b>을 선택하면 PDF 파일이 만들어져요.<br>그 PDF를 <b>${esc(TO_EMAIL)}</b> 로 메일에 첨부해 보내주세요.`;
+  d.classList.add("show");
+  setTimeout(()=>window.print(), 250);
+};
+
+// 유통업자는 비워두면 경원 정보가 자동 사용됨 (미리 채우지 않음)
+// URL ?site= 로 현장명 고정 (오타 방지)
+(function(){const p=new URLSearchParams(location.search);const s=p.get("site");
+  if(s){const el=document.getElementById("현장명");el.value=s;el.readOnly=true;el.classList.add("locked");document.getElementById("site-hint").style.display="block";}})();
+</script>
+</body>
+</html>
